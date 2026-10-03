@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet 2 - Étude de cas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">Portfolio.</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#hero">Accueil</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="case-study-hero">
+            <div class="container">
+                <h1>Hava Archerie</h1>
+            </div>
+            <img src="HAVAhero.jpg" alt="Logo de l'archerie Hava Archerie">
+        </section>
+        <section class="case-study-content">
+            <div class="container case-grid">
+                <aside class="case-sidebar">
+                    <div class="info-block">
+                        <h3>Cadre</h3>
+                        <p>Projet personnel</p>
+                    </div>
+                    <div class="info-block">
+                        <h3>Année</h3>
+                        <p>2026</p>
+                        <p>En cours de Création</p>
+                    </div>
+                </aside>
+                <article class="case-main">
+                    <h2>Le Défi</h2>
+                    <p>Refaire tout les éléments de communication de l'archerie Hava Archerie en passan par une refonte graphique.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="mailto:laffondbaptiste47@gmail.com">Email</a></li>
+            </ul>
+            <p>&copy; 2026 Portfolio.</p>
+        </div>
+    </footer>
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

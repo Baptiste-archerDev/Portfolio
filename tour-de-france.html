@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet - Tour de France</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">Portfolio.</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#hero">Accueil</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="video-hero">
+            <div class="video-hero-content">
+                <h1>Tour de France</h1>
+                <p>Création graphique &amp; présentation d'équipes cyclistes</p>
+            </div>
+            <img src="herotdf.jpg" alt="Visuel du projet Tour de France">
+        </section>
+        <section class="project-details">
+            <div class="container">
+                <div class="project-intro">
+                    <h2>Le projet</h2>
+                    <p>
+                        Comme chaque été depuis maintenant plusieurs années, je regarde le Tour de France à la télévision et, quand je peux, je vais sur le tracé du Tour.<br> Pendant mon temps libre à vrai dire entre les entraînements et les compétitions
+                        de tir à l'arc, le travail et les sorties à vélo, je ne savais pas vraiment comment m'occuper pendant ces vacances. J'ai donc essayé de refaire quelques cartes de coureurs en m'inspirant de ce que fait Panini, mais à ma façon.
+                        Les cartes sont inspirées des maillots officiels des équipes.
+                        <br>Pour les concevoir, j 'ai utilisé des images du site officiel du Tour de France comme base visuelle, ainsi qu'Adobe Illustrator et Adobe Photoshop pour la création.
+                    </p>
+                </div>
+
+                <div class="project-gallery tour-gallery">
+                    <img src="carte Prodohomme.png" alt="Carte de présentation du Tour de France">
+                    <img src="carte sexas.png" alt="Carte de présentation des coureurs du Tour de France">
+                    <img src="Carte DEL TORO.png" alt="Carte du coureur Del Toro">
+                    <img src="Carte pogi.png" alt="Carte du coureur Pogacar">
+                    <img src="GROSSSCHARTNER.png" alt="Carte du coureur Grossschartner">
+                    <img src="mcnulty.png" alt="Carte du coureur McNulty">
+                    <img src="POLITT.png" alt="Carte du coureur Politt">
+                    <img src="Vermeersch.png" alt="Carte du coureur Vermeersch">
+                    <img src="Wellens.png" alt="Carte du coureur Wellens">
+                    <img src="Yates.png" alt="Carte du coureur Yates">
+                    <img src="Affini.png" alt="Carte du coureur Affini">
+                    <img src="amirail.png" alt="Carte du coureur Amirail">
+                    <img src="Campenaerts.png" alt="Carte du coureur Campenaerts">
+                    <img src="carte vingegaard.png" alt="Carte du coureur Vingegaard">
+                    <img src="hagenes.png" alt="Carte du coureur Hagenes">
+                    <img src="Jorgenson.png" alt="Carte du coureur Jorgenson">
+                    <img src="Kuss.png" alt="Carte du coureur Kuss">
+                    <img src="Piganzoli.png" alt="Carte du coureur Piganzoli">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="mailto:laffondbaptiste47@gmail.com">Email</a></li>
+            </ul>
+            <p>&copy; 2026 Portfolio.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

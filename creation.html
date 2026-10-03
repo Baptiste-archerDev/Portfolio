@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sélection de créations personnelles et d'explorations visuelles.">
+    <title>Créations - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">Portfolio.</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#hero">Accueil</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="video-hero creation-hero">
+            <div class="video-hero-content">
+                <h1>Mes créations</h1>
+                <p class="project-subtitle">Photographie & explorations visuelles</p>
+            </div>
+            <img src="IMG_4249.JPG" alt="Photographie d'une création personnelle en couverture">
+        </section>
+        <section class="project-details">
+            <div class="container">
+                <div class="project-intro">
+                    <h2>Une galerie personnelle</h2>
+                    <p>Une sélection d'images et de créations réalisées au fil de mes projets, entre recherche visuelle, composition et photographie.</p>
+                </div>
+                <div class="grid-wrapper creation-mosaic" aria-label="Mosaïque de mes créations">
+                    <div class="grid-item">
+                        <img src="20240615_121404.jpg" alt="Création personnelle photographiée">
+                    </div>
+                    <div class="grid-item">
+                        <img src="20240615_153721.jpg" alt="Création personnelle, juin 2024">
+                    </div>
+                    <div class="grid-item">
+                        <img src="Capture d’écran 2022-10-23 173302.jpg" alt="Exploration visuelle, octobre 2022">
+                    </div>
+                    <div class="grid-item">
+                        <img src="IMG_4249.JPG" alt="Photographie d'une création personnelle">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="mailto:laffondbaptiste47@gmail.com">Email</a></li>
+            </ul>
+            <p>&copy; 2026 Portfolio.</p>
+        </div>
+    </footer>
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FlèchOptim, un sélecteur de flèches pour le tir à l'arc : estimez un spine, comparez des modèles et filtrez un catalogue.">
+    <title>FlèchOptim — Sélecteur de flèches</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .flechoptim-hero {
+            padding: 5rem 0;
+            border-bottom: 2px solid var(--text-color);
+        }
+        
+        .flechoptim-hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        .flechoptim-hero h1 {
+            font-family: var(--font-title);
+            font-size: clamp(4rem, 9vw, 8rem);
+            line-height: 0.82;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+        }
+        
+        .flechoptim-hero h1 span {
+            color: var(--accent-color);
+        }
+        
+        .flechoptim-lead {
+            max-width: 590px;
+            margin: 2rem 0;
+            color: #555;
+            font-size: 1.2rem;
+        }
+        
+        .flechoptim-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .flechoptim-primary-link {
+            display: inline-block;
+            padding: 0.9rem 1.25rem;
+            border: 2px solid var(--text-color);
+            background: var(--text-color);
+            color: var(--bg-color);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .flechoptim-primary-link:hover {
+            border-color: var(--accent-color);
+            background: var(--accent-color);
+            color: #fff;
+        }
+        
+        .flechoptim-art {
+            overflow: hidden;
+            border: 2px solid var(--text-color);
+            background: #191915;
+        }
+        
+        .flechoptim-art img {
+            width: 100%;
+        }
+        
+        .flechoptim-note {
+            margin-top: 1.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .flechoptim-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0 3rem;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .flechoptim-steps li {
+            padding: 1.25rem;
+            border: 1px solid #bbb;
+        }
+        
+        .flechoptim-steps li>span {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .flechoptim-steps h3 {
+            margin: 0.75rem 0 0.5rem;
+            font-size: 1.15rem;
+        }
+        
+        .flechoptim-steps p,
+        .flechoptim-features li {
+            color: #444;
+        }
+        
+        .flechoptim-features {
+            padding-left: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        .flechoptim-features li {
+            padding: 0.3rem 0;
+        }
+        
+        .flechoptim-disclaimer {
+            padding: 1.25rem;
+            border-left: 4px solid var(--accent-color);
+            background: #f0f0f0;
+        }
+        
+        .flechoptim-disclaimer p {
+            margin: 0;
+        }
+        
+        @media (max-width: 900px) {
+            .flechoptim-hero-inner {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .flechoptim-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .flechoptim-hero {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">Portfolio.</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#hero">Accueil</a></li>
+                    <li><a href="projets.html" aria-current="page">Projets</a></li>
+                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="flechoptim-hero">
+            <div class="container flechoptim-hero-inner">
+                <div>
+                    <p class="eyebrow">Outil web · Tir à l'arc</p>
+                    <h1>Flèch<span>Optim</span></h1>
+                    <p class="flechoptim-lead">Un sélecteur de flèches conçu pour aider les archers à trouver un spine adapté à leur configuration, puis à comparer des modèles disponibles.</p>
+                    <div class="flechoptim-actions">
+                        <a class="flechoptim-primary-link" href="https://baptiste-archerdev.github.io/FlechOptim/" target="_blank" rel="noopener noreferrer">Essayer FlèchOptim <span aria-hidden="true">↗</span></a>
+                    </div>
+                    <p class="flechoptim-note">Projet personnel · Sélecteur interactif et catalogue de flèches</p>
+                </div>
+                <div class="flechoptim-art">
+                    <img src="FlechOptim.jpg" alt="Visuel de présentation de FlèchOptim, avec une flèche et les informations sur le spine, la puissance, la longueur et le catalogue.">
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-content">
+            <div class="container case-grid">
+                <aside class="case-sidebar" aria-label="Informations sur le projet">
+                    <div class="info-block">
+                        <h3>Type</h3>
+                        <p>Projet personnel</p>
+                    </div>
+                    <div class="info-block">
+                        <h3>Domaine</h3>
+                        <p>Tir à l'arc</p>
+                    </div>
+                    <div class="info-block">
+                        <h3>Format</h3>
+                        <p>Outil web interactif</p>
+                    </div>
+                    <a class="btn-link" href="https://baptiste-archerdev.github.io/FlechOptim/" target="_blank" rel="noopener noreferrer">Voir le site en ligne ↗</a>
+                </aside>
+
+                <article class="case-main">
+                    <h2>Le besoin</h2>
+                    <p>Choisir une flèche implique de tenir compte de plusieurs éléments de son matériel. FlèchOptim rassemble ces paramètres dans un parcours guidé pour obtenir une recommandation de spine et explorer des tubes correspondants.</p>
+
+                    <h2>Pourquoi cette application&nbsp;?</h2>
+                    <p>J’ai créé FlèchOptim après qu’un ami archer a choisi un spine de flèche inadapté. L’application vise à faciliter le choix des flèches et à faire gagner du temps aux archers, en leur évitant de calculer leur spine à la main.</p>
+
+                    <h2>Un parcours en trois étapes</h2>
+                    <ol class="flechoptim-steps">
+                        <li>
+                            <span>01</span>
+                            <h3>Configurer l'arc</h3>
+                            <p>Choisir un arc classique ou à poulies et renseigner sa puissance.</p>
+                        </li>
+                        <li>
+                            <span>02</span>
+                            <h3>Préciser la flèche</h3>
+                            <p>Saisir la longueur du tube en pouces ou en centimètres et, si besoin, le poids de pointe.</p>
+                        </li>
+                        <li>
+                            <span>03</span>
+                            <h3>Comparer les options</h3>
+                            <p>Calculer le spine recommandé et repérer les flèches compatibles dans le catalogue.</p>
+                        </li>
+                    </ol>
+
+                    <h2>Un catalogue pour comparer</h2>
+                    <p>Les filtres permettent de parcourir les modèles selon la tranche de prix, le matériau ou le diamètre. Les fiches indiquent le prix par tube, la matière, le diamètre et les spines disponibles. Les références compatibles avec le résultat
+                        du calcul sont mises en évidence, et le catalogue peut être exporté en PDF.</p>
+
+                    <h2>Pensé pour l'usage</h2>
+                    <ul class="flechoptim-features">
+                        <li>Choix entre arc classique et arc à poulies.</li>
+                        <li>Unités de longueur en pouces ou en centimètres.</li>
+                        <li>Poids de pointe ajustable, avec une valeur par défaut de 100 grains.</li>
+                        <li>Filtres par prix, matériau et diamètre, avec bascule entre thème sombre et clair.</li>
+                    </ul>
+
+                    <h2>Améliorations possibles</h2>
+                    <p>À l’avenir, une piste pour rendre l’application encore plus fiable serait de la connecter à une IA générative, comme Google Gemini ou ChatGPT. Elle pourrait élargir le choix de flèches sans qu’il soit nécessaire de les ajouter manuellement
+                        à une base de données. Surtout, si l’IA pouvait consulter directement les tableaux des fabricants, elle pourrait s’appuyer sur leurs données pour fournir des recommandations plus précises.</p>
+
+                    <div class="flechoptim-disclaimer">
+                        <p><strong>À garder en tête :</strong> le spine affiché est une recommandation indicative. Il faut toujours la vérifier avec le tableau du fabricant et un test de bare shaft.</p>
+                    </div>
+
+                    <p><a class="flechoptim-primary-link" href="https://baptiste-archerdev.github.io/FlechOptim/" target="_blank" rel="noopener noreferrer">Découvrir l'outil en ligne <span aria-hidden="true">↗</span></a></p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="mailto:laffondbaptiste47@gmail.com">Email</a></li>
+            </ul>
+            <p>&copy; 2026 Portfolio.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

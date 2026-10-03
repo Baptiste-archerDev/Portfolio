@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet 3 - Multimédia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">Portfolio.</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#hero">Accueil</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero pleine page type couverture vidéo -->
+        <section class="video-hero">
+            <div class="video-hero-content">
+                <h1>Création<br>Campagne de lancement d'un nouveau produit</h1>
+                <p>Clip Vidéo, Site Web, Supports print</p>
+            </div>
+            <img src="Gemini_Generated_Image_xb8dgmxb8dgmxb8d.png" alt="Visuel de la campagne Lacoste">
+        </section>
+
+        <!-- Contenu en Zig-Zag (très utilisé pour les projets créatifs) -->
+        <section class="zigzag-section">
+            <div class="container">
+
+                <div class="zigzag-row">
+                    <div class="zigzag-text">
+                        <h2>01. Choix de la direction artistique</h2>
+                        <p>
+                            Le choix du moodboard s'inscrit dans la continuité de la campagne « Play With Icons » en reflétant l'alliance subtile entre l'héritage sportif et intemporel de Lacoste et une vision moderne et décontractée du luxe. À travers des ambassadeurs aux univers
+                            variés (sport, cinéma, musique) et des mises en scène soignées aux teintes épurées, le moodboard visuel met en valeur les pièces iconiques tout en renforçant le positionnement premium et novateur de la marque auprès des jeunes
+                            générations.
+                        </p>
+                    </div>
+                    <div class="zigzag-image">
+                        <img src="Moodbord.jpg" alt="Moodboard">
+                    </div>
+                </div>
+
+                <div class="zigzag-row">
+                    <div class="zigzag-text">
+                        <h2>02. Création des supports print</h2>
+                        <p>
+                            Le procédé de création des prints de la campagne s'articule autour d'une collaboration avec l'agence BETC et de la mise en scène de personnalités influentes issues du sport, du cinéma et de la musique. Chaque visuel propose une scénographie unique et
+                            personnalisée pour chaque ambassadeur tout en conservant une identité visuelle unifiée, renforcée par l'intégration d'éléments récurants et identitaires tels que l'univers du tennis, le polo emblématique, le logo du crocodile
+                            et le nom « LACOSTE ». L'ensemble est ensuite décliné sous forme de photographies publicitaires de haute qualité destinées aux supports d'affichage traditionnel et à la presse.
+                        </p>
+                    </div>
+                    <div class="zigzag-image">
+                        <img src="GOLIATH.png" alt="Print">
+                    </div>
+                </div>
+
+                <div class="zigzag-row">
+                    <div class="zigzag-text">
+                        <h2>03. Tournage et Montage</h2>
+                        <p>
+                            Captation vidéo sur 3 jours. Le montage a été réalisé sous Adobe Premiere Pro avec l'intégration d'effets visuels créés spécifiquement sur After Effects pour rythmer la vidéo.
+                        </p>
+                    </div>
+                    <div class="zigzag-image">
+                        <video controls preload="metadata" playsinline muted>
+                            <source src="images/Lacoste/Vidéo_Lacoste_Goliath_FR.mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la lecture de vidéos HTML5.
+                        </video>
+                    </div>
+                </div>
+
+                <div class="zigzag-row">
+                    <div class="zigzag-text">
+                        <h2>04. Site Web WordPress</h2>
+                        <p>
+                            Le développement web de la campagne, réalisé sur WordPress, s'articule autour de la création d'un site vitrine et d'une plateforme e-commerce dédiés. Ce canal numérique, budgétisé à 20 000 €, complète la stratégie de communication globale en offrant un
+                            point de contact direct pour présenter l'innovation de la veste connectée, relayer l'univers de la marque et faciliter l'expérience d'achat en ligne des consommateurs.
+                        </p>
+                        <a class="cta-button" href="https://lacostegoliath.sae202.mmilepuy.fr/" target="_blank" rel="noopener noreferrer">Visiter le site</a>
+                    </div>
+                    <div class="zigzag-image">
+                        <img src="SiteLacoste.JPG" alt="Site Web">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="mailto:laffondbaptiste47@gmail.com">Email</a></li>
+            </ul>
+            <p>&copy; 2026 Portfolio.</p>
+        </div>
+    </footer>
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
