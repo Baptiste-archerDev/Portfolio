@@ -146,6 +146,7 @@
 
         .video-wrapper {
             position: relative;
+            aspect-ratio: 16 / 9;
             background: #000;
             border: 2px solid var(--ucpv-mint);
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
@@ -153,10 +154,12 @@
             border-radius: 4px;
         }
 
-        .video-wrapper video {
+        .video-wrapper iframe {
+            position: absolute;
+            inset: 0;
             width: 100%;
-            display: block;
-            max-height: 80vh;
+            height: 100%;
+            border: 0;
         }
 
         /* Carrousel Instagram côte-à-côte */
@@ -588,12 +591,11 @@
                 </div>
 
                 <!-- LECTEUR VIDÉO -->
-                <div class="video-wrapper rv" style="margin:2.5rem 0; position:relative; aspect-ratio:16/9">
+                <div class="video-wrapper rv" style="margin:2.5rem 0">
                     <iframe
                         src="https://www.youtube.com/embed/fx9FN9j0iPM"
-                        title="Vidéo UCPV"
+                        title="Spot publicitaire UCPV"
                         loading="lazy"
-                        style="position:absolute; inset:0; width:100%; height:100%; border:0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin"
                         allowfullscreen>
