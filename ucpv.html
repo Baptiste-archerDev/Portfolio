@@ -588,12 +588,16 @@
                 </div>
 
                 <!-- LECTEUR VIDÉO -->
-                <div class="video-wrapper rv" style="margin:2.5rem 0">
-                    <video controls preload="metadata" poster="ucpv-affiche-web.png">
-                        <source src="https://www.youtube.com/watch?v=fx9FN9j0iPM" type="video/mp4">
-                        <source src="https://www.youtube.com/watch?v=fx9FN9j0iPM" type="video/quicktime">
-                        Votre navigateur ne prend pas en charge la lecture directe de cette vidéo. Vous pouvez la télécharger ci-dessous.
-                    </video>
+                <div class="video-wrapper rv" style="margin:2.5rem 0; position:relative; aspect-ratio:16/9">
+                    <iframe
+                        src="https://www.youtube.com/embed/fx9FN9j0iPM"
+                        title="Vidéo UCPV"
+                        loading="lazy"
+                        style="position:absolute; inset:0; width:100%; height:100%; border:0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
                 </div>
                 <p style="text-align:center;font-size:0.85rem;color:#b9d8c4" class="rv">
                     Spot publicitaire officiel 30s UCPV · Réalisation, tournage sur piste &amp; sound design.
