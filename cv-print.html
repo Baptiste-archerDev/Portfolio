@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CV — Baptiste Laffond</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;0,900;1,500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================================
+           CV imprimable A4 — reprend la DA « Magazine » du portfolio
+           (magazine.css : papier crème, encre, accent rouge, Playfair + Inter)
+           ========================================================= */
+        :root {
+            --paper: #f4efe6;
+            --paper-2: #ebe4d6;
+            --ink: #14110f;
+            --accent: #d7391f;
+            --accent-light: #ff6a4d;
+            --muted: #6e665c;
+            --rule: #cfc7b8;
+            --serif: 'Playfair Display', Georgia, serif;
+            --sans: 'Inter', system-ui, sans-serif;
+        }
+
+        @page { size: A4; margin: 0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        body { background: #777; font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+        @media print { body { background: none; } .page { margin: 0 !important; box-shadow: none !important; } }
+
+        .page {
+            width: 210mm; height: 297mm; margin: 10mm auto; overflow: hidden;
+            display: grid; grid-template-columns: 68mm 1fr;
+            background: var(--paper); box-shadow: 0 10px 40px rgba(0, 0, 0, .4);
+            position: relative;
+        }
+        /* Barre de progression du site, en haut de page */
+        .page::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 1.6mm; background: var(--accent); z-index: 3; }
+
+        /* ---------- Colonne gauche (encre, comme la topbar / le pied de page) ---------- */
+        .side {
+            background: var(--ink); color: var(--paper);
+            padding: 12mm 7mm 9mm 8mm;
+            display: flex; flex-direction: column; gap: 5.5mm;
+        }
+        .brand { font-family: var(--serif); font-weight: 900; font-size: 11pt; color: #fff; letter-spacing: .02em; }
+        .photo { position: relative; margin-right: 3mm; }
+        .photo img {
+            width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 25%;
+            display: block; box-shadow: 3mm 3mm 0 var(--accent);
+        }
+        .side h2 {
+            font-family: var(--serif); font-weight: 900; font-size: 13pt; line-height: 1;
+            padding-bottom: 1.6mm; margin-bottom: 2.2mm; border-bottom: 2px solid var(--paper);
+        }
+        .side ul { list-style: none; }
+        .plain li { padding: 1.3mm 0; border-bottom: 1px solid rgba(244, 239, 230, .16); font-size: 7.6pt; line-height: 1.35; }
+        .plain li:last-child { border-bottom: 0; }
+        .plain b { color: #fff; }
+        .plain .lbl { display: block; font-size: 5.8pt; letter-spacing: .2em; text-transform: uppercase; color: var(--accent-light); font-weight: 700; }
+        .plain a { color: inherit; text-decoration: none; }
+        .tags { display: flex; flex-wrap: wrap; gap: 1.4mm; }
+        .tag { padding: .7mm 2.2mm; border: 1px solid rgba(244, 239, 230, .55); border-radius: 99px; font-size: 6.8pt; white-space: nowrap; }
+        .tags-title { font-size: 5.8pt; letter-spacing: .2em; text-transform: uppercase; color: var(--accent-light); font-weight: 700; margin: 2mm 0 1.4mm; }
+        .tags-title:first-of-type { margin-top: 0; }
+
+        /* Zone QR code — remplacer le fichier qr-code.png */
+        .qr {
+            margin-top: auto; display: grid; grid-template-columns: 24mm 1fr; gap: 3.5mm; align-items: center;
+            padding-top: 4mm; border-top: 2px solid var(--paper);
+        }
+        .qr-box {
+            width: 24mm; height: 24mm; background: #fff; padding: 1.6mm; position: relative;
+            box-shadow: 1.6mm 1.6mm 0 var(--accent);
+        }
+        .qr-box img { width: 100%; height: 100%; object-fit: contain; display: block; position: relative; z-index: 2; }
+        .qr-box .ph {
+            position: absolute; inset: 1.6mm; display: flex; align-items: center; justify-content: center; text-align: center;
+            border: 1.2px dashed var(--muted); color: var(--muted); font-size: 5.4pt; letter-spacing: .14em; text-transform: uppercase; font-weight: 700;
+            background: repeating-linear-gradient(45deg, transparent 0 4px, rgba(0, 0, 0, .05) 4px 8px);
+        }
+        .qr-txt .lbl { display: block; font-size: 5.8pt; letter-spacing: .2em; text-transform: uppercase; color: var(--accent-light); font-weight: 700; margin-bottom: 1mm; }
+        .qr-txt strong { display: block; font-family: var(--serif); font-weight: 900; font-size: 11pt; line-height: 1.05; color: #fff; }
+        .qr-txt small { display: block; margin-top: 1.2mm; font-size: 6.4pt; color: #b9b1a4; line-height: 1.35; }
+
+        /* ---------- Colonne principale (papier) ---------- */
+        .main { padding: 13mm 11mm 9mm 10mm; display: flex; flex-direction: column; }
+        .kicker { font-size: 6.6pt; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 2.5mm; }
+        h1 { font-family: var(--serif); font-weight: 900; font-size: 40pt; line-height: .9; letter-spacing: -.03em; }
+        h1 em { font-style: normal; color: var(--accent); }
+        .lead { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 10.2pt; line-height: 1.35; margin-top: 3.5mm; max-width: 112mm; color: var(--ink); }
+
+        .facts { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink); margin: 5mm 0 5.5mm; }
+        .facts div { padding: 2mm 2mm 2mm 0; }
+        .facts div + div { padding-left: 3mm; border-left: 1px solid var(--ink); }
+        .facts dt { font-size: 5.6pt; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+        .facts dd { font-family: var(--serif); font-size: 9.4pt; font-weight: 700; line-height: 1.15; }
+
+        .main h2 {
+            font-family: var(--serif); font-weight: 900; font-size: 14.5pt; line-height: 1; letter-spacing: -.01em;
+            border-bottom: 3px solid var(--ink); padding-bottom: 1.6mm; margin-bottom: 3mm;
+            display: flex; justify-content: space-between; align-items: baseline;
+        }
+        .main h2 span { font-family: var(--sans); font-size: 5.8pt; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+        .tl { border-left: 1.5px solid var(--ink); padding-left: 4.5mm; margin: 0 0 4.5mm 1.5mm; }
+        .tl article { position: relative; margin-bottom: 2.6mm; }
+        .tl article:last-child { margin-bottom: 0; }
+        .tl article::before { content: ""; position: absolute; left: -6.05mm; top: 1mm; width: 2.6mm; height: 2.6mm; background: var(--accent); border-radius: 50%; }
+        .tl small { color: var(--accent); text-transform: uppercase; letter-spacing: .15em; font-size: 5.8pt; font-weight: 700; display: block; }
+        .tl h3 { font-family: var(--serif); font-weight: 800; font-size: 10pt; line-height: 1.12; }
+        .tl h3 i { font-family: var(--sans); font-style: normal; font-weight: 500; font-size: 7pt; color: var(--muted); }
+        .tl p { font-size: 7.4pt; line-height: 1.42; color: #2b2622; }
+        .tl.duo { display: grid; grid-template-columns: 1fr 1fr; column-gap: 6mm; row-gap: 2.6mm; border-left: 0; padding-left: 0; }
+        .tl.duo article { margin: 0; padding-left: 4.5mm; border-left: 1.5px solid var(--ink); }
+        .tl.duo article::before { left: -1.4mm; }
+
+        .foot {
+            margin-top: auto; padding-top: 2.5mm; border-top: 1px solid var(--rule);
+            display: flex; justify-content: space-between; font-size: 6pt; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); font-weight: 700;
+        }
+        .foot b { color: var(--accent); }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <!-- ===================== COLONNE GAUCHE ===================== -->
+        <aside class="side">
+            <div class="brand">B. Laffond</div>
+
+            <div class="photo"><img src="photo-cv.jpg" alt="Portrait de Baptiste Laffond"></div>
+
+            <div>
+                <h2>Contact</h2>
+                <ul class="plain">
+                    <li><span class="lbl">Localisation</span>Millau / Le Puy-en-Velay</li>
+                    <li><span class="lbl">E-mail</span><a href="mailto:laffondbaptiste47@gmail.com">laffondbaptiste47@gmail.com</a></li>
+                    <li><span class="lbl">LinkedIn</span><a href="https://www.linkedin.com/in/baptiste-laffond/">linkedin.com/in/baptiste-laffond</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Compétences</h2>
+                <p class="tags-title">Web</p>
+                <ul class="tags">
+                    <li class="tag">HTML5 / CSS3</li><li class="tag">JavaScript</li><li class="tag">PHP / MySQL</li>
+                </ul>
+                <p class="tags-title">Design &amp; édition</p>
+                <ul class="tags">
+                    <li class="tag">Illustrator</li><li class="tag">InDesign</li><li class="tag">Photoshop</li>
+                </ul>
+                <p class="tags-title">Vidéo &amp; son</p>
+                <ul class="tags">
+                    <li class="tag">Premiere Pro</li><li class="tag">After Effects</li><li class="tag">Logic Pro</li><li class="tag">FL Studio</li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Centres d'intérêt</h2>
+                <ul class="plain">
+                    <li><b>Tir à l'arc (Barebow)</b> — compétition Nature, 3D, 18 m, TAE, Campagne · média « Actu Carquois »</li>
+                    <li><b>Cyclisme sur route</b></li>
+                    <li><b>Dessin &amp; aquarelle</b></li>
+                </ul>
+            </div>
+
+            <!-- ZONE QR CODE : scannez ou cliquez pour ouvrir le dépôt GitHub -->
+            <a href="https://github.com/Baptiste-archerDev/Portfolio.git" target="_blank" rel="noopener noreferrer" class="qr" style="text-decoration:none; color:inherit;">
+                <div class="qr-box">
+                    <div class="ph">QR code<br>ici</div>
+                    <img src="qr-code.png" alt="QR code vers le dépôt GitHub du Portfolio" onerror="this.remove()">
+                </div>
+                <div class="qr-txt">
+                    <span class="lbl">Scannez-moi</span>
+                    <strong>Portfolio GitHub.</strong>
+                    <small>Code source &amp; projets en ligne.</small>
+                </div>
+            </a>
+        </aside>
+
+        <!-- ===================== COLONNE PRINCIPALE ===================== -->
+        <main class="main">
+            <span class="kicker">Portrait · Curriculum vitæ</span>
+            <h1>Baptiste<br>Laffond<em>.</em></h1>
+            <p class="lead">Étudiant en BUT MMI passionné par le multimédia, le design graphique et le développement web. Créatif et rigoureux, avec un fort intérêt pour la conception d'interfaces esthétiques et fonctionnelles.</p>
+
+            <dl class="facts">
+                <div><dt>Formation</dt><dd>BUT MMI · 2<sup>e</sup> année</dd></div>
+                <div><dt>Spécialités</dt><dd>Design · Web · Motion</dd></div>
+                <div><dt>Basé à</dt><dd>Le Puy-en-Velay</dd></div>
+            </dl>
+
+            <h2>Projets universitaires &amp; associatifs <span>BUT MMI</span></h2>
+            <div class="tl">
+                <article>
+                    <small>Mai 2026 · SAÉ 202</small>
+                    <h3>Campagne « Lacoste Goliath »</h3>
+                    <p>Supports de communication, vidéo et page web promotionnelle pour le lancement fictif d'une veste connectée.</p>
+                </article>
+                <article>
+                    <small>2026 · Chef de projet</small>
+                    <h3>Magazine « Interface » <i>— 700 exemplaires</i></h3>
+                    <p>Coordination des sponsors (1 250 € récoltés), communication et planification, maquette et rédaction d'un article.</p>
+                </article>
+                <article>
+                    <small>2026 · Initiative volontaire</small>
+                    <h3>1ère Cie des Archers du Velay</h3>
+                    <p>Refonte complète du logotype du club du Puy-en-Velay et conception de la charte graphique officielle.</p>
+                </article>
+                <article>
+                    <small>2026 · Motion design &amp; pré-production</small>
+                    <h3>After Effects &amp; storyboard UCPV</h3>
+                    <p>Storyboard de production en 14 plans (spot RSE 30 s), animations de logos et parallaxes 2.5D.</p>
+                </article>
+                <article>
+                    <small>Mars 2026 · SAÉ 203</small>
+                    <h3>Projet web Nürburgring</h3>
+                    <p>Application web dynamique en PHP / MySQL autour du sport automobile et du célèbre circuit.</p>
+                </article>
+                <article>
+                    <small>Décembre 2025</small>
+                    <h3>Campagne « L'Élan du Cœur » (SPA)</h3>
+                    <p>Stratégie de communication et recommandations graphiques pour une campagne de sensibilisation.</p>
+                </article>
+            </div>
+
+            <h2>Projets personnels <span>Direction artistique</span></h2>
+            <div class="tl duo">
+                <article>
+                    <small>2026 · Édition</small>
+                    <h3>Carquois Mag N°1</h3>
+                    <p>Magazine de 16 pages créé de A à Z : rédaction, infographies, publicités, maquette InDesign.</p>
+                </article>
+                <article>
+                    <small>Oct. 2026 · Web</small>
+                    <h3>FlèchOptim</h3>
+                    <p>Outil web interactif pour choisir un spine adapté et comparer des flèches.</p>
+                </article>
+                <article>
+                    <small>En cours · Identité</small>
+                    <h3>Hava Archerie</h3>
+                    <p>Refonte de l'identité de marque d'une enseigne de tir à l'arc.</p>
+                </article>
+                <article>
+                    <small>Juil. 2026 · Graphisme</small>
+                    <h3>Tour de France</h3>
+                    <p>Série de cartes graphiques consacrées aux coureurs.</p>
+                </article>
+            </div>
+
+            <h2>Formation <span>Parcours</span></h2>
+            <div class="tl">
+                <article>
+                    <small>2025 – aujourd'hui</small>
+                    <h3>BUT Métiers du Multimédia et de l'Internet</h3>
+                    <p>IUT de Clermont-Auvergne — site du Puy-en-Velay</p>
+                </article>
+                <article>
+                    <small>2024</small>
+                    <h3>Baccalauréat STI2D</h3>
+                    <p>Lycée Alexis Monteil — Rodez</p>
+                </article>
+            </div>
+
+            <div class="foot"><span>Baptiste Laffond · <b>CV 2026</b></span><span>laffondbaptiste47@gmail.com</span></div>
+        </main>
+    </div>
+</body>
+
+</html>
