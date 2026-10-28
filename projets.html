@@ -4,122 +4,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projets - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Projets — Baptiste Laffond</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,800;0,900;1,500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="magazine.css">
 </head>
 
 <body>
-
-    <header>
-        <div class="container header-content">
-            <a href="index.html" class="logo">Portfolio.</a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html#hero">Accueil</a></li>
-                    <li><a href="projets.html" aria-current="page">Projets</a></li>
-                    <li><a href="cv.html">CV</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
+    <div class="progress"></div>
+    <header class="topbar">
+        <a href="index.html" class="brand">B. Laffond</a>
+        <nav><a href="index.html">Magazine</a><a href="projets.html">Projets</a><a href="cv.html">CV</a><a href="#contact">Contact</a></nav>
     </header>
 
     <main>
-        <section class="projects-intro">
-            <div class="container">
-                <p class="eyebrow">Sélection créative</p>
+        <section class="m" style="padding-top:150px">
+            <div class="wrap">
+                <span class="kicker">Index des réalisations</span>
                 <h1>Tous<br>mes projets.</h1>
-                <p class="projects-lead">Une sélection de projets en direction artistique, communication visuelle, design numérique et développement web.</p>
+                <p class="lead" style="margin-top:1.5rem">Projets d'études en BUT MMI et réalisations personnelles : graphisme, édition, vidéo et web.</p>
+                <div class="filters" aria-label="Filtrer les projets">
+                    <button class="on" data-f="all">Tout</button>
+                    <button data-f="student">Projets étudiants</button>
+                    <button data-f="personal">Projets personnels</button>
+                </div>
             </div>
         </section>
 
-        <section class="projects-list" aria-label="Liste des projets">
-            <div class="container">
-                <div class="projects-grid">
-                    <a href="lacoste_project.html" class="project-card project-card-featured">
-                        <div class="project-card-image"><img src="Gemini_Generated_Image_xb8dgmxb8dgmxb8d.png" alt="Campagne Lacoste"></div>
-                        <div class="project-card-content">
-                            <div class="project-card-meta"><span>01 / Direction artistique</span><span class="project-type project-type-student">Projet étudiant</span></div>
-                            <h2>Campagne Lacoste</h2>
-                            <p>Identité de campagne, vidéo et site WordPress.</p><strong>Voir le projet <span aria-hidden="true">&#8594;</span></strong></div>
-                    </a>
-                    <a href="creation.html" class="project-card">
-                        <div class="project-card-image"><img src="20240615_121404.jpg" alt="Création personnelle"></div>
-                        <div class="project-card-content">
-                            <div class="project-card-meta"><span>02 / Création visuelle</span><span class="project-type project-type-personal">Projet personnel</span></div>
-                            <h2>Mes créations</h2>
-                            <p>Photographies et explorations visuelles personnelles.</p><strong>Voir le projet <span aria-hidden="true">&#8594;</span></strong></div>
-                    </a>
-                    <a href="hava-archerie.html" class="project-card">
-                        <div class="project-card-image"><img src="logo_ancien.jpg" alt="Projet Hava Archerie en cours"></div>
-                        <div class="project-card-content">
-                            <div class="project-card-meta"><span>03 / Branding</span><span class="project-type project-type-personal">Projet personnel</span></div>
-                            <h2>Identité de marque Hava Archerie</h2>
-                            <p>Refonte graphique de l'identité de marque.</p><strong>Voir le projet <span aria-hidden="true">&#8594;</span></strong></div>
-                    </a>
-                    <a href="mag-interface.html" class="project-card project-card-wide">
-                        <div class="project-card-image magazine-project-image" aria-hidden="true">
-                            <img src="INTERFACE-couv-scaled.jpg" alt="Couverture du magazine Interface">
-                        </div>
-                        <div class="project-card-content">
-                            <div class="project-card-meta"><span>04 / Édition &amp; coordination</span><span class="project-type project-type-student">Projet étudiant</span></div>
-                            <h2>Magazine Interface</h2>
-                            <p>Coordination d’équipe, recherche de sponsors, contribution à la maquette et rédaction d’un article.</p><strong>Voir le projet <span aria-hidden="true">&#8594;</span></strong></div>
-                    </a>
-                    <a href="FlechOptim.html" class="project-card">
-                        <div class="project-card-image"><img src="FlechOptim.jpg" alt="Visuel de présentation du sélecteur de flèches FlèchOptim"></div>
-                        <div class="project-card-content">
-                            <div class="project-card-meta"><span>05 / Outil web</span><span class="project-type project-type-personal">Projet personnel</span></div>
-                            <h2>FlèchOptim</h2>
-                            <p>Un sélecteur interactif pour choisir et comparer des flèches de tir à l'arc.</p><strong>Voir le projet <span aria-hidden="true">&#8594;</span></strong></div>
-                    </a>
-                    <a href="tour-de-france.html" class="project-card">
-                        <div class="project-card-image"><img src="herotdf.jpg" alt="Projet graphique Tour de France"></div>
-                        <div class="project-card-content">
-                            <div class="project-card-meta"><span>06 / Communication visuelle</span><span class="project-type project-type-personal">Projet personnel</span></div>
-                            <h2>Tour de France</h2>
-                            <p>Série de cartes graphiques consacrées aux coureurs cyclistes.</p><strong>Voir le projet <span aria-hidden="true">&#8594;</span></strong></div>
-                    </a>
-                    <a href="rallye-cardabelles.html" class="project-card">
-                        <div class="project-card-image"><img src="20241005_152502(0).jpg" alt="Voiture en spéciale au Rallye des Cardabelles"></div>
-                        <div class="project-card-content">
-                            <div class="project-card-meta"><span>07 / Photographie</span><span class="project-type project-type-personal">Reportage</span></div>
-                            <h2>Rallye des Cardabelles</h2>
-                            <p>Reportage photo au cœur d'une spéciale, le 5 octobre 2024.</p><strong>Voir le projet <span aria-hidden="true">&#8594;</span></strong></div>
-                    </a>
-                </div>
+        <section class="m" style="padding-top:20px" aria-label="Liste des projets">
+            <div class="wrap index-grid">
+                <a href="lacoste_project.html" class="card big rv" data-type="student">
+                    <span class="no">01</span>
+                    <div class="ph visuel"><img src="GOLIATH.png" alt="Affiche print de la campagne Lacoste Goliath" loading="lazy"></div>
+                    <div class="meta"><span>Direction artistique</span><em>Projet étudiant · SAÉ 202</em></div>
+                    <h2>Campagne Lacoste</h2>
+                    <p>Affiches print, tournage vidéo et site WordPress autour d'une veste connectée.</p><strong>Voir le projet →</strong>
+                </a>
+                <a href="ucpv.html" class="card big rv" data-type="student">
+                    <span class="no">02</span>
+                    <div class="ph visuel visuel-ucpv"><img src="ucpv-affiche-web.png" alt="Campagne UCPV Le vrai record" loading="lazy"></div>
+                    <div class="meta"><span>Communication plurimédia &amp; RSE</span><em>Projet étudiant · SAÉ 302</em></div>
+                    <h2>Union Cycliste du Puy-en-Velay</h2>
+                    <p>Campagne 360° « Le vrai record » : refonte d'identité (27 déclinaisons), affiches A4 print &amp; web, réseaux sociaux et spot publicitaire 30s.</p><strong>Lire l'article →</strong>
+                </a>
+                <a href="creation.html" class="card rv" data-type="personal">
+                    <span class="no">03</span>
+                    <div class="ph"><img src="20240615_121404.jpg" alt="Création personnelle" loading="lazy"></div>
+                    <div class="meta"><span>Création visuelle</span><em>Projet personnel</em></div>
+                    <h2>Mes créations</h2>
+                    <p>Photographies et explorations visuelles personnelles.</p><strong>Lire l'article →</strong>
+                </a>
+                <a href="hava-archerie.html" class="card rv" data-type="personal">
+                    <span class="no">04</span>
+                    <div class="ph visuel visuel-logo"><img src="nouveau-logo.webp" alt="Projet Hava Archerie" loading="lazy"></div>
+                    <div class="meta"><span>Branding</span><em>Projet personnel</em></div>
+                    <h2>Hava Archerie</h2>
+                    <p>Refonte graphique de l'identité de marque.</p><strong>Lire l'article →</strong>
+                </a>
+                <a href="mag-interface.html" class="card wide rv" data-type="student">
+                    <span class="no">05</span>
+                    <div class="ph visuel"><img src="INTERFACE-couv-scaled.jpg" alt="Couverture du magazine Interface" loading="lazy"></div>
+                    <div class="meta"><span>Édition &amp; coordination</span><em>Projet étudiant</em></div>
+                    <h2>Magazine Interface</h2>
+                    <p>Coordination d'équipe, recherche de sponsors, maquette et rédaction d'un article.</p><strong>Lire l'article →</strong>
+                </a>
+                <a href="FlechOptim.html" class="card wide rv" data-type="personal">
+                    <span class="no">06</span>
+                    <div class="ph visuel visuel-dark"><img src="FlechOptim.jpg" alt="Visuel de présentation de FlèchOptim" loading="lazy"></div>
+                    <div class="meta"><span>Outil web</span><em>Projet personnel</em></div>
+                    <h2>FlèchOptim</h2>
+                    <p>Un sélecteur interactif pour choisir et comparer des flèches de tir à l'arc.</p><strong>Lire l'article →</strong>
+                </a>
+                <a href="tour-de-france.html" class="card wide rv" data-type="personal">
+                    <span class="no">07</span>
+                    <div class="ph"><img src="herotdf.jpg" alt="Projet graphique Tour de France" loading="lazy" style="object-position: 45% center"></div>
+                    <div class="meta"><span>Communication visuelle</span><em>Projet personnel</em></div>
+                    <h2>Tour de France</h2>
+                    <p>Série de cartes graphiques consacrées aux coureurs cyclistes.</p><strong>Lire l'article →</strong>
+                </a>
+                <a href="rallye-cardabelles.html" class="card wide rv" data-type="personal">
+                    <span class="no">08</span>
+                    <div class="ph"><img src="20241005_152502(0).jpg" alt="Voiture en spéciale au Rallye des Cardabelles" loading="lazy"></div>
+                    <div class="meta"><span>Photographie</span><em>Reportage</em></div>
+                    <h2>Rallye des Cardabelles</h2>
+                    <p>Reportage photo au cœur d'une spéciale, le 5 octobre 2024.</p><strong>Lire l'article →</strong>
+                </a>
+                <a href="archers-du-velay.html" class="card wide rv" data-type="student">
+                    <span class="no">09</span>
+                    <div class="ph visuel visuel-logo"><img src="archers-velay-presentation.png" alt="Nouvelle identité visuelle des Archers du Velay" loading="lazy"></div>
+                    <div class="meta"><span>Branding &amp; Charte graphique</span><em>Projet étudiant volontaire</em></div>
+                    <h2>Archers du Velay</h2>
+                    <p>Modernisation du logotype et création de la charte graphique pour le club du Puy-en-Velay.</p><strong>Lire l'article →</strong>
+                </a>
+                <a href="motion-storyboard.html" class="card wide rv" data-type="student">
+                    <span class="no">10</span>
+                    <div class="ph visuel visuel-light"><img src="ae-phoenix-parallaxe.png" alt="Projets After Effects et Storyboards" loading="lazy"></div>
+                    <div class="meta"><span>Motion Design &amp; Pré-production</span><em>After Effects &amp; Storyboard</em></div>
+                    <h2>After Effects &amp; Storyboard</h2>
+                    <p>Découpage technique UCPV (14 plans), parallaxe 2.5D, animations de logos et reels vidéo.</p><strong>Lire l'article →</strong>
+                </a>
             </div>
         </section>
     </main>
 
-    <footer id="contact">
-        <div class="container">
-            <ul class="footer-links">
+    <footer class="foot" id="contact">
+        <div class="wrap">
+            <span class="kicker">Dernière page</span>
+            <a class="big" href="mailto:laffondbaptiste47@gmail.com">laffondbaptiste47@gmail.com</a>
+            <ul>
                 <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                <li><a href="mailto:laffondbaptiste47@gmail.com">Email</a></li>
+                <li><a href="index.html">Retour au magazine</a></li>
             </ul>
-            <p>&copy; 2026 Portfolio.</p>
+            <small>&copy; 2026 Baptiste Laffond</small>
         </div>
     </footer>
-
-    <script>
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-        if (menuToggle) {
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
-
+    <script src="magazine.js"></script>
 </body>
 
 </html>

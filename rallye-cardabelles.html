@@ -5,86 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Reportage photo au Rallye des Cardabelles, le 5 octobre 2024.">
-    <title>Rallye des Cardabelles - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Rallye des Cardabelles — Baptiste Laffond</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,800;0,900;1,500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="magazine.css">
 </head>
 
-<body class="rallye-page">
-
-    <header>
-        <div class="container header-content">
-            <a href="index.html" class="logo">Portfolio.</a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html#hero">Accueil</a></li>
-                    <li><a href="projets.html">Projets</a></li>
-                    <li><a href="cv.html">CV</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
+<body>
+    <div class="progress"></div>
+    <header class="topbar">
+        <a href="index.html" class="brand">B. Laffond</a>
+        <nav><a href="index.html">Magazine</a><a href="projets.html">Projets</a><a href="cv.html">CV</a><a href="#contact">Contact</a></nav>
     </header>
 
     <main>
-        <section class="video-hero rallye-hero">
-            <div class="video-hero-content">
-                <h1>Rallye des Cardabelles</h1>
-                <p>Reportage photo · 5 octobre 2024</p>
-            </div>
+        <section class="hero">
             <img src="20241005_152502(0).jpg" alt="Une voiture de rallye en spéciale au Rallye des Cardabelles">
+            <div class="wrap">
+                <span class="kicker">Reportage photo · 5 octobre 2024</span>
+                <h1>Rallye des<br>Cardabelles.</h1>
+            </div>
         </section>
 
-        <section class="project-details">
-            <div class="container">
-                <div class="project-intro">
-                    <h2>Au cœur de la spéciale</h2>
-                    <p>Une journée au bord des routes du Rallye des Cardabelles, à saisir la vitesse, la poussière et les trajectoires au plus près des équipages.</p>
-                </div>
-                <div class="project-gallery tour-gallery" aria-label="Galerie photo du Rallye des Cardabelles">
-                    <img src="20241005_152502(0).jpg" alt="Voiture de rallye dans un virage">
-                    <img src="20241005_152558(0).jpg" alt="Passage d'une voiture sur la spéciale">
-                    <img src="20241005_152802(0).jpg" alt="Équipage en course sur une route de campagne">
-                    <img src="20241005_153508(0).jpg" alt="Voiture de rallye photographiée en action">
-                    <img src="20241005_154955(1).jpg" alt="Passage d'une voiture de rallye">
-                    <img src="20241005_160347.jpg" alt="Voiture lancée sur la spéciale">
-                    <img src="20241005_160546(0).jpg" alt="Scène de course au Rallye des Cardabelles">
-                    <img src="20241005_161148(0).jpg" alt="Voiture de rallye dans la poussière">
-                    <img src="20241005_161347(0).jpg" alt="Un équipage aborde un virage">
-                    <img src="20241005_161948.jpg" alt="Action sur la spéciale des Cardabelles">
-                    <img src="20241005_162949.jpg" alt="Passage d'une voiture devant les spectateurs">
-                    <img src="20241005_163150.jpg" alt="Dernière image de la journée de rallye">
+        <section class="m">
+            <div class="narrow">
+                <span class="kicker rv">Le reportage</span>
+                <h2 class="rv">Au cœur de la spéciale</h2>
+                <p class="txt drop rv">Une journée au bord des routes du Rallye des Cardabelles, à saisir la vitesse, la poussière et les trajectoires au plus près des équipages.</p>
+            </div>
+        </section>
+
+        <section class="m dark" style="padding-top:60px">
+            <div class="wrap">
+                <div class="gallery rv" aria-label="Galerie photo du Rallye des Cardabelles">
+                    <img src="20241005_152502(0).jpg" alt="Voiture de rallye dans un virage" loading="lazy">
+                    <img src="20241005_152558(0).jpg" alt="Passage d'une voiture sur la spéciale" loading="lazy">
+                    <img src="20241005_152802(0).jpg" alt="Équipage en course sur une route de campagne" loading="lazy">
+                    <img src="20241005_153508(0).jpg" alt="Voiture de rallye photographiée en action" loading="lazy">
+                    <img src="20241005_154955(1).jpg" alt="Passage d'une voiture de rallye" loading="lazy">
+                    <img src="20241005_160347.jpg" alt="Voiture lancée sur la spéciale" loading="lazy">
+                    <img src="20241005_160546(0).jpg" alt="Scène de course au Rallye des Cardabelles" loading="lazy">
+                    <img src="20241005_161148(0).jpg" alt="Voiture de rallye dans la poussière" loading="lazy">
+                    <img src="20241005_161347(0).jpg" alt="Un équipage aborde un virage" loading="lazy">
+                    <img src="20241005_161948.jpg" alt="Action sur la spéciale des Cardabelles" loading="lazy">
+                    <img src="20241005_162949.jpg" alt="Passage d'une voiture devant les spectateurs" loading="lazy">
+                    <img src="20241005_163150.jpg" alt="Dernière image de la journée de rallye" loading="lazy">
                 </div>
             </div>
         </section>
     </main>
 
-    <footer id="contact">
-        <div class="container">
-            <ul class="footer-links">
-                <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+    <footer class="foot" id="contact">
+        <div class="wrap">
+            <span class="kicker">Projet suivant</span>
+            <a class="big" href="hava-archerie.html">Hava Archerie →</a>
+            <ul>
+                <li><a href="projets.html">Tous les projets</a></li>
                 <li><a href="mailto:laffondbaptiste47@gmail.com">Email</a></li>
+                <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             </ul>
-            <p>&copy; 2026 Portfolio.</p>
+            <small>&copy; 2026 Baptiste Laffond</small>
         </div>
     </footer>
-    <script>
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-        if (menuToggle) {
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
-
+    <script src="magazine.js"></script>
 </body>
 
 </html>
