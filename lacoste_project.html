@@ -4,127 +4,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet 3 - Multimédia</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Campagne Lacoste Goliath — Baptiste Laffond</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,800;0,900;1,500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="magazine.css">
 </head>
 
 <body>
-
-    <header>
-        <div class="container header-content">
-            <a href="index.html" class="logo">Portfolio.</a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html#hero">Accueil</a></li>
-                    <li><a href="projets.html">Projets</a></li>
-                    <li><a href="cv.html">CV</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
+    <div class="progress"></div>
+    <header class="topbar">
+        <a href="index.html" class="brand">B. Laffond</a>
+        <nav><a href="index.html">Magazine</a><a href="projets.html">Projets</a><a href="cv.html">CV</a><a href="#contact">Contact</a></nav>
     </header>
 
     <main>
-        <!-- Hero pleine page type couverture vidéo -->
-        <section class="video-hero">
-            <div class="video-hero-content">
-                <h1>Création<br>Campagne de lancement d'un nouveau produit</h1>
-                <p>Clip Vidéo, Site Web, Supports print</p>
+        <section class="hero visuel-hero">
+            <img src="GOLIATH.png" alt="Affiche print de la campagne Lacoste Goliath">
+            <div class="wrap">
+                <span class="kicker">Direction artistique · Projet étudiant · SAÉ 202</span>
+                <h1>Lacoste<br>Goliath.</h1>
+                <p class="lead">Campagne fictive pour le lancement d'une veste connectée : affiches print, spot vidéo et site WordPress.</p>
             </div>
-            <img src="Gemini_Generated_Image_xb8dgmxb8dgmxb8d.png" alt="Visuel de la campagne Lacoste">
         </section>
 
-        <!-- Contenu en Zig-Zag (très utilisé pour les projets créatifs) -->
-        <section class="zigzag-section">
-            <div class="container">
+        <section class="m">
+            <div class="wrap">
+                <dl class="facts rv">
+                    <div><dt>Format</dt><dd>Campagne 360°</dd></div>
+                    <div><dt>Supports</dt><dd>Vidéo, web, print</dd></div>
+                    <div><dt>Outils</dt><dd>Premiere, After Effects, WordPress</dd></div>
+                    <div><dt>Budget web</dt><dd>20 000 €</dd></div>
+                </dl>
+            </div>
+        </section>
 
-                <div class="zigzag-row">
-                    <div class="zigzag-text">
-                        <h2>01. Choix de la direction artistique</h2>
-                        <p>
-                            Le choix du moodboard s'inscrit dans la continuité de la campagne « Play With Icons » en reflétant l'alliance subtile entre l'héritage sportif et intemporel de Lacoste et une vision moderne et décontractée du luxe. À travers des ambassadeurs aux univers
-                            variés (sport, cinéma, musique) et des mises en scène soignées aux teintes épurées, le moodboard visuel met en valeur les pièces iconiques tout en renforçant le positionnement premium et novateur de la marque auprès des jeunes
-                            générations.
-                        </p>
+        <section class="m" style="padding-top:0">
+            <div class="wrap">
+                <div class="row">
+                    <div class="rv">
+                        <span class="num">01</span>
+                        <span class="kicker">Moodboard</span>
+                        <h2>Choix de la direction artistique</h2>
+                        <p class="txt">Le choix du moodboard s'inscrit dans la continuité de la campagne « Play With Icons » en reflétant l'alliance subtile entre l'héritage sportif et intemporel de Lacoste et une vision moderne et décontractée du luxe. À travers des ambassadeurs aux univers variés (sport, cinéma, musique) et des mises en scène soignées aux teintes épurées, le moodboard visuel met en valeur les pièces iconiques tout en renforçant le positionnement premium et novateur de la marque auprès des jeunes générations.</p>
                     </div>
-                    <div class="zigzag-image">
-                        <img src="Moodbord.jpg" alt="Moodboard">
-                    </div>
+                    <figure class="media rv"><img src="Moodbord.jpg" alt="Moodboard" loading="lazy"><figcaption>Le moodboard de la campagne</figcaption></figure>
                 </div>
 
-                <div class="zigzag-row">
-                    <div class="zigzag-text">
-                        <h2>02. Création des supports print</h2>
-                        <p>
-                            Le procédé de création des prints de la campagne s'articule autour d'une collaboration avec l'agence BETC et de la mise en scène de personnalités influentes issues du sport, du cinéma et de la musique. Chaque visuel propose une scénographie unique et
-                            personnalisée pour chaque ambassadeur tout en conservant une identité visuelle unifiée, renforcée par l'intégration d'éléments récurants et identitaires tels que l'univers du tennis, le polo emblématique, le logo du crocodile
-                            et le nom « LACOSTE ». L'ensemble est ensuite décliné sous forme de photographies publicitaires de haute qualité destinées aux supports d'affichage traditionnel et à la presse.
-                        </p>
+                <div class="row flip">
+                    <div class="rv">
+                        <span class="num">02</span>
+                        <span class="kicker">Print</span>
+                        <h2>Création des supports print</h2>
+                        <p class="txt">Le procédé de création des prints de la campagne s'articule autour d'une collaboration avec l'agence BETC et de la mise en scène de personnalités influentes issues du sport, du cinéma et de la musique. Chaque visuel propose une scénographie unique et personnalisée pour chaque ambassadeur tout en conservant une identité visuelle unifiée, renforcée par l'intégration d'éléments récurrents et identitaires tels que l'univers du tennis, le polo emblématique, le logo du crocodile et le nom « LACOSTE ». L'ensemble est ensuite décliné sous forme de photographies publicitaires de haute qualité destinées aux supports d'affichage traditionnel et à la presse.</p>
                     </div>
-                    <div class="zigzag-image">
-                        <img src="GOLIATH.png" alt="Print">
-                    </div>
+                    <figure class="media rv"><img src="GOLIATH.png" alt="Print" loading="lazy"><figcaption>Visuel print de la campagne</figcaption></figure>
                 </div>
+            </div>
+        </section>
 
-                <div class="zigzag-row">
-                    <div class="zigzag-text">
-                        <h2>03. Tournage et Montage</h2>
-                        <p>
-                            Captation vidéo sur 3 jours. Le montage a été réalisé sous Adobe Premiere Pro avec l'intégration d'effets visuels créés spécifiquement sur After Effects pour rythmer la vidéo.
-                        </p>
-                    </div>
-                    <div class="zigzag-image">
-                        <div class="zigzag-video">
-                            <iframe src="https://www.youtube.com/embed/Aocks60iEu4" title="Vidéo de la campagne Lacoste Goliath" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                            <a class="cta-button" href="https://youtu.be/Aocks60iEu4" target="_blank" rel="noopener noreferrer">Ouvrir la vidéo sur YouTube</a>
-                        </div>
-                    </div>
+        <section class="m dark">
+            <div class="wrap row" style="margin-bottom:0">
+                <div class="rv">
+                    <span class="num">03</span>
+                    <span class="kicker">Vidéo</span>
+                    <h2>Tournage et montage</h2>
+                    <p class="txt">Captation vidéo sur 3 jours. Le montage a été réalisé sous Adobe Premiere Pro avec l'intégration d'effets visuels créés spécifiquement sur After Effects pour rythmer la vidéo.</p>
+                    <a class="btn" href="https://youtu.be/Aocks60iEu4" target="_blank" rel="noopener noreferrer">Ouvrir sur YouTube ↗</a>
                 </div>
+                <div class="media rv"><div class="vid"><iframe src="https://www.youtube.com/embed/Aocks60iEu4" title="Vidéo de la campagne Lacoste Goliath" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
+            </div>
+        </section>
 
-                <div class="zigzag-row">
-                    <div class="zigzag-text">
-                        <h2>04. Site Web WordPress</h2>
-                        <p>
-                            Le développement web de la campagne, réalisé sur WordPress, s'articule autour de la création d'un site vitrine et d'une plateforme e-commerce dédiés. Ce canal numérique, budgétisé à 20 000 €, complète la stratégie de communication globale en offrant un
-                            point de contact direct pour présenter l'innovation de la veste connectée, relayer l'univers de la marque et faciliter l'expérience d'achat en ligne des consommateurs.
-                        </p>
-                        <a class="cta-button" href="https://lacostegoliath.sae202.mmilepuy.fr/" target="_blank" rel="noopener noreferrer">Visiter le site</a>
-                    </div>
-                    <div class="zigzag-image">
-                        <img src="SiteLacoste.JPG" alt="Site Web">
-                    </div>
+        <section class="m">
+            <div class="wrap row" style="margin-bottom:0">
+                <div class="rv">
+                    <span class="num">04</span>
+                    <span class="kicker">Web</span>
+                    <h2>Site web WordPress</h2>
+                    <p class="txt">Le développement web de la campagne, réalisé sur WordPress, s'articule autour de la création d'un site vitrine et d'une plateforme e-commerce dédiés. Ce canal numérique, budgétisé à 20 000 €, complète la stratégie de communication globale en offrant un point de contact direct pour présenter l'innovation de la veste connectée, relayer l'univers de la marque et faciliter l'expérience d'achat en ligne des consommateurs.</p>
                 </div>
+                <figure class="media rv"><img src="SiteLacoste.JPG" alt="Site Web" loading="lazy"><figcaption>Le site de la campagne</figcaption></figure>
             </div>
         </section>
     </main>
 
-    <footer id="contact">
-        <div class="container">
-            <ul class="footer-links">
-                <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+    <footer class="foot" id="contact">
+        <div class="wrap">
+            <span class="kicker">Projet suivant</span>
+            <a class="big" href="mag-interface.html">Magazine Interface →</a>
+            <ul>
+                <li><a href="projets.html">Tous les projets</a></li>
                 <li><a href="mailto:laffondbaptiste47@gmail.com">Email</a></li>
+                <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             </ul>
-            <p>&copy; 2026 Portfolio.</p>
+            <small>&copy; 2026 Baptiste Laffond</small>
         </div>
     </footer>
-    <script>
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-        if (menuToggle) {
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
-
+    <script src="magazine.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Baptiste Laffond, étudiant en BUT MMI : design graphique, communication visuelle et développement web.">
+    <title>Baptiste Laffond — Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">Portfolio.</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#hero">Accueil</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1>Baptiste<br>Laffond.</h1>
+                <p>Étudiant en BUT Métiers du Multimédia et de l'Internet, je conçois des identités visuelles, des expériences numériques et des projets web.</p>
+                <a class="btn-link" href="projets.html">Découvrir tous mes projets</a>
+            </div>
+        </section>
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <h2 class="section-title">Projets sélectionnés</h2>
+                <div class="grid-wrapper home-gallery" aria-label="Photographies et créations personnelles">
+                    <div class="grid-item"><img src="20240615_121404.jpg" alt="Photographie personnelle d'une fleur sauvage"></div>
+                    <div class="grid-item"><img src="Capture d’écran 2022-10-23 173302.jpg" alt="Portrait dessiné au crayon"></div>
+                    <div class="grid-item"><img src="Chevalier.jpg" alt="Dessin personnel d'un chevalier en armure"></div>
+                    <div class="grid-item"><img src="20241005_152502(0).jpg" alt="Voiture de rallye bleue sur une piste poussiéreuse"></div>
+                    <div class="grid-item"><img src="20241005_152802(0).jpg" alt="Voiture de rallye orange sur une piste de terre"></div>
+                </div>
+            </div>
+        </section>
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">À propos</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Étudiant en BUT MMI à l'IUT Clermont-Auvergne, je m'intéresse à la création graphique, au multimédia et au développement web. J'aime donner forme à des idées en concevant des supports visuels et des expériences numériques cohérentes.</p>
+                        <p>En parallèle de mes études, je pratique le tir à l'arc et développe des projets personnels comme FlèchOptim, un outil web pour aider les archers à choisir leurs flèches.</p>
+                        <a class="btn-link" href="cv.html">Consulter mon CV</a>
+                    </div>
+                    <div class="about-image">
+                        <p><strong>Domaines</strong><br>Design graphique<br>Communication visuelle<br>Développement web</p>
+                        <p><strong>Basé entre</strong><br>Millau et Le Puy-en-Velay</p>
+                        <a class="btn-link" href="mailto:laffondbaptiste47@gmail.com">Me contacter</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="mailto:laffondbaptiste47@gmail.com">Email</a></li>
+            </ul>
+            <p>&copy; 2026 Portfolio.</p>
+        </div>
+    </footer>
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

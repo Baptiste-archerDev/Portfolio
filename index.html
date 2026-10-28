@@ -4,93 +4,1581 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Baptiste Laffond, étudiant en BUT MMI : design graphique, communication visuelle et développement web.">
-    <title>Baptiste Laffond — Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Portfolio de Baptiste Laffond, étudiant en BUT MMI : design graphique, communication visuelle et développement web — présenté comme un magazine interactif.">
+    <title>Baptiste Laffond — Le Magazine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,800;0,900;1,500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --paper: #f4efe6;
+            --ink: #14110f;
+            --accent: #d7391f;
+            --muted: #6e665c;
+            --serif: 'Playfair Display', Georgia, serif;
+            --sans: 'Inter', system-ui, sans-serif;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-snap-type: y proximity;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: #1b1816;
+            color: var(--ink);
+            font-family: var(--sans);
+        }
+        
+        a {
+            color: inherit;
+        }
+        /* Barre du haut — style têtière de presse */
+        
+        .topbar {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 80;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 clamp(16px, 3vw, 40px);
+            font-size: .7rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-weight: 600;
+            background: #14110f;
+            border-bottom: 1px solid #2e2925;
+            color: var(--paper);
+        }
+        
+        .topbar nav {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        
+        .topbar nav a {
+            text-decoration: none;
+            padding: .35rem 0;
+            border-bottom: 2px solid transparent;
+            border-radius: 0;
+            color: #c9c1b4;
+            transition: border-color .2s, color .2s;
+            margin: 0;
+        }
+        
+        .topbar nav a:hover,
+        .topbar nav a.active {
+            background: transparent;
+            color: #fff;
+            border-bottom-color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .brand {
+            font-family: var(--serif);
+            font-size: 1.05rem;
+            letter-spacing: .02em;
+            text-transform: none;
+            font-weight: 900;
+            text-decoration: none;
+            color: #fff;
+        }
+        /* Magazine */
+        
+        .mag {
+            position: relative;
+        }
+        
+        .spread {
+            position: relative;
+            min-height: 100vh;
+            background: var(--paper);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-top: 56px;
+            overflow: hidden;
+            scroll-snap-align: start;
+            box-shadow: 0 -20px 50px rgba(0, 0, 0, .35);
+        }
+        
+        .spread::after {
+            /* grain de papier */
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: .12;
+            background-image: radial-gradient(#000 .5px, transparent .6px);
+            background-size: 4px 4px;
+        }
+        
+        .spread::before {
+            /* pli central */
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 80px;
+            margin-left: -40px;
+            z-index: 5;
+            pointer-events: none;
+            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, .14) 50%, transparent);
+        }
+        
+        .page {
+            position: relative;
+            padding: clamp(24px, 3.8vw, 56px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .page.img {
+            padding: 0;
+            min-height: 50vh;
+        }
+        
+        /* Photos : simplement recadrées plein cadre sans zoom parasite */
+        .page.img img,
+        .page.img img.img-photo {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+            transition: transform .2s linear;
+        }
+        
+        /* Visuels complets : couvertures, publications, affiches, interfaces, compositions */
+        .page.img img.img-visuel {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center center;
+            padding: 74px 7% 60px;
+            filter: drop-shadow(0 18px 36px rgba(0, 0, 0, .24));
+        }
+        
+        /* Fonds éditoriaux adaptés aux visuels complets */
+        .page.img.visuel-paper {
+            background: #e6dfd1;
+        }
+        .page.img.visuel-light {
+            background: #FAF8F4;
+        }
+        .page.img.visuel-dark {
+            background: #1c1b18;
+        }
+        .page.img.visuel-ucpv {
+            background: #062818;
+        }
+        
+        .folio {
+            position: absolute;
+            bottom: 16px;
+            font-size: .68rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--muted);
+            z-index: 6;
+        }
+        
+        .page:first-child .folio {
+            left: 24px;
+        }
+        
+        .page:last-child .folio {
+            right: 24px;
+        }
+        
+        .page.img .folio {
+            color: #fff;
+            mix-blend-mode: difference;
+        }
+        
+        .page.img.visuel-paper .folio,
+        .page.img.visuel-light .folio {
+            color: var(--muted);
+            mix-blend-mode: normal;
+        }
+        
+        .page.img.visuel-dark .folio,
+        .page.img.visuel-ucpv .folio {
+            color: rgba(255, 255, 255, .7);
+            mix-blend-mode: normal;
+        }
+        
+        .kicker {
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        h1,
+        h2,
+        h3 {
+            font-family: var(--serif);
+            line-height: .95;
+        }
+        
+        h1 {
+            font-size: clamp(3.2rem, 9vw, 9rem);
+            font-weight: 900;
+            letter-spacing: -.03em;
+        }
+        
+        h2 {
+            font-size: clamp(2.2rem, 5vw, 4.6rem);
+            font-weight: 900;
+            letter-spacing: -.02em;
+            margin-bottom: 1.4rem;
+        }
+        
+        p.lead {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+            line-height: 1.35;
+            max-width: 30ch;
+        }
+        
+        p.body {
+            font-size: clamp(.9rem, 1.1vw, 1.02rem);
+            line-height: 1.7;
+            max-width: 46ch;
+            margin-bottom: 1rem;
+        }
+        
+        p.body.drop::first-letter {
+            font-family: var(--serif);
+            font-weight: 900;
+            font-size: 4.2em;
+            float: left;
+            line-height: .8;
+            padding: .08em .1em 0 0;
+            color: var(--accent);
+        }
+        
+        .btn {
+            display: inline-block;
+            align-self: flex-start;
+            margin-top: 1.2rem;
+            padding: .85rem 1.4rem;
+            border: 2px solid var(--ink);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: .75rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            transition: .25s;
+        }
+        
+        .btn:hover {
+            background: var(--ink);
+            color: var(--paper);
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: .28rem .65rem;
+            border: 1px solid rgba(20, 17, 15, .35);
+            border-radius: 0;
+            font-size: .72rem;
+            font-weight: 500;
+            margin: 0 .35rem .35rem 0;
+        }
+        
+        .stamp {
+            position: absolute;
+            top: 82px;
+            right: clamp(24px, 3.8vw, 56px);
+            background: transparent;
+            color: var(--muted);
+            border: 1px solid rgba(20, 17, 15, .28);
+            padding: .28rem .65rem;
+            font-weight: 600;
+            font-size: .62rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            transform: none;
+            z-index: 6;
+        }
+        /* Couverture */
+        
+        .cover {
+            background: var(--ink);
+            color: var(--paper);
+        }
+        
+        .cover .page:first-child {
+            background: var(--ink);
+            justify-content: flex-end;
+        }
+        
+        .cover h1 span {
+            color: var(--accent);
+        }
+        
+        .cover .masthead {
+            position: absolute;
+            top: 80px;
+            left: clamp(24px, 4vw, 64px);
+            font-size: .7rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: #9e9589;
+        }
+        
+        .cover .lead {
+            margin: 1.5rem 0 2rem;
+            color: #cfc7bb;
+        }
+        
+        .cover .page.img::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, var(--ink), transparent 36%);
+        }
+        /* Sommaire en double-page presse */
+        
+        .toc-page {
+            justify-content: flex-start;
+            padding-top: clamp(22px, 3vw, 42px);
+            padding-bottom: 68px;
+        }
+        
+        .toc-header {
+            margin-bottom: 1rem;
+            padding-bottom: .75rem;
+            border-bottom: 2px solid var(--ink);
+        }
+        
+        .toc-header h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            margin-bottom: .3rem;
+        }
+        
+        .toc-header p {
+            font-size: .86rem;
+            color: var(--muted);
+            line-height: 1.45;
+            max-width: 52ch;
+        }
+        
+        .toc-group-label {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: .6rem 0 .35rem;
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+        }
+        
+        .toc-group-label::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: rgba(20, 17, 15, .18);
+        }
+        
+        .toc {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        
+        .toc li {
+            display: flex;
+            align-items: stretch;
+            gap: .4rem;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(20, 17, 15, .15);
+            transition: background .18s ease;
+        }
+        
+        .toc li:hover {
+            background: rgba(20, 17, 15, .04);
+        }
+        
+        .toc button {
+            all: unset;
+            box-sizing: border-box;
+            flex: 1;
+            cursor: pointer;
+            display: grid;
+            grid-template-columns: 2.6rem 1fr auto;
+            align-items: baseline;
+            gap: .75rem;
+            padding: .56rem .4rem;
+        }
+        
+        .toc button .pnum {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--ink);
+            line-height: 1;
+        }
+        
+        .toc button .pnum small {
+            display: none;
+        }
+        
+        .toc button .pinfo {
+            display: flex;
+            flex-direction: column;
+            gap: .08rem;
+            min-width: 0;
+        }
+        
+        .toc button .ptitle {
+            font-family: var(--serif);
+            font-size: clamp(.98rem, 1.3vw, 1.18rem);
+            font-weight: 800;
+            color: var(--ink);
+            line-height: 1.15;
+            transition: color .18s;
+        }
+        
+        .toc li:hover .ptitle {
+            color: var(--accent);
+        }
+        
+        .toc button .pdesc {
+            font-family: var(--sans);
+            font-size: .74rem;
+            color: var(--muted);
+            line-height: 1.3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .toc button em {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: .8rem;
+            font-weight: 500;
+            color: var(--muted);
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            white-space: nowrap;
+        }
+        
+        .toc .toc-direct {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 .55rem;
+            font-size: .66rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--muted);
+            transition: color .18s;
+            white-space: nowrap;
+        }
+        
+        .toc .toc-direct:hover {
+            color: var(--accent);
+        }
+        /* CV */
+        
+        .skills {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 1rem 0 1.5rem;
+        }
+        
+        .tl {
+            border-left: 2px solid var(--ink);
+            padding-left: 1.2rem;
+            margin-top: .6rem;
+        }
+        
+        .tl div {
+            margin-bottom: 1rem;
+            position: relative;
+            font-size: .92rem;
+            line-height: 1.4;
+        }
+        
+        .tl div::before {
+            content: "";
+            position: absolute;
+            left: -1.6rem;
+            top: .35rem;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        
+        .tl b {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            display: block;
+        }
+        
+        .tl small {
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            font-size: .65rem;
+        }
+        /* Contact */
+        
+        .contact-big {
+            font-family: var(--serif);
+            font-weight: 900;
+            font-size: clamp(1.4rem, 3vw, 2.8rem);
+            text-decoration: none;
+            border-bottom: 3px solid var(--accent);
+            word-break: break-all;
+            display: inline-block;
+            margin: 1rem 0 2rem;
+        }
+        
+        .contact-big:hover {
+            color: var(--accent);
+        }
+        
+        .links a {
+            margin-right: 1.5rem;
+            font-weight: 700;
+            font-size: .8rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+        }
+        /* Révélation au scroll */
+        
+        .spread .rv {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity .8s .15s, transform .8s .15s;
+        }
+        
+        .spread.active .rv {
+            opacity: 1;
+            transform: none;
+        }
+        
+        .spread.active .rv:nth-child(3) {
+            transition-delay: .3s;
+        }
+        
+        .spread.active .rv:nth-child(4) {
+            transition-delay: .45s;
+        }
+        
+        .spread.active .rv:nth-child(5) {
+            transition-delay: .6s;
+        }
+        
+        .page.img img {
+            will-change: transform;
+        }
+        /* Navigation au scroll */
+        
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0;
+            background: var(--accent);
+            z-index: 70;
+        }
+        /* Mode livre : page gauche + page droite, la feuille de droite se tourne autour de la reliure */
+        
+        html.flipmode {
+            scroll-snap-type: none;
+            scroll-behavior: auto;
+        }
+        
+        html.flipmode .mag {
+            display: none;
+        }
+            display: none;
+        }
+            display: block;
+        }
+        
+        .book {
+            position: fixed;
+            inset: 0;
+            perspective: 2600px;
+            overflow: hidden;
+            background: #1b1816;
+            z-index: 1;
+        }
+        
+        .sheet {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            padding-top: 54px;
+            overflow: hidden;
+            background: var(--paper);
+        }
+        
+        .sheet.im {
+            padding-top: 0;
+        }
+        
+        .sheet>.page {
+            height: 100%;
+        }
+        
+        .sheet.left {
+            left: 0;
+            box-shadow: inset -50px 0 50px -40px rgba(0, 0, 0, .45);
+        }
+        
+        .sheet.right {
+            left: 50%;
+            box-shadow: inset 50px 0 50px -40px rgba(0, 0, 0, .45);
+        }
+        
+        .sheet.cover {
+            background: var(--ink);
+            color: var(--paper);
+        }
+        
+        .sheet::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: .1;
+            background-image: radial-gradient(#000 .5px, transparent .6px);
+            background-size: 4px 4px;
+            z-index: 7;
+        }
+        
+        .sheet .shade {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 8;
+            opacity: 0;
+        }
+        
+        .sheet.right .shade {
+            background: linear-gradient(90deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, .05) 70%);
+        }
+        
+        .sheet.left .shade {
+            background: linear-gradient(270deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, .05) 70%);
+        }
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            transform-origin: left center;
+            transform-style: preserve-3d;
+        }
+            left: 0;
+            width: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+            transform: rotateY(180deg);
+            box-shadow: inset 50px 0 50px -40px rgba(0, 0, 0, .45);
+        }
+            box-shadow: inset 50px 0 50px -40px rgba(0, 0, 0, .45);
+        }
+        
+        .curl { position: absolute; inset: 0; display: none; transform-style: preserve-3d; z-index: 50; pointer-events: none; }
+        .strip { position: absolute; top: 0; height: 100%; transform-origin: left center; transform-style: preserve-3d; }
+        .strip .face { position: absolute; inset: 0; overflow: hidden; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+        .strip .face.bk { transform: rotateY(180deg); }
+        .slab { position: absolute; top: 0; height: 100%; }
+        .slab .sheet { left: 0 !important; width: 100%; box-shadow: none !important; }
+        .fshade { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; z-index: 20; }        .curl { position: absolute; inset: 0; display: none; transform-style: preserve-3d; z-index: 50; pointer-events: none; }
+        .strip { position: absolute; top: 0; height: 100%; transform-origin: left center; transform-style: preserve-3d; }
+        .strip .face { position: absolute; inset: 0; overflow: hidden; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+        .strip .face.bk { transform: rotateY(180deg); }
+        .slab { position: absolute; top: 0; height: 100%; }
+        .slab .sheet { left: 0 !important; width: 100%; box-shadow: none !important; }
+        .fshade { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; z-index: 20; }        .book .rv {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+        
+        .book .page .folio {
+            left: auto;
+            right: auto;
+        }
+        
+        .book .page.pl .folio {
+            left: 24px;
+        }
+        
+        .book .page.pr .folio {
+            right: 24px;
+        }
+        
+        .book .page.pr:not(.img) {
+            padding-right: 90px;
+        }
+        
+        .rail {
+            position: fixed;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 60;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 9px;
+            padding: 8px 4px;
+            background: transparent;
+            border: none;
+        }
+        
+        .rail button {
+            position: relative;
+            width: 12px;
+            height: 2px;
+            border-radius: 0;
+            border: none;
+            background: rgba(138, 130, 119, .55);
+            cursor: pointer;
+            padding: 0;
+            transition: width .2s, background .2s;
+        }
+        
+        .rail button::after {
+            content: "";
+            position: absolute;
+            inset: -5px -2px;
+        }
+        
+        .rail button::before {
+            content: attr(data-label);
+            position: absolute;
+            right: 28px;
+            top: 50%;
+            transform: translateY(-50%) translateX(4px);
+            background: #14110f;
+            color: var(--paper);
+            font-family: var(--sans);
+            font-size: .66rem;
+            font-weight: 600;
+            letter-spacing: .04em;
+            padding: .28rem .6rem;
+            border-radius: 0;
+            border: 1px solid #3a342e;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .18s, transform .18s;
+        }
+        
+        .rail button:hover::before {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+        
+        .rail button.on {
+            background: var(--accent);
+            width: 24px;
+            height: 2px;
+            border-radius: 0;
+        }
+        
+        .rail button:hover {
+            background: var(--ink);
+            width: 18px;
+        }
+        
+        /* Barre de navigation bas de page — style cartouche éditorial */
+        .mag-nav {
+            position: fixed;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 75;
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            padding: 0;
+            background: #14110f;
+            color: var(--paper);
+            border: 1px solid #3a342e;
+            border-radius: 0;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+            font-size: .68rem;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        
+        .mag-nav button {
+            all: unset;
+            cursor: pointer;
+            padding: .5rem .9rem;
+            border-radius: 0;
+            transition: background .18s, color .18s, opacity .18s;
+            display: inline-flex;
+            align-items: center;
+            gap: .35rem;
+            white-space: nowrap;
+        }
+        
+        .mag-nav button:hover:not(:disabled) {
+            background: var(--accent);
+            color: #fff;
+        }
+        
+        .mag-nav button:disabled {
+            opacity: .3;
+            cursor: default;
+        }
+        
+        .mag-nav .mag-nav-toc {
+            border-left: 1px solid #2e2925;
+        }
+        
+        .mag-nav .mag-nav-status {
+            padding: .5rem .85rem;
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 500;
+            text-transform: none;
+            letter-spacing: .01em;
+            font-size: .82rem;
+            color: #cfc7bb;
+            border-left: 1px solid #2e2925;
+            border-right: 1px solid #2e2925;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .page.img img.logo-fit {
+            object-fit: contain;
+            background: #F2ECE6;
+            padding: 74px 12% 60px;
+            inset: 0;
+            height: 100%;
+        }
+        
+        .cover-logo {
+            width: 180px;
+            background: #F2ECE6;
+            padding: 12px 14px;
+            margin-bottom: 1.8rem;
+        }
+        /* Mobile */
+        
+        @media (max-width: 800px) {
+            .spread {
+                grid-template-columns: 1fr;
+                grid-template-rows: 42vh auto;
+            }
+            .spread.toc-spread {
+                grid-template-rows: auto auto;
+            }
+            .spread::before {
+                display: none;
+            }
+            .spread .page.img {
+                min-height: 42vh;
+                order: -1;
+            }
+            .page.img img.img-visuel {
+                padding: 20px 6% 36px;
+            }
+            .page.img img.logo-fit {
+                padding: 24px 10% 36px;
+            }
+            .spread.cover .page.img {
+                display: none;
+            }
+            .spread.cover {
+                grid-template-rows: 1fr;
+            }
+            .page {
+                justify-content: flex-start;
+                padding-bottom: 70px;
+            }
+            .rail {
+                right: 6px;
+                padding: 8px 5px;
+                gap: 7px;
+            }
+            .rail button::before {
+                display: none;
+            }
+            .mag-nav .mag-nav-status {
+                display: none;
+            }
+            .stamp {
+                top: 70px;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition-duration: .01s !important;
+                animation: none !important;
+            }
+        }
+        
+        noscript {
+            position: fixed;
+            inset: 0;
+            z-index: 99;
+            background: var(--paper);
+            padding: 5rem 2rem;
+        }
+    </style>
 </head>
 
 <body>
-
-    <header>
-        <div class="container header-content">
-            <a href="index.html" class="logo">Portfolio.</a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html#hero">Accueil</a></li>
-                    <li><a href="projets.html">Projets</a></li>
-                    <li><a href="cv.html">CV</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
+    <div class="progress" id="progress"></div>
+    <header class="topbar">
+        <a href="#" data-go="0" class="brand" style="margin:0">B. Laffond</a>
+        <nav>
+            <a href="#" data-go="0" data-nav-spread="0">Couverture</a>
+            <a href="#" data-go="2" data-nav-spread="2">Sommaire</a>
+            <a href="projets.html">Tous les projets</a>
+            <a href="cv.html">CV</a>
+            <a href="#" data-go="last" data-nav-spread="last">Contact</a>
+        </nav>
     </header>
 
-    <main>
-        <section id="hero" class="hero">
-            <div class="container">
-                <h1>Baptiste<br>Laffond.</h1>
-                <p>Étudiant en BUT Métiers du Multimédia et de l'Internet, je conçois des identités visuelles, des expériences numériques et des projets web.</p>
-                <a class="btn-link" href="projets.html">Découvrir tous mes projets</a>
-            </div>
-        </section>
-        <section id="portfolio" class="portfolio">
-            <div class="container">
-                <h2 class="section-title">Projets sélectionnés</h2>
-                <div class="grid-wrapper home-gallery" aria-label="Photographies et créations personnelles">
-                    <div class="grid-item"><img src="20240615_121404.jpg" alt="Photographie personnelle d'une fleur sauvage"></div>
-                    <div class="grid-item"><img src="Capture d’écran 2022-10-23 173302.jpg" alt="Portrait dessiné au crayon"></div>
-                    <div class="grid-item"><img src="Chevalier.jpg" alt="Dessin personnel d'un chevalier en armure"></div>
-                    <div class="grid-item"><img src="20241005_152502(0).jpg" alt="Voiture de rallye bleue sur une piste poussiéreuse"></div>
-                    <div class="grid-item"><img src="20241005_152802(0).jpg" alt="Voiture de rallye orange sur une piste de terre"></div>
+    <noscript>
+        <h1>Baptiste Laffond</h1>
+        <p>Activez JavaScript pour lire le magazine, ou consultez la <a href="index-classique.html">version classique</a>.</p>
+    </noscript>
+
+    <main class="mag" id="mag" aria-live="polite">
+
+        <!-- 0 · COUVERTURE -->
+        <section class="spread cover" aria-label="Couverture">
+            <div class="page">
+                <div class="masthead">Portfolio — Édition 2026 / N°01</div>
+
+                <h1 class="rv">Baptiste<br><span>Laffond.</span></h1>
+                <p class="lead rv">Graphisme, édition, vidéo et projets web.</p>
+                <div class="rv" style="display:flex;gap:.8rem;flex-wrap:wrap">
+                    <a class="btn" href="#" data-go="2" style="border-color:var(--accent);background:var(--accent);color:#fff;margin-top:0">Ouvrir le sommaire</a>
+                    <a class="btn" href="projets.html" style="border-color:rgba(244,239,230,.4);color:var(--paper);margin-top:0">Tous les projets</a>
                 </div>
             </div>
+            <div class="page img">
+                <img class="img-photo" src="Photo_profil.JPG" alt="Baptiste pratiquant le tir à l’arc" style="object-position: 36% center">
+                <span class="folio">Couverture</span>
+            </div>
         </section>
-        <section id="about" class="about">
-            <div class="container">
-                <h2 class="section-title">À propos</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>Étudiant en BUT MMI à l'IUT Clermont-Auvergne, je m'intéresse à la création graphique, au multimédia et au développement web. J'aime donner forme à des idées en concevant des supports visuels et des expériences numériques cohérentes.</p>
-                        <p>En parallèle de mes études, je pratique le tir à l'arc et développe des projets personnels comme FlèchOptim, un outil web pour aider les archers à choisir leurs flèches.</p>
-                        <a class="btn-link" href="cv.html">Consulter mon CV</a>
-                    </div>
-                    <div class="about-image">
-                        <p><strong>Domaines</strong><br>Design graphique<br>Communication visuelle<br>Développement web</p>
-                        <p><strong>Basé entre</strong><br>Millau et Le Puy-en-Velay</p>
-                        <a class="btn-link" href="mailto:laffondbaptiste47@gmail.com">Me contacter</a>
-                    </div>
+
+        <!-- 1 · ÉDITO -->
+        <section class="spread" aria-label="Édito">
+            <div class="page">
+                <div class="kicker rv">Édito</div>
+                <h2 class="rv">Qui je<br>suis.</h2>
+                <p class="lead rv">Étudiant en BUT MMI au Puy-en-Velay et archer en compétition.</p>
+                <span class="folio">01</span>
+            </div>
+            <div class="page">
+                <p class="body drop rv">Actuellement en BUT Métiers du Multimédia et de l'Internet à l'IUT Clermont-Auvergne (site du Puy-en-Velay), je me forme au design graphique, à la mise en page éditoriale, à la vidéo et au développement web.</p>
+                <p class="body rv">En dehors des cours, je tire à l'arc en compétition (Barebow) et je monte des projets autour de mes passions : des refontes d'identité pour des clubs et enseignes, de la photographie sportive ou encore FlèchOptim, un calculateur web pour choisir ses flèches.</p>
+                <div class="rv"><span class="tag">Graphisme &amp; Édition</span><span class="tag">Audiovisuel &amp; Motion</span><span class="tag">Web</span></div>
+                <a class="btn rv" href="#" data-go="2">Voir le sommaire</a>
+                <span class="folio">Millau / Le Puy-en-Velay</span>
+            </div>
+        </section>
+
+        <!-- 2 · SOMMAIRE (DOUBLE-PAGE ÉDITORIALE) -->
+        <section class="spread toc-spread" aria-label="Sommaire">
+            <div class="page toc-page">
+                <div class="toc-header rv">
+                    <div class="kicker" style="margin-bottom:.4rem">Sommaire</div>
+                    <h2>Dans ce numéro.</h2>
+                    <p>Cliquez sur un titre pour tourner jusqu'à la double-page correspondante, ou ouvrez directement le projet.</p>
                 </div>
+
+                <div class="toc-group-label rv">Campagnes, Édition &amp; Web</div>
+                <ol class="toc rv">
+                    <li>
+                        <button type="button" data-go="3">
+                            <span class="pnum"><small>Page</small>04</span>
+                            <span class="pinfo">
+                                <span class="ptitle">Campagne Lacoste Goliath</span>
+                                <span class="pdesc">Affiche print, vidéo promotionnelle et site WordPress (SAÉ 202)</span>
+                            </span>
+                            <em>Campagne 360°</em>
+                        </button>
+                        <a class="toc-direct" href="lacoste_project.html" title="Ouvrir l'article complet">Voir →</a>
+                    </li>
+                    <li>
+                        <button type="button" data-go="4">
+                            <span class="pnum"><small>Page</small>06</span>
+                            <span class="pinfo">
+                                <span class="ptitle">Magazine Interface</span>
+                                <span class="pdesc">Coordination d'équipe, recherche de sponsors, maquette et article</span>
+                            </span>
+                            <em>Édition</em>
+                        </button>
+                        <a class="toc-direct" href="mag-interface.html" title="Ouvrir l'article complet">Voir →</a>
+                    </li>
+                    <li>
+                        <button type="button" data-go="5">
+                            <span class="pnum"><small>Page</small>08</span>
+                            <span class="pinfo">
+                                <span class="ptitle">UCPV — « Le vrai record »</span>
+                                <span class="pdesc">Refonte de logo, affiches A4, réseaux sociaux et spot vidéo 30s</span>
+                            </span>
+                            <em>Communication</em>
+                        </button>
+                        <a class="toc-direct" href="ucpv.html" title="Ouvrir l'étude de cas">Voir →</a>
+                    </li>
+                    <li>
+                        <button type="button" data-go="6">
+                            <span class="pnum"><small>Page</small>10</span>
+                            <span class="pinfo">
+                                <span class="ptitle">FlèchOptim</span>
+                                <span class="pdesc">Sélecteur de spine et comparateur de tubes pour le tir à l'arc</span>
+                            </span>
+                            <em>Outil web</em>
+                        </button>
+                        <a class="toc-direct" href="FlechOptim.html" title="Ouvrir l'outil web">Voir →</a>
+                    </li>
+                    <li>
+                        <button type="button" data-go="7">
+                            <span class="pnum"><small>Page</small>12</span>
+                            <span class="pinfo">
+                                <span class="ptitle">Tour de France</span>
+                                <span class="pdesc">Série de 18 cartes de coureurs inspirées des maillots d'équipes</span>
+                            </span>
+                            <em>Graphisme</em>
+                        </button>
+                        <a class="toc-direct" href="tour-de-france.html" title="Ouvrir la collection">Voir →</a>
+                    </li>
+                </ol>
+                <span class="folio">02</span>
+            </div>
+
+            <div class="page toc-page">
+                <div class="toc-group-label rv">Identité visuelle, Motion &amp; Image</div>
+                <ol class="toc rv">
+                    <li>
+                        <button type="button" data-go="8">
+                            <span class="pnum"><small>Page</small>14</span>
+                            <span class="pinfo">
+                                <span class="ptitle">Rallye des Cardabelles</span>
+                                <span class="pdesc">Série photo réalisée au bord de la spéciale en octobre 2024</span>
+                            </span>
+                            <em>Photo</em>
+                        </button>
+                        <a class="toc-direct" href="rallye-cardabelles.html" title="Ouvrir le reportage">Voir →</a>
+                    </li>
+                    <li>
+                        <button type="button" data-go="9">
+                            <span class="pnum"><small>Page</small>16</span>
+                            <span class="pinfo">
+                                <span class="ptitle">Hava Archerie</span>
+                                <span class="pdesc">Nouveau logo, déclinaisons et visuels produits pour l'archerie</span>
+                            </span>
+                            <em>Identité</em>
+                        </button>
+                        <a class="toc-direct" href="hava-archerie.html" title="Ouvrir le projet">Voir →</a>
+                    </li>
+                    <li>
+                        <button type="button" data-go="10">
+                            <span class="pnum"><small>Page</small>18</span>
+                            <span class="pinfo">
+                                <span class="ptitle">Archers du Velay</span>
+                                <span class="pdesc">Proposition de nouveau logo et charte graphique pour le club</span>
+                            </span>
+                            <em>Charte</em>
+                        </button>
+                        <a class="toc-direct" href="archers-du-velay.html" title="Voir la charte">Voir →</a>
+                    </li>
+                    <li>
+                        <button type="button" data-go="11">
+                            <span class="pnum"><small>Page</small>20</span>
+                            <span class="pinfo">
+                                <span class="ptitle">After Effects &amp; Storyboard</span>
+                                <span class="pdesc">Découpage illustré en 14 plans, animations en parallaxe et vidéos</span>
+                            </span>
+                            <em>Motion</em>
+                        </button>
+                        <a class="toc-direct" href="motion-storyboard.html" title="Voir les animations">Voir →</a>
+                    </li>
+                </ol>
+
+                <div class="toc-group-label rv" style="margin-top:.85rem">Parcours &amp; Contact</div>
+                <ol class="toc rv">
+                    <li>
+                        <button type="button" data-go="12">
+                            <span class="pnum"><small>Page</small>22</span>
+                            <span class="pinfo">
+                                <span class="ptitle">Parcours &amp; Compétences</span>
+                                <span class="pdesc">Formation, expériences et logiciels utilisés</span>
+                            </span>
+                            <em>CV</em>
+                        </button>
+                        <a class="toc-direct" href="cv.html" title="Ouvrir le CV complet">Voir →</a>
+                    </li>
+                    <li>
+                        <button type="button" data-go="last">
+                            <span class="pnum"><small>Page</small>24</span>
+                            <span class="pinfo">
+                                <span class="ptitle">Contact</span>
+                                <span class="pdesc">Coordonnées et accès à la vue grille des réalisations</span>
+                            </span>
+                            <em>Infos</em>
+                        </button>
+                        <a class="toc-direct" href="projets.html" title="Voir tous les projets">Voir →</a>
+                    </li>
+                </ol>
+                <span class="folio">03</span>
+            </div>
+        </section>
+
+        <!-- 3 · LACOSTE -->
+        <section class="spread" aria-label="Campagne Lacoste">
+            <div class="page img visuel-paper"><img class="img-visuel" src="GOLIATH.png" alt="Affiche print Lacoste Goliath" loading="lazy"><span class="folio">04</span></div>
+            <div class="page">
+                <span class="stamp">SAÉ 202 — BUT MMI</span>
+                <div class="kicker rv">01 / Direction artistique</div>
+                <h2 class="rv">Lacoste<br>Goliath.</h2>
+                <p class="body rv">Projet de groupe autour du lancement fictif d'une veste chauffante Lacoste : réalisation des affiches print, tournage et montage du spot vidéo, et création du site vitrine sous WordPress.</p>
+                <a class="btn rv" href="lacoste_project.html">Voir le projet</a>
+                <span class="folio">05</span>
+            </div>
+        </section>
+
+        <!-- 4 · INTERFACE -->
+        <section class="spread" aria-label="Magazine Interface">
+            <div class="page">
+                <span class="stamp">Projet collectif</span>
+                <div class="kicker rv">02 / Édition &amp; gestion de projet</div>
+                <h2 class="rv">Magazine<br>Interface.</h2>
+                <p class="body rv">Réalisation d'un magazine imprimé à 700 exemplaires en moins de deux semaines : coordination entre les pôles, démarchage des sponsors pour financer l'impression, mise en page et rédaction d'un article.</p>
+                <a class="btn rv" href="mag-interface.html">Voir le projet</a>
+                <span class="folio">06</span>
+            </div>
+            <div class="page img visuel-paper"><img class="img-visuel" src="page-magasine1.png" alt="Double-page du magazine Interface" loading="lazy"><span class="folio">07</span></div>
+        </section>
+
+        <!-- 5 · UCPV LE VRAI RECORD -->
+        <section class="spread" aria-label="Union Cycliste du Puy-en-Velay">
+            <div class="page" style="background:#083823;color:#F4EFE6">
+                <span class="stamp" style="border-color:rgba(92,230,139,.45);background:transparent;color:#5CE68B">SAÉ 302 — BUT MMI</span>
+                <div class="kicker rv" style="color:#5CE68B">03 / Communication &amp; RSE</div>
+                <h2 class="rv" style="color:#fff">Union Cycliste<br>du Puy-en-Velay.</h2>
+                <p class="body rv" style="color:#D6E4DB">Campagne de communication « Le vrai record » pour l'école de vélo du club ponot : refonte du logo, affiches A4 print et web, publications réseaux sociaux, communiqué de presse et spot vidéo de 30 secondes.</p>
+                <a class="btn rv" style="border-color:#5CE68B;color:#5CE68B" href="ucpv.html">Voir la campagne</a>
+                <span class="folio" style="color:#5CE68B">08</span>
+            </div>
+            <div class="page img visuel-ucpv"><img class="img-visuel" src="ucpv-affiche-web.png" alt="Affiche Web UCPV Le vrai record" loading="lazy"><span class="folio">09</span></div>
+        </section>
+
+        <!-- 6 · FLÈCHOPTIM -->
+        <section class="spread" aria-label="FlèchOptim">
+            <div class="page img visuel-dark"><img class="img-visuel" src="FlechOptim.jpg" alt="Sélecteur de flèches FlèchOptim" loading="lazy"><span class="folio">10</span></div>
+            <div class="page">
+                <span class="stamp">Projet personnel</span>
+                <div class="kicker rv">04 / Développement web</div>
+                <h2 class="rv">Flèch<br>Optim.</h2>
+                <p class="body rv">Outil web créé pour aider les archers à calculer le spine adapté à leur arc et à leur allonge, puis à comparer les tubes compatibles dans un catalogue filtrable.</p>
+                <a class="btn rv" href="FlechOptim.html">Découvrir l'outil</a>
+                <span class="folio">11</span>
+            </div>
+        </section>
+
+        <!-- 7 · TOUR DE FRANCE -->
+        <section class="spread" aria-label="Tour de France">
+            <div class="page">
+                <span class="stamp">Projet personnel</span>
+                <div class="kicker rv">05 / Création graphique</div>
+                <h2 class="rv">Tour de<br>France.</h2>
+                <p class="body rv">Collection de 18 cartes de coureurs cyclistes réalisées sur Illustrator et Photoshop pendant l'été, en reprenant les motifs des maillots d'équipes.</p>
+                <a class="btn rv" href="tour-de-france.html">Voir les 18 cartes</a>
+                <span class="folio">12</span>
+            </div>
+            <div class="page img"><img class="img-photo" src="herotdf.jpg" alt="Projet graphique Tour de France" loading="lazy" style="object-position: 45% center"><span class="folio">13</span></div>
+        </section>
+
+        <!-- 8 · RALLYE -->
+        <section class="spread" aria-label="Rallye des Cardabelles">
+            <div class="page img"><img class="img-photo" src="20241005_152502(0).jpg" alt="Voiture de rallye sur une piste poussiéreuse" loading="lazy" style="object-position: center center"><span class="folio">14</span></div>
+            <div class="page">
+                <span class="stamp">Photographie</span>
+                <div class="kicker rv">06 / Reportage terrain</div>
+                <h2 class="rv">Rallye des<br>Cardabelles.</h2>
+                <p class="body rv">Série photo prise au bord des pistes en Aveyron lors de l'édition du 5 octobre 2024.</p>
+                <a class="btn rv" href="rallye-cardabelles.html">Voir la galerie</a>
+                <span class="folio">15</span>
+            </div>
+        </section>
+
+        <!-- 9 · HAVA -->
+        <section class="spread" aria-label="Hava Archerie">
+            <div class="page">
+                <span class="stamp">En cours</span>
+                <div class="kicker rv">07 / Identité visuelle</div>
+                <h2 class="rv">Hava<br>Archerie.</h2>
+                <p class="body rv">Refonte du logo, recherches de déclinaisons et création de visuels produits pour une enseigne spécialisée en tir à l'arc.</p>
+                <a class="btn rv" href="hava-archerie.html">Voir le projet</a>
+                <span class="folio">16</span>
+            </div>
+            <div class="page img"><img class="logo-fit" src="nouveau-logo.webp" alt="Nouveau logo Hava Archerie" loading="lazy"><span class="folio">17</span></div>
+        </section>
+
+        <!-- 10 · ARCHERS DU VELAY -->
+        <section class="spread" aria-label="Archers du Velay">
+            <div class="page">
+                <span class="stamp">Initiative BUT MMI</span>
+                <div class="kicker rv">08 / Logotype &amp; Charte</div>
+                <h2 class="rv">Archers<br>du Velay.</h2>
+                <p class="body rv">Proposition de refonte du logo et de la charte graphique pour la 1ère Compagnie des Archers du Velay, mêlant la coquille Saint-Jacques et la silhouette des monuments du Puy.</p>
+                <a class="btn rv" href="archers-du-velay.html">Voir la charte</a>
+                <span class="folio">18</span>
+            </div>
+            <div class="page img"><img class="logo-fit" src="archers-velay-logo-clair.png" alt="Nouveau logo des Archers du Velay" loading="lazy"><span class="folio">19</span></div>
+        </section>
+
+        <!-- 11 · AFTER EFFECTS & STORYBOARD -->
+        <section class="spread" aria-label="After Effects et Storyboard">
+            <div class="page img visuel-light"><img class="img-visuel" src="ae-phoenix-parallaxe.png" alt="Composition After Effects Parallaxe Phoenix" loading="lazy"><span class="folio">20</span></div>
+            <div class="page">
+                <span class="stamp">Motion &amp; Vidéo</span>
+                <div class="kicker rv">09 / After Effects &amp; Storyboard</div>
+                <h2 class="rv">Motion &amp;<br>Storyboard.</h2>
+                <p class="body rv">Travaux de pré-production vidéo (storyboard dessiné en 14 plans pour le spot UCPV) et exercices d'animation sous After Effects : parallaxe 2.5D, animations de logos et formats courts.</p>
+                <a class="btn rv" href="motion-storyboard.html">Voir les réalisations</a>
+                <span class="folio">21</span>
+            </div>
+        </section>
+
+        <!-- 12 · CV -->
+        <section class="spread" aria-label="Parcours et compétences">
+            <div class="page">
+                <div class="kicker rv">Parcours</div>
+                <h2 class="rv">Formation<br>&amp; projets.</h2>
+                <div class="tl rv">
+                    <div><small>2025 – Présent</small><b>BUT MMI</b>IUT de Clermont-Auvergne, Le Puy-en-Velay</div>
+                    <div><small>2025 – 2026</small><b>Projets SAÉ (Lacoste, Interface, UCPV)</b>Campagnes, édition print et production vidéo</div>
+                    <div><small>Jusqu'en 2024</small><b>Bac STI2D</b>Lycée Alexis Monteil, Rodez</div>
+                </div>
+                <span class="folio">22</span>
+            </div>
+            <div class="page">
+                <div class="kicker rv">Logiciels &amp; outils</div>
+                <ul class="skills rv">
+                    <li class="tag">Illustrator</li>
+                    <li class="tag">InDesign</li>
+                    <li class="tag">Photoshop</li>
+                    <li class="tag">Premiere Pro</li>
+                    <li class="tag">After Effects</li>
+                    <li class="tag">HTML / CSS / JS</li>
+                    <li class="tag">PHP / MySQL</li>
+                    <li class="tag">Logic Pro / FL Studio</li>
+                </ul>
+                <p class="body rv"><b>À côté des études :</b> tir à l'arc Barebow en compétition (créateur de la page « Actu Carquois »), vélo de route, dessin et aquarelle.</p>
+                <a class="btn rv" href="cv.html">Consulter le CV complet</a>
+                <span class="folio">23</span>
+            </div>
+        </section>
+
+        <!-- 13 · CONTACT -->
+        <section class="spread cover" aria-label="Contact">
+            <div class="page">
+                <div class="kicker rv">Contact</div>
+                <h2 class="rv">Me<br>contacter.</h2>
+                <a class="contact-big rv" href="mailto:laffondbaptiste47@gmail.com">laffondbaptiste47@gmail.com</a>
+                <div class="links rv">
+                    <a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="projets.html">Tous les projets</a>
+                    <a href="cv.html">CV</a>
+                </div>
+                <span class="folio">24</span>
+            </div>
+            <div class="page img">
+                <img class="img-photo" src="20241005_152802(0).jpg" alt="Voiture de rallye orange sur une piste de terre" loading="lazy" style="object-position: center center">
+                <span class="folio">Baptiste Laffond — 2026</span>
             </div>
         </section>
     </main>
 
-    <footer id="contact">
-        <div class="container">
-            <ul class="footer-links">
-                <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                <li><a href="mailto:laffondbaptiste47@gmail.com">Email</a></li>
-            </ul>
-            <p>&copy; 2026 Portfolio.</p>
-        </div>
-    </footer>
+    <div class="rail" id="rail" aria-label="Pages du magazine"></div>
+    <nav class="mag-nav" aria-label="Contrôles de lecture du magazine">
+        <button type="button" id="prevSpread" aria-label="Double-page précédente">← Précédent</button>
+        <button type="button" class="mag-nav-toc" data-go="2" aria-label="Aller au sommaire">Sommaire</button>
+        <span class="mag-nav-status" id="spreadStatus">Couverture · 1 / 14</span>
+        <button type="button" id="nextSpread" aria-label="Double-page suivante">Suivant →</button>
+    </nav>
     <script>
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-        if (menuToggle) {
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
+        (function () {
+            const mag = document.getElementById('mag');
+            const spreads = [...mag.querySelectorAll('.spread')];
+            const rail = document.getElementById('rail');
+            const bar = document.getElementById('progress');
+            const prevBtn = document.getElementById('prevSpread');
+            const nextBtn = document.getElementById('nextSpread');
+            const statusEl = document.getElementById('spreadStatus');
+            const navLinks = [...document.querySelectorAll('.topbar nav a[data-nav-spread]')];
+            const imgs = [...document.querySelectorAll('.page.img img')];
+            const N = spreads.length;
+            const S = 14;                      // nombre de bandes qui plient la feuille
+            const BEND = 3.2;                  // amplitude de la courbure (degrés / bande)
+            const DURATION = 1150;             // durée d'un tour de page (ms)
+            const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const root = document.documentElement;
+            let flip = false, tick = false, book = null, curl = null;
+            let cur = 0, target = 0, running = false, animEnd = 0, lastWheel = 0;
+            const Ls = [], Rs = [];
 
+            const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+            const easeIO = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            const el = (cls, parent) => { const d = document.createElement('div'); d.className = cls; if (parent) parent.appendChild(d); return d; };
+
+            function syncUI(i) {
+                [...rail.children].forEach((d, k) => d.classList.toggle('on', k === i));
+                bar.style.width = (i / (N - 1) * 100) + '%';
+                if (prevBtn) prevBtn.disabled = (i <= 0);
+                if (nextBtn) nextBtn.disabled = (i >= N - 1);
+                if (statusEl) {
+                    const label = spreads[i] ? spreads[i].getAttribute('aria-label') : '';
+                    statusEl.textContent = label + ' · ' + (i + 1) + ' / ' + N;
+                }
+                navLinks.forEach(a => {
+                    const s = a.dataset.navSpread;
+                    const idx = s === 'last' ? N - 1 : +s;
+                    a.classList.toggle('active', idx === i);
+                });
+            }
+
+            // ---------- Livre : page gauche + page droite pour chaque double page ----------
+            function sheet(spread, side) {
+                const page = spread.children[side === 'l' ? 0 : 1].cloneNode(true);
+                page.classList.add(side === 'l' ? 'pl' : 'pr');
+                const s = el('sheet ' + (side === 'l' ? 'left' : 'right'));
+                if (spread.classList.contains('cover')) s.classList.add('cover');
+                if (page.classList.contains('img')) s.classList.add('im');
+                s.appendChild(page);
+                el('shade', s);
+                return s;
+            }
+            function buildBook() {
+                book = el('book');
+                spreads.forEach((sp, i) => {
+                    Ls[i] = sheet(sp, 'l'); Rs[i] = sheet(sp, 'r');
+                    book.append(Ls[i], Rs[i]);
+                });
+                curl = el('curl', book);
+                document.body.insertBefore(book, mag);
+            }
+            function showSpread(i) {
+                cur = i;
+                for (let j = 0; j < N; j++) {
+                    const on = j === i;
+                    Ls[j].style.display = Rs[j].style.display = on ? '' : 'none';
+                    Ls[j].style.zIndex = Rs[j].style.zIndex = 1;
+                    Ls[j].querySelector('.shade').style.opacity = 0;
+                    Rs[j].querySelector('.shade').style.opacity = 0;
+                }
+                syncUI(i);
+            }
+
+            // ---------- Feuille qui se plie : bandes imbriquées, chacune pivote sur la précédente ----------
+            function slab(src, offset, W) {
+                const c = src.cloneNode(true);
+                c.style.cssText = '';
+                c.querySelector('.shade').style.opacity = 0;
+                const s = el('slab'); s.style.width = W + 'px'; s.style.left = offset + 'px';
+                s.appendChild(c);
+                return s;
+            }
+            function makeCurl(k) {
+                const W = innerWidth / 2, sw = W / S, strips = [];
+                curl.innerHTML = '';
+                let parent = curl;
+                for (let j = 0; j < S; j++) {
+                    const st = el('strip', parent);
+                    st.style.width = (sw + 1) + 'px';
+                    st.style.left = (j === 0 ? W : sw) + 'px';
+                    const fr = el('face fr', st), bk = el('face bk', st);
+                    fr.appendChild(slab(Rs[k], -j * sw, W));
+                    bk.appendChild(slab(Ls[k + 1], -(W - (j + 1) * sw), W));
+                    const fs = el('fshade', fr), bs = el('fshade', bk);
+                    strips.push({ st, fs, bs });
+                    parent = st;
+                }
+                return strips;
+            }
+            function render(strips, k, e) {
+                const th = -180 * e, d = -BEND * Math.sin(2 * Math.PI * e);
+                strips.forEach((o, j) => {
+                    o.st.style.transform = 'rotateY(' + (j === 0 ? th : d).toFixed(2) + 'deg)';
+                    const a = (th + j * d) * Math.PI / 180;
+                    o.fs.style.opacity = (.5 * (1 - Math.cos(a)) * 1.0).toFixed(3);
+                    o.bs.style.opacity = (.5 * (1 + Math.cos(a)) * 1.0).toFixed(3);
+                });
+                Rs[k + 1].querySelector('.shade').style.opacity = ((1 - e) * .55).toFixed(2);
+                Ls[k].querySelector('.shade').style.opacity = (e * .55).toFixed(2);
+                bar.style.width = ((k + e) / (N - 1) * 100) + '%';
+            }
+            function turn(k, from, to, dur) {
+                return new Promise(done => {
+                    for (let j = 0; j < N; j++) { Ls[j].style.display = Rs[j].style.display = 'none'; }
+                    Ls[k].style.display = Rs[k + 1].style.display = '';
+                    const strips = makeCurl(k);
+                    curl.style.display = 'block';
+                    const t0 = performance.now();
+                    (function frame(now) {
+                        const t = clamp((now - t0) / dur, 0, 1);
+                        render(strips, k, from + (to - from) * easeIO(t));
+                        if (t < 1) return requestAnimationFrame(frame);
+                        curl.style.display = 'none'; curl.innerHTML = '';
+                        showSpread(to > from ? k + 1 : k);
+                        done();
+                    })(t0);
+                });
+            }
+            async function run() {
+                if (running) return;
+                running = true;
+                while (cur !== target) {
+                    const dir = Math.sign(target - cur), k = dir > 0 ? cur : cur - 1;
+                    await turn(k, dir > 0 ? 0 : 1, dir > 0 ? 1 : 0, Math.abs(target - cur) > 1 ? 520 : DURATION);
+                }
+                running = false; animEnd = performance.now();
+            }
+
+            const goTo = i => {
+                i = clamp(i === 'last' ? N - 1 : i, 0, N - 1);
+                if (flip) { if (!running) { target = i; run(); } }
+                else spreads[i].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+            };
+
+            spreads.forEach((s, i) => {
+                const b = document.createElement('button');
+                const lbl = s.getAttribute('aria-label');
+                b.title = b.ariaLabel = lbl;
+                b.dataset.label = lbl;
+                b.onclick = () => goTo(i);
+                rail.appendChild(b);
+            });
+
+            if (prevBtn) prevBtn.addEventListener('click', () => goTo(cur - 1));
+            if (nextBtn) nextBtn.addEventListener('click', () => goTo(cur + 1));
+
+            // ---------- Mode simple (mobile / mouvement réduit) ----------
+            const io = new IntersectionObserver(es => es.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('active');
+            }), { threshold: .25 });
+            spreads.forEach(s => io.observe(s));
+
+            function update() {
+                tick = false;
+                if (flip) return;
+                const max = root.scrollHeight - innerHeight;
+                bar.style.width = (max > 0 ? scrollY / max * 100 : 0) + '%';
+                const mid = innerHeight / 2;
+                let c = 0;
+                spreads.forEach((s, i) => {
+                    const r = s.getBoundingClientRect();
+                    if (r.top <= mid && r.bottom > mid) c = i;
+                });
+                cur = c;
+                syncUI(c);
+            }
+
+            function setMode() {
+                const want = innerWidth > 800 && !reduce;
+                if (want && !book) buildBook();
+                flip = want;
+                root.classList.toggle('flipmode', flip);
+                if (book) book.style.display = flip ? '' : 'none';
+                if (flip) { imgs.forEach(i => { i.style.transform = ''; }); scrollTo(0, 0); showSpread(cur); }
+                update();
+            }
+
+            addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(update); } }, { passive: true });
+            addEventListener('resize', () => { if (!running) setMode(); });
+
+            // ---------- Une impulsion de scroll = une page tournée ----------
+            addEventListener('wheel', e => {
+                if (!flip) return;
+                e.preventDefault();
+                const now = performance.now(), quiet = now - lastWheel;
+                lastWheel = now;
+                const dy = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+                if (running || Math.abs(dy) < 4) return;
+                if (now - animEnd < 700 && quiet < 140) return;      // ignore l'inertie du trackpad
+                goTo(cur + (dy > 0 ? 1 : -1));
+            }, { passive: false });
+
+            let ty = 0;
+            addEventListener('touchstart', e => { ty = e.touches[0].clientY; }, { passive: true });
+            addEventListener('touchend', e => {
+                if (!flip || running) return;
+                const dy = ty - e.changedTouches[0].clientY;
+                if (Math.abs(dy) > 50) goTo(cur + (dy > 0 ? 1 : -1));
+            }, { passive: true });
+
+            addEventListener('keydown', e => {
+                if (!flip) return;
+                if (['PageDown', ' ', 'ArrowDown', 'ArrowRight'].includes(e.key)) { e.preventDefault(); goTo(cur + 1); }
+                if (['PageUp', 'ArrowUp', 'ArrowLeft'].includes(e.key)) { e.preventDefault(); goTo(cur - 1); }
+                if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+                if (e.key === 'End') { e.preventDefault(); goTo('last'); }
+            });
+
+            // Délégation : sommaire et liens internes (aussi dans les pages clonées)
+            document.addEventListener('click', e => {
+                const a = e.target.closest('[data-go]');
+                if (!a) return;
+                e.preventDefault();
+                const v = a.dataset.go;
+                goTo(v === 'last' ? 'last' : +v);
+            });
+
+            // Accès direct via #sommaire ou #contact dans l'URL
+            if (location.hash === '#sommaire') cur = target = 2;
+            else if (location.hash === '#contact') cur = target = N - 1;
+
+            setMode();
+        })();
+    </script>
 </body>
 
 </html>
