@@ -4,98 +4,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet - Tour de France</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Tour de France — Baptiste Laffond</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,800;0,900;1,500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="magazine.css">
 </head>
 
 <body>
-
-    <header>
-        <div class="container header-content">
-            <a href="index.html" class="logo">Portfolio.</a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html#hero">Accueil</a></li>
-                    <li><a href="projets.html">Projets</a></li>
-                    <li><a href="cv.html">CV</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
+    <div class="progress"></div>
+    <header class="topbar">
+        <a href="index.html" class="brand">B. Laffond</a>
+        <nav><a href="index.html">Magazine</a><a href="projets.html">Projets</a><a href="cv.html">CV</a><a href="#contact">Contact</a></nav>
     </header>
 
     <main>
-        <section class="video-hero">
-            <div class="video-hero-content">
-                <h1>Tour de France</h1>
-                <p>Création graphique &amp; présentation d'équipes cyclistes</p>
-            </div>
+        <section class="hero">
             <img src="herotdf.jpg" alt="Visuel du projet Tour de France">
+            <div class="wrap">
+                <span class="kicker">Création graphique · Projet personnel</span>
+                <h1>Tour de<br>France.</h1>
+                <p class="lead">Création graphique et présentation d'équipes cyclistes, sous forme de cartes à collectionner.</p>
+            </div>
         </section>
-        <section class="project-details">
-            <div class="container">
-                <div class="project-intro">
-                    <h2>Le projet</h2>
-                    <p>
-                        Comme chaque été depuis maintenant plusieurs années, je regarde le Tour de France à la télévision et, quand je peux, je vais sur le tracé du Tour.<br> Pendant mon temps libre à vrai dire entre les entraînements et les compétitions
-                        de tir à l'arc, le travail et les sorties à vélo, je ne savais pas vraiment comment m'occuper pendant ces vacances. J'ai donc essayé de refaire quelques cartes de coureurs en m'inspirant de ce que fait Panini, mais à ma façon.
-                        Les cartes sont inspirées des maillots officiels des équipes.
-                        <br>Pour les concevoir, j 'ai utilisé des images du site officiel du Tour de France comme base visuelle, ainsi qu'Adobe Illustrator et Adobe Photoshop pour la création.
-                    </p>
-                </div>
 
-                <div class="project-gallery tour-gallery">
-                    <img src="carte Prodohomme.png" alt="Carte de présentation du Tour de France">
-                    <img src="carte sexas.png" alt="Carte de présentation des coureurs du Tour de France">
-                    <img src="Carte DEL TORO.png" alt="Carte du coureur Del Toro">
-                    <img src="Carte pogi.png" alt="Carte du coureur Pogacar">
-                    <img src="GROSSSCHARTNER.png" alt="Carte du coureur Grossschartner">
-                    <img src="mcnulty.png" alt="Carte du coureur McNulty">
-                    <img src="POLITT.png" alt="Carte du coureur Politt">
-                    <img src="Vermeersch.png" alt="Carte du coureur Vermeersch">
-                    <img src="Wellens.png" alt="Carte du coureur Wellens">
-                    <img src="Yates.png" alt="Carte du coureur Yates">
-                    <img src="Affini.png" alt="Carte du coureur Affini">
-                    <img src="amirail.png" alt="Carte du coureur Amirail">
-                    <img src="Campenaerts.png" alt="Carte du coureur Campenaerts">
-                    <img src="carte vingegaard.png" alt="Carte du coureur Vingegaard">
-                    <img src="hagenes.png" alt="Carte du coureur Hagenes">
-                    <img src="Jorgenson.png" alt="Carte du coureur Jorgenson">
-                    <img src="Kuss.png" alt="Carte du coureur Kuss">
-                    <img src="Piganzoli.png" alt="Carte du coureur Piganzoli">
+        <section class="m">
+            <div class="narrow">
+                <span class="kicker rv">Le projet</span>
+                <h2 class="rv">Une passion, des cartes.</h2>
+                <div class="rv">
+                    <p class="txt drop">Comme chaque été depuis maintenant plusieurs années, je regarde le Tour de France à la télévision et, quand je peux, je vais sur le tracé du Tour.</p>
+                    <p class="txt">Pendant mon temps libre, entre les entraînements et les compétitions de tir à l'arc, le travail et les sorties à vélo, je ne savais pas vraiment comment m'occuper pendant ces vacances. J'ai donc essayé de refaire quelques cartes de coureurs en m'inspirant de ce que fait Panini, mais à ma façon. Les cartes sont inspirées des maillots officiels des équipes.</p>
+                    <p class="txt">Pour les concevoir, j'ai utilisé des images du site officiel du Tour de France comme base visuelle, ainsi qu'Adobe Illustrator et Adobe Photoshop pour la création.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="m dark">
+            <div class="wrap">
+                <span class="kicker rv">La collection · 18 cartes</span>
+                <h2 class="rv">Les coureurs du peloton.</h2>
+                <div class="gallery cards rv" aria-label="Cartes de coureurs">
+                    <img src="carte Prodohomme.png" alt="Carte du coureur Prodhomme" loading="lazy">
+                    <img src="carte sexas.png" alt="Carte du coureur Sexas" loading="lazy">
+                    <img src="Carte DEL TORO.png" alt="Carte du coureur Del Toro" loading="lazy">
+                    <img src="Carte pogi.png" alt="Carte du coureur Pogacar" loading="lazy">
+                    <img src="GROSSSCHARTNER.png" alt="Carte du coureur Grossschartner" loading="lazy">
+                    <img src="mcnulty.png" alt="Carte du coureur McNulty" loading="lazy">
+                    <img src="POLITT.png" alt="Carte du coureur Politt" loading="lazy">
+                    <img src="Vermeersch.png" alt="Carte du coureur Vermeersch" loading="lazy">
+                    <img src="Wellens.png" alt="Carte du coureur Wellens" loading="lazy">
+                    <img src="Yates.png" alt="Carte du coureur Yates" loading="lazy">
+                    <img src="Affini.png" alt="Carte du coureur Affini" loading="lazy">
+                    <img src="amirail.png" alt="Carte du coureur Amirail" loading="lazy">
+                    <img src="Campenaerts.png" alt="Carte du coureur Campenaerts" loading="lazy">
+                    <img src="carte vingegaard.png" alt="Carte du coureur Vingegaard" loading="lazy">
+                    <img src="hagenes.png" alt="Carte du coureur Hagenes" loading="lazy">
+                    <img src="Jorgenson.png" alt="Carte du coureur Jorgenson" loading="lazy">
+                    <img src="Kuss.png" alt="Carte du coureur Kuss" loading="lazy">
+                    <img src="Piganzoli.png" alt="Carte du coureur Piganzoli" loading="lazy">
                 </div>
             </div>
         </section>
     </main>
 
-    <footer id="contact">
-        <div class="container">
-            <ul class="footer-links">
-                <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+    <footer class="foot" id="contact">
+        <div class="wrap">
+            <span class="kicker">Projet suivant</span>
+            <a class="big" href="rallye-cardabelles.html">Rallye des Cardabelles →</a>
+            <ul>
+                <li><a href="projets.html">Tous les projets</a></li>
                 <li><a href="mailto:laffondbaptiste47@gmail.com">Email</a></li>
+                <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             </ul>
-            <p>&copy; 2026 Portfolio.</p>
+            <small>&copy; 2026 Baptiste Laffond</small>
         </div>
     </footer>
-
-    <script>
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-        if (menuToggle) {
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
-
+    <script src="magazine.js"></script>
 </body>
 
 </html>

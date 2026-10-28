@@ -916,6 +916,20 @@ footer {
     margin: 0 auto;
 }
 
+.zigzag-video {
+    width: 100%;
+}
+
+.zigzag-video iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+}
+
+.zigzag-video .cta-button {
+    margin: 1rem 0 0;
+}
+
 .zigzag-image:hover img {
     filter: grayscale(0%);
 }

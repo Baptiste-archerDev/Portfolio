@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Union Cycliste du Puy-en-Velay (UCPV) — Campagne plurimédia et RSE « Le vrai record » : identité visuelle, affiches, réseaux sociaux et spot vidéo 30s.">
+    <title>UCPV « Le vrai record » — Baptiste Laffond</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,800;0,900;1,500&family=Inter:wght@400;500;600;700;800&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="magazine.css">
+    <style>
+        /* Styles spécifiques UCPV */
+        :root {
+            --ucpv-forest: #083823;
+            --ucpv-mint: #5CE68B;
+            --ucpv-racing: #12A856;
+            --ucpv-carbon: #0B1D14;
+        }
+
+        .ucpv-hero {
+            background-color: var(--ucpv-forest);
+        }
+
+        .ucpv-hero::after {
+            background: linear-gradient(0deg, rgba(8, 56, 35, 0.95) 0%, rgba(8, 56, 35, 0.4) 60%, rgba(8, 56, 35, 0.75) 100%);
+        }
+
+        .ucpv-tag-duo {
+            display: inline-flex;
+            align-items: center;
+            transform: rotate(1.5deg);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .ucpv-tag-mint {
+            background: var(--ucpv-mint);
+            color: var(--ucpv-forest);
+            padding: 6px 14px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .ucpv-tag-white {
+            background: #ffffff;
+            color: var(--ucpv-forest);
+            padding: 6px 14px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .ucpv-hl {
+            background: var(--ucpv-mint);
+            color: var(--ucpv-forest);
+            padding: 0 8px;
+            display: inline-block;
+            transform: rotate(-1.4deg);
+            font-weight: 800;
+        }
+
+        .ucpv-signature {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+            color: var(--ucpv-mint);
+            margin-top: 1rem;
+            line-height: 1.25;
+        }
+
+        .section-forest {
+            background: var(--ucpv-forest);
+            color: #F4EFE6;
+        }
+
+        .section-forest .kicker {
+            color: var(--ucpv-mint);
+        }
+
+        .section-forest h2, .section-forest h3 {
+            color: #FFFFFF;
+        }
+
+        .section-forest p.txt {
+            color: #E2ECE5;
+        }
+
+        .ucpv-acts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .ucpv-act-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(92, 230, 139, 0.25);
+            border-top: 4px solid var(--ucpv-mint);
+            padding: 1.5rem;
+        }
+
+        .ucpv-act-time {
+            color: var(--ucpv-mint);
+            font-size: 0.75rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .ucpv-act-title {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        .ucpv-act-desc {
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: #D6E4DB;
+        }
+
+        .affiches-duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .affiche-item img {
+            width: 100%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease;
+        }
+
+        .affiche-item:hover img {
+            transform: scale(1.02);
+        }
+
+        .video-wrapper {
+            position: relative;
+            background: #000;
+            border: 2px solid var(--ucpv-mint);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            display: block;
+            max-height: 80vh;
+        }
+
+        /* Carrousel Instagram côte-à-côte */
+        .carousel-intro {
+            margin-bottom: 1.25rem;
+        }
+
+        .carousel-row {
+            columns: unset !important;
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 1.5rem !important;
+            margin: 1.75rem 0 3rem !important;
+        }
+
+        .carousel-row figure {
+            margin: 0 !important;
+            display: flex;
+            flex-direction: column;
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(8, 56, 35, 0.08);
+            transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+            overflow: hidden;
+            break-inside: avoid;
+        }
+
+        .carousel-row figure:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(8, 56, 35, 0.16);
+        }
+
+        .carousel-row figure img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid var(--border);
+            cursor: zoom-in;
+            transition: transform .6s ease, filter .4s;
+        }
+
+        .carousel-row figure:hover img {
+            transform: scale(1.02);
+        }
+
+        .carousel-row figcaption {
+            padding: 1.15rem 1.25rem 1.35rem;
+            background: #FAFAF8;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .carousel-step-badge {
+            display: inline-flex;
+            align-items: center;
+            align-self: flex-start;
+            gap: 0.4rem;
+            background: var(--ucpv-forest);
+            color: var(--ucpv-mint);
+            font-family: var(--cond);
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.65rem;
+            border-radius: 2px;
+        }
+
+        .carousel-step-title {
+            font-family: var(--serif);
+            font-size: 1.25rem;
+            color: var(--ucpv-forest);
+            margin: 0.2rem 0 0.1rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .carousel-step-desc {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: var(--txt);
+            margin: 0;
+        }
+
+        .posts-subhead {
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px dashed var(--border);
+        }
+
+        @media (max-width: 850px) {
+            .ucpv-acts, .affiches-duo, .carousel-row {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress"></div>
+    <header class="topbar">
+        <a href="index.html" class="brand">B. Laffond</a>
+        <nav>
+            <a href="index.html">Magazine</a>
+            <a href="projets.html">Projets</a>
+            <a href="cv.html">CV</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO COUVERTURE -->
+        <section class="hero ucpv-hero visuel-hero">
+            <img src="ucpv-affiche-web.png" alt="Affiche de la campagne UCPV Le vrai record">
+            <div class="wrap">
+                <div class="ucpv-tag-duo rv">
+                    <span class="ucpv-tag-mint">École de vélo</span>
+                    <span class="ucpv-tag-white">UCPV Le Puy-en-Velay</span>
+                </div>
+                <span class="kicker">SAÉ 302 · BUT MMI 2 · Communication plurimédia &amp; RSE</span>
+                <h1>Union Cycliste<br>du Puy-en-Velay.</h1>
+                <p class="ucpv-signature rv">« Le plus beau des records, c'est de progresser. »</p>
+                <p class="lead" style="max-width:44ch">
+                    Campagne 360° pour le club cycliste ponot : refonte de l'identité visuelle, affiches print &amp; web, stratégie réseaux sociaux multicanale, relations presse et spot vidéo de 30 secondes.
+                </p>
+                <div style="margin-top:2rem" class="rv">
+                    <a class="btn solid" href="#video">Voir le film 30s ↓</a>
+                    <a class="btn" href="#identite">Identité &amp; Logos</a>
+                    <a class="btn" href="#affiches">Affiches A4</a>
+                </div>
+                <span class="scroll-hint">Faites défiler pour lire l'étude de cas ↓</span>
+            </div>
+        </section>
+
+        <!-- BANDEAU FAITS & CHIFFRES CLÉS -->
+        <section class="m">
+            <div class="wrap">
+                <dl class="facts rv">
+                    <div>
+                        <dt>Commanditaire</dt>
+                        <dd>UCPV (Fondé en 2004, FFC / FSGT / UFOLEP)</dd>
+                    </div>
+                    <div>
+                        <dt>Cadre universitaire</dt>
+                        <dd>SAÉ 302 · BUT MMI 2 (IUT Clermont Auvergne)</dd>
+                    </div>
+                    <div>
+                        <dt>Mon rôle</dt>
+                        <dd>Chef créatif &amp; DA, Affiches, Identité, Storyboard, RS</dd>
+                    </div>
+                    <div>
+                        <dt>Concept &amp; Signature</dt>
+                        <dd>« Le vrai record : le plus beau des records, c'est de progresser »</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- 01 · CONTEXTE & POSITIONNEMENT RSE -->
+        <section class="m alt">
+            <div class="wrap">
+                <div class="row">
+                    <div class="rv">
+                        <span class="num">01</span>
+                        <span class="kicker">Stratégie &amp; Diagnostic RSE</span>
+                        <h2>Prendre le contre-pied du culte du chrono.</h2>
+                        <p class="txt drop">
+                            Dans le cadre de la SAÉ 302 « Produire des contenus pour une communication plurimédia », notre mission consistait à concevoir une stratégie globale et l'ensemble des contenus associés au profit d'une organisation sportive locale engagée dans une démarche de Responsabilité Sociétale (RSE).
+                        </p>
+                        <p class="txt">
+                            Alors que la communication historique de l'Union Cycliste du Puy-en-Velay était quasi exclusivement focalisée sur les courses du week-end et les podiums des coureurs seniors, notre analyse terrain nous a poussés vers une rupture franche : <strong>mettre en lumière l'école de vélo</strong>, qui accueille des jeunes dès 4 ans, la section paracyclisme / handisport, et les dispositifs d'accès pour tous comme le prêt gratuit de vélos et la bourse annuelle.
+                        </p>
+                        <p class="txt">
+                            L'idée du concept <em>« Le vrai record »</em> est née lors d'un entraînement sur la piste : un enfant hésitait devant un obstacle de terre ; après quelques mots et l'accompagnement patient de son éducateur bénévole, il l'a franchi dans un immense sourire. C'est cela, la vraie victoire.
+                        </p>
+                    </div>
+                    <div class="rv">
+                        <p class="pull" style="margin-bottom:2rem">
+                            À l'UCPV, chaque essai compte et chacun progresse à son rythme.
+                        </p>
+                        <div class="note">
+                            <strong>La promesse de campagne :</strong><br>
+                            Redéfinir le concept de réussite sportive en valorisant le dépassement de la peur, l'entraide intergénérationnelle et l'apprentissage bienveillant plutôt que la seule pression du chronomètre.
+                        </div>
+                        <ul class="checklist" style="margin-top:1.5rem">
+                            <li><strong>Inclusion sociale :</strong> prêt de vélos pour lever la barrière financière de l'équipement.</li>
+                            <li><strong>Section Paracyclisme :</strong> accueil des sportifs en situation de handicap.</li>
+                            <li><strong>Éducateurs bénévoles :</strong> reconnaissance de l'engagement humain quotidien.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02 · IDENTITÉ VISUELLE & LOGOS -->
+        <section class="m" id="identite">
+            <div class="wrap">
+                <span class="num rv">02</span>
+                <span class="kicker rv">Identité visuelle &amp; Logos</span>
+                <h2 class="rv">La charte graphique et les 27 déclinaisons du logo.</h2>
+                <p class="txt rv" style="max-width:70ch">
+                    Pour harmoniser tous nos supports (affiches A4, publications Instagram et habillage vidéo), j'ai conçu une charte graphique complète autour du vert historique du club et des paysages de Haute-Loire.
+                </p>
+
+                <!-- NUANCIER -->
+                <div class="swatches rv" style="margin:2.5rem 0">
+                    <div class="swatch" style="background:#083823;color:#fff">
+                        <i style="background:#083823"></i>
+                        <b>Vert Forêt</b>
+                        <span>#083823 · Dominante institutionnelle &gt;70%</span>
+                    </div>
+                    <div class="swatch" style="background:#5CE68B;color:#083823">
+                        <i style="background:#5CE68B"></i>
+                        <b>Vert Menthe</b>
+                        <span>#5CE68B · Accent électrique &amp; rupture</span>
+                    </div>
+                    <div class="swatch" style="background:#12A856;color:#fff">
+                        <i style="background:#12A856"></i>
+                        <b>Vert Racing</b>
+                        <span>#12A856 · Teinte historique club &amp; vélo</span>
+                    </div>
+                    <div class="swatch" style="background:#0B1D14;color:#fff">
+                        <i style="background:#0B1D14"></i>
+                        <b>Noir Carbone</b>
+                        <span>#0B1D14 · Contrastes profonds</span>
+                    </div>
+                    <div class="swatch" style="background:#FFFFFF;color:#083823">
+                        <i style="background:#FFFFFF;border-bottom:1px solid #ddd"></i>
+                        <b>Blanc Pur</b>
+                        <span>#FFFFFF · Lisibilité typographique maximale</span>
+                    </div>
+                </div>
+
+                <div class="cols rv" style="margin-bottom:3rem">
+                    <p>
+                        <strong>Choix typographiques assumés :</strong><br>
+                        Pour sortir des poncifs visuels et donner une voix singulière au club, j'ai sélectionné le diptyque typographique : <strong>Barlow Condensed Bold</strong> pour les titres percutants, massifs et sportifs, et <strong>Inter Regular</strong> pour le confort de lecture des textes d'accompagnement.
+                    </p>
+                    <p>
+                        <strong>Signature géométrique :</strong><br>
+                        J'ai introduit le <em>double tag d'en-tête incliné à +1,5°</em> (cartouche menthe « École de vélo » superposé au cartouche blanc « UCPV Le Puy-en-Velay ») ainsi qu'un <em>surlignage menthe incliné à -1,4°</em> sur les mots-clés du slogan, matérialisant visuellement la pente et la trajectoire ascendante de l'apprentissage.
+                    </p>
+                </div>
+
+                <!-- PLANCHE LOGOS -->
+                <figure class="media rv" style="margin-bottom:3rem">
+                    <img src="ucpv-planche-logos.png" alt="Planche récapitulative des logos de l'UCPV" loading="lazy">
+                    <figcaption>Planche récapitulative officielle : 27 déclinaisons HD (verticales, horizontales, cartouches, symboles, fonds sombres et clairs).</figcaption>
+                </figure>
+
+                <!-- PLANCHE IDENTITÉ A3 -->
+                <figure class="media rv">
+                    <img src="ucpv-planche-identite.png" alt="Planche d'identité visuelle A3 UCPV" loading="lazy">
+                    <figcaption>Planche d'identité visuelle A3 officielle : règles de composition, zones d'exclusion et repères de marque.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- 03 · AFFICHES PRINT & WEB -->
+        <section class="m alt" id="affiches">
+            <div class="wrap">
+                <div class="rv">
+                    <span class="num">03</span>
+                    <span class="kicker">Campagne d'affichage A4</span>
+                    <h2>Deux déclinaisons pensées pour le terrain et les écrans.</h2>
+                    <p class="txt">
+                        Pour concevoir les affiches A4, j'ai fait le choix délibéré d'un design épuré, structuré et authentique, à l'opposé des visuels surchargés. La composition repose sur une séparation nette en deux moitiés :
+                    </p>
+                    <ul class="checklist" style="margin:1.5rem 0 2.5rem">
+                        <li><strong>Moitié supérieure :</strong> Photographie de terrain plein format sans artifice. Pour l'affiche Print, un entraîneur accroupi auprès d'un enfant pour valoriser l'accompagnement humain ; pour l'affiche Web, un jeune cycliste roulant vers l'avant avec un franc sourire.</li>
+                        <li><strong>Moitié inférieure :</strong> Aplat solide Vert Forêt (#083823) garantissant une lisibilité maximale au slogan et aux informations pratiques.</li>
+                        <li><strong>Conversion immédiate :</strong> Intégration d'une carte blanche inclinée accueillant un QR code vectoriel net vers le site officiel <code>unioncyclistelepuy.com</code> pour simplifier les prises de contact des familles.</li>
+                    </ul>
+                </div>
+
+                <div class="affiches-duo rv">
+                    <div class="affiche-item">
+                        <img src="ucpv-affiche-print.png" alt="Affiche A4 Print UCPV Le vrai record" loading="lazy">
+                        <figcaption>Affiche A4 Print — Focus sur la relation entraîneur / élève et la transmission.</figcaption>
+                    </div>
+                    <div class="affiche-item">
+                        <img src="ucpv-affiche-web.png" alt="Affiche A4 Web UCPV Le vrai record" loading="lazy">
+                        <figcaption>Affiche A4 Web — Focus sur l'élan, la joie de rouler et l'autonomie des jeunes.</figcaption>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 · RÉSEAUX SOCIAUX MULTICANAUX -->
+        <section class="m">
+            <div class="wrap">
+                <span class="num rv">04</span>
+                <span class="kicker rv">Réseaux sociaux</span>
+                <h2 class="rv">Déclinaisons pour Instagram, Facebook et LinkedIn.</h2>
+                <p class="txt rv" style="max-width:70ch">
+                    Sous Adobe Illustrator, j'ai préparé une série de publications (format 1080×1350 px) adaptées aux différents publics du club : jeunes, parents, bénévoles et partenaires locaux.
+                </p>
+
+                <!-- TRIPTYQUE CARROUSEL INSTAGRAM (CÔTE À CÔTE) -->
+                <div class="carousel-intro rv" style="margin-top:2.5rem">
+                    <span class="kicker" style="color:var(--ucpv-forest); font-weight:700">Carrousel Instagram · 3 slides</span>
+                    <h3 style="font-family:var(--serif); font-size:1.6rem; margin:0.3rem 0 0.6rem">Le carrousel : Découvrir, Apprendre, Progresser</h3>
+                    <p class="txt" style="margin:0; font-size:0.95rem">
+                        Ces 3 visuels se suivent de gauche à droite pour expliquer concrètement le déroulement des séances à l'école de vélo :
+                    </p>
+                </div>
+
+                <div class="gallery carousel-row rv" aria-label="Carrousel Instagram UCPV (3 volets séquentiels)">
+                    <figure>
+                        <img src="ucpv-insta-p1.png" alt="Carrousel Instagram Volet 1 Découvrir" loading="lazy">
+                        <figcaption>
+                            <span class="carousel-step-badge">Slide 1 / 3 · Instagram</span>
+                            <div class="carousel-step-title">01. Découvrir</div>
+                            <p class="carousel-step-desc"><strong>Exercices pour prendre ses repères :</strong> familiarisation bienveillante avec le vélo, apprentissage de l'équilibre et premières sensations sans pression.</p>
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <img src="ucpv-insta-p2.png" alt="Carrousel Instagram Volet 2 Apprendre" loading="lazy">
+                        <figcaption>
+                            <span class="carousel-step-badge">Slide 2 / 3 · Instagram</span>
+                            <div class="carousel-step-title">02. Apprendre</div>
+                            <p class="carousel-step-desc"><strong>Conseils pour maîtriser les gestes :</strong> motricité, pilotage, anticipation des trajectoires et consignes de sécurité transmises par les éducateurs.</p>
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <img src="ucpv-insta-p3.png" alt="Carrousel Instagram Volet 3 Progresser" loading="lazy">
+                        <figcaption>
+                            <span class="carousel-step-badge">Slide 3 / 3 · Instagram</span>
+                            <div class="carousel-step-title">03. Progresser</div>
+                            <p class="carousel-step-desc"><strong>Grandir à son rythme :</strong> prise d'autonomie, dépassement personnel sans mise sous pression et émulation collective au sein du peloton.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <!-- AUTRES PUBLICATIONS COMPLÉMENTAIRES -->
+                <div class="posts-subhead rv">
+                    <span class="kicker" style="color:var(--ucpv-forest); font-weight:700">Publications ciblées</span>
+                    <h3 style="font-family:var(--serif); font-size:1.45rem; margin:0.3rem 0 0.8rem">Gabarits individuels : Post Manifeste, Facebook &amp; LinkedIn</h3>
+                </div>
+
+                <div class="gallery cards rv" style="margin-top:1.5rem" aria-label="Autres publications réseaux sociaux UCPV">
+                    <figure>
+                        <img src="ucpv-insta-record.png" alt="Post Instagram Manifeste Le Vrai Record" loading="lazy">
+                        <figcaption><strong>Instagram Manifeste :</strong> Lancement officiel de la campagne « Le vrai record ».</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="ucpv-fb-ecole.png" alt="Post Facebook École de vélo" loading="lazy">
+                        <figcaption><strong>Facebook 1 :</strong> Présentation conviviale des entraînements pour rassurer les familles.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="ucpv-fb-materiel.png" alt="Post Facebook Prêt de matériel" loading="lazy">
+                        <figcaption><strong>Facebook 2 :</strong> Information sur le service solidaire de prêt de matériel du club.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="ucpv-linkedin-accompagner.png" alt="Post LinkedIn Accompagner et transmettre" loading="lazy">
+                        <figcaption><strong>LinkedIn 1 :</strong> Valorisation des bénévoles et de l'encadrement éducatif.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="ucpv-linkedin-projet.png" alt="Post LinkedIn Projet associatif à partager" loading="lazy">
+                        <figcaption><strong>LinkedIn 2 :</strong> Appel aux partenaires économiques locaux et mécènes RSE.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 · RELATIONS PRESSE & COMMUNIQUÉ -->
+        <section class="m alt">
+            <div class="wrap">
+                <div class="row">
+                    <div class="rv">
+                        <span class="num">05</span>
+                        <span class="kicker">Relations Médias &amp; Édition</span>
+                        <h2>Un communiqué de presse aux normes journalistiques.</h2>
+                        <p class="txt drop">
+                            Conçu sous Adobe InDesign, ce communiqué de presse officiel est destiné aux rédactions de la presse locale (L'Éveil de la Haute-Loire, La Tribune Le Progrès, La Commère 43, radios locales).
+                        </p>
+                        <p class="txt">
+                            Il synthétise le positionnement sociétal du club, détaille les créneaux d'entraînement de l'école de vélo, explicite la démarche de prêt d'équipement et met à disposition des journalistes les contacts presse et les visuels HD libres de droits.
+                        </p>
+                        <div class="note" style="margin-top:1.5rem">
+                            <strong>Format :</strong> Gabarit A4 InDesign vectoriel avec grille modulaire, lettrine éditoriale et encadrés d'information pour faciliter la reprise d'extraits par les rédacteurs.
+                        </div>
+                    </div>
+                    <figure class="media rv">
+                        <img src="ucpv-communique-presse.png" alt="Communiqué de presse officiel UCPV" loading="lazy">
+                        <figcaption>Aperçu du gabarit de communiqué de presse InDesign officiel.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 · SPOT VIDÉO 30S & STORYBOARD -->
+        <section class="m section-forest" id="video">
+            <div class="wrap">
+                <span class="num rv" style="color:var(--ucpv-mint)">06</span>
+                <span class="kicker rv">Production Audiovisuelle &amp; Motion</span>
+                <h2 class="rv">Le film de 30 secondes : de l'illusion du défi à la bienveillance.</h2>
+                <p class="txt rv" style="max-width:70ch">
+                    La réalisation du spot vidéo de 30 secondes a constitué le défi technique et narratif le plus exigeant de la SAÉ. Nous avons conçu un scénario en 3 temps forts qui joue avec les attentes du spectateur :
+                </p>
+
+                <div class="ucpv-acts rv">
+                    <div class="ucpv-act-card">
+                        <span class="ucpv-act-time">Acte 1 · 00:00 à 00:10</span>
+                        <h3 class="ucpv-act-title">L'illusion du défi</h3>
+                        <p class="ucpv-act-desc">
+                            Très gros plans serrés et nerveux : jugulaire du casque qui claque, gants agrippés au cintre, regard fixe et concentré, cale de pédale enclenchée. Le spectateur s'attend au départ d'une grande compétition internationale.
+                        </p>
+                    </div>
+                    <div class="ucpv-act-card">
+                        <span class="ucpv-act-time">Acte 2 · 00:10 à 00:18</span>
+                        <h3 class="ucpv-act-title">La rupture &amp; l'écoute</h3>
+                        <p class="ucpv-act-desc">
+                            À 10 secondes pile, un plan large brise l'illusion : pas de ligne d'arrivée ni de foule, c'est un jeune de l'école de vélo hésitant devant un petit talus. L'éducateur bénévole s'approche à sa hauteur avec bienveillance pour lui donner le bon conseil.
+                        </p>
+                    </div>
+                    <div class="ucpv-act-card">
+                        <span class="ucpv-act-time">Acte 3 · 00:18 à 00:30</span>
+                        <h3 class="ucpv-act-title">La victoire intérieure</h3>
+                        <p class="ucpv-act-desc">
+                            Fort de ce conseil, l'enfant s'élance et franchit l'obstacle avec aisance. Il tape dans la main de son entraîneur avec un immense sourire. Écran titre : « Le plus beau des records, c'est de progresser » et signature UCPV.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- LECTEUR VIDÉO -->
+                <div class="video-wrapper rv" style="margin:2.5rem 0">
+                    <video controls preload="metadata" poster="ucpv-affiche-web.png">
+                        <source src="ucpv-video.mov" type="video/mp4">
+                        <source src="ucpv-video.mov" type="video/quicktime">
+                        Votre navigateur ne prend pas en charge la lecture directe de cette vidéo. Vous pouvez la télécharger ci-dessous.
+                    </video>
+                </div>
+                <p style="text-align:center;font-size:0.85rem;color:#b9d8c4" class="rv">
+                    Spot publicitaire officiel 30s UCPV · Réalisation, tournage sur piste &amp; sound design.
+                </p>
+
+                <!-- PRISE DE RECUL & USAGE DE L'IA DANS LE STORYBOARD -->
+                <div class="rv" style="background:rgba(0,0,0,0.3);border-left:4px solid var(--ucpv-mint);padding:1.8rem;margin-top:3rem">
+                    <h3 style="color:var(--ucpv-mint);font-size:1.25rem;margin-bottom:0.8rem">Focus méthodologique : Le Storyboard et l'usage assumé de l'IA en renfort</h3>
+                    <p class="txt" style="margin-bottom:1rem">
+                        Lors de la phase de post-production et face à des contraintes de calendrier très serrées (remaniement de scènes à la suite des aléas du tournage sur piste, disparité des compétences techniques au sein du groupe), j'ai assumé l'utilisation d'outils d'intelligence artificielle comme <strong>accélérateur de productivité</strong> :
+                    </p>
+                    <p class="txt" style="margin-bottom:0">
+                        À partir du découpage plan par plan, des indications de cadrage et de mes croquis papier initiaux, j'ai mobilisé l'IA pour harmoniser le rendu graphique des cases et finaliser la mise en page du storyboard dans les délais impartis. Cela m'a permis de dégager le temps nécessaire pour parfaire l'identité visuelle et les affiches, tout en garantissant que l'intention, la direction artistique et le contrôle qualité restent 100% humains.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07 · BILAN & COMPÉTENCES MOBILISÉES -->
+        <section class="m">
+            <div class="wrap">
+                <span class="num rv">07</span>
+                <span class="kicker rv">Bilan du projet</span>
+                <h2 class="rv">Ce que ce projet m'a apporté.</h2>
+                <div class="cols rv" style="margin-bottom:2.5rem">
+                    <p class="drop">
+                        Cette SAÉ 302 a constitué une étape décisive dans mon parcours au sein du BUT MMI. Elle m'a permis de mettre en synergie les compétences accumulées depuis le début de ma formation : <strong>Comprendre</strong> (transformer un audit en opportunité sociétale), <strong>Concevoir</strong> (bâtir un concept fort et transversal), <strong>Exprimer</strong> (déployer une DA cohérente sur tous les canaux) et <strong>Entreprendre</strong> (piloter un projet créatif sous contrainte de temps).
+                    </p>
+                    <p>
+                        Assumer le rôle de chef de file créatif auprès de coéquipiers aux profils hétérogènes a été riche d'enseignements managériaux. Nous avons veillé à intégrer chacun selon ses forces (collecte de données, logistique du tournage, préparation de la soutenance) tout en maintenant un niveau d'exigence graphique élevé. Ce projet confirme ma passion pour la direction artistique plurimédia.
+                    </p>
+                </div>
+
+                <div class="stats rv" style="margin-top:3rem">
+                    <div>
+                        <strong>27</strong>
+                        <span>Déclinaisons de logos vectoriels produites</span>
+                    </div>
+                    <div>
+                        <strong>8</strong>
+                        <span>Supports réseaux sociaux créés (Insta / FB / LinkedIn)</span>
+                    </div>
+                    <div>
+                        <strong>30s</strong>
+                        <span>Film publicitaire narratif &amp; engagé</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIED DE PAGE -->
+    <footer class="foot" id="contact">
+        <div class="wrap">
+            <span class="kicker">Projet suivant</span>
+            <a class="big" href="FlechOptim.html">FlèchOptim →</a>
+            <ul>
+                <li><a href="index.html">Feuilleter le magazine</a></li>
+                <li><a href="projets.html">Tous les projets</a></li>
+                <li><a href="lacoste_project.html">Campagne Lacoste</a></li>
+                <li><a href="mag-interface.html">Magazine Interface</a></li>
+                <li><a href="archers-du-velay.html">Archers du Velay</a></li>
+                <li><a href="motion-storyboard.html">Motion &amp; Storyboard</a></li>
+                <li><a href="cv.html">Mon CV</a></li>
+                <li><a href="mailto:laffondbaptiste47@gmail.com">Me contacter</a></li>
+            </ul>
+            <small>&copy; 2026 Baptiste Laffond — Portfolio BUT MMI</small>
+        </div>
+    </footer>
+
+    <script src="magazine.js"></script>
+</body>
+
+</html>
