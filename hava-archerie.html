@@ -4,81 +4,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet 2 - Étude de cas</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Hava Archerie — Baptiste Laffond</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,800;0,900;1,500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="magazine.css">
 </head>
 
 <body>
-
-    <header>
-        <div class="container header-content">
-            <a href="index.html" class="logo">Portfolio.</a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html#hero">Accueil</a></li>
-                    <li><a href="projets.html">Projets</a></li>
-                    <li><a href="cv.html">CV</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
+    <div class="progress"></div>
+    <header class="topbar">
+        <a href="index.html" class="brand">B. Laffond</a>
+        <nav><a href="index.html">Magazine</a><a href="projets.html">Projets</a><a href="cv.html">CV</a><a href="#contact">Contact</a></nav>
     </header>
 
     <main>
-        <section class="case-study-hero">
-            <div class="container">
-                <h1>Hava Archerie</h1>
+        <section class="hero logo-hero">
+            <div class="wrap">
+                <img class="hero-logo" src="nouveau-logo.webp" alt="Nouveau logo Hava Archerie">
+                <span class="kicker">Branding · Projet personnel · En cours</span>
+                <h1>Hava<br>Archerie.</h1>
             </div>
-            <img src="HAVAhero.jpg" alt="Logo de l'archerie Hava Archerie">
         </section>
-        <section class="case-study-content">
-            <div class="container case-grid">
-                <aside class="case-sidebar">
-                    <div class="info-block">
-                        <h3>Cadre</h3>
-                        <p>Projet personnel</p>
+
+        <section class="m">
+            <div class="wrap">
+                <dl class="facts rv">
+                    <div><dt>Cadre</dt>
+                        <dd>Projet personnel</dd>
                     </div>
-                    <div class="info-block">
-                        <h3>Année</h3>
-                        <p>2026</p>
-                        <p>En cours de Création</p>
+                    <div><dt>Année</dt>
+                        <dd>2026</dd>
                     </div>
-                </aside>
-                <article class="case-main">
-                    <h2>Le Défi</h2>
-                    <p>Refaire tout les éléments de communication de l'archerie Hava Archerie en passan par une refonte graphique.</p>
-                </article>
+                    <div><dt>Statut</dt>
+                        <dd>En cours de création</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- ===== LE PROJET : à compléter avec votre texte ===== -->
+        <section class="m" style="padding-top:0">
+            <div class="narrow">
+                <span class="kicker rv">Le défi</span>
+                <h2 class="rv">Une identité à réinventer.</h2>
+                <p class="txt drop rv">Refaire tous les éléments de communication de l'archerie Hava Archerie en passant par une refonte graphique.</p>
+                <!-- ✏️ Ajoutez ici vos paragraphes d'explication : <p class="txt rv">Votre texte…</p> -->
+            </div>
+        </section>
+
+        <!-- ===== LES LOGOS : remplacez chaque .slot par <img src="votre-fichier.png" alt="…"> ===== -->
+        <section class="m alt">
+            <div class="wrap">
+                <span class="kicker rv">L'identité</span>
+                <h2 class="rv">Avant / après.</h2>
+                <div class="row" style="margin-bottom:0">
+                    <figure class="media rv">
+                        <img class="logo-box" src="Logo Original.webp" alt="Ancien logo Hava Archerie" loading="lazy">
+                        <figcaption>L'ancien logo</figcaption>
+                    </figure>
+                    <figure class="media rv">
+                        <img class="logo-box" src="nouveau-logo.webp" alt="Nouveau logo Hava Archerie" loading="lazy">
+                        <figcaption>Le nouveau logo</figcaption>
+                    </figure>
+                </div>
+                <div class="rv" style="margin-top:2rem">
+                    <!-- ✏️ Votre texte sur le choix du logo : <p class="txt">…</p> -->
+                </div>
+            </div>
+        </section>
+
+        <section class="m">
+            <div class="wrap">
+                <span class="kicker rv">Déclinaisons</span>
+                <h2 class="rv">Le logo décliné.</h2>
+                <figure class="media rv">
+                    <img class="logo-sheet" src="test logo.webp" alt="Planche des déclinaisons du logo Hava Archerie" loading="lazy">
+                    <figcaption>Versions du logo : couleurs, fonds clairs et sombres, formats</figcaption>
+                </figure>
+                <!-- ✏️ Votre texte sur les déclinaisons : <p class="txt rv">…</p> -->
+            </div>
+        </section>
+
+        <!-- ===== LES SUPPORTS : visuels réalisés ===== -->
+        <section class="m dark">
+            <div class="wrap">
+                <span class="kicker rv">Les supports</span>
+                <h2 class="rv">La communication en images.</h2>
+                <!-- ✏️ Ajoutez ici votre texte d'introduction : <p class="txt rv">…</p> -->
+                <div class="gallery cards rv" aria-label="Visuels de communication Hava Archerie">
+                    <figure><img src="hava-scope-t53.jpg" alt="Nouveau : Scope T53 2.0" loading="lazy"></figure>
+                    <figure><img src="hava-01-aluminium.jpg" alt="01. Aluminium 6061 et Cerakote" loading="lazy"></figure>
+                    <figure><img src="hava-02-lentille.jpg" alt="02. Lentille Hava 56mm" loading="lazy"></figure>
+                    <figure><img src="hava-03-pack-t53.jpg" alt="03. Le pack T53 2.0" loading="lazy"></figure>
+                    <figure><img src="hava-04-cerclage.jpg" alt="04. Cerclage 3D" loading="lazy"></figure>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer id="contact">
-        <div class="container">
-            <ul class="footer-links">
+    <footer class="foot" id="contact">
+        <div class="wrap">
+            <span class="kicker">Projet suivant</span>
+            <a class="big" href="archers-du-velay.html">Archers du Velay →</a>
+            <ul>
+                <li><a href="projets.html">Tous les projets</a></li>
+                <li><a href="index.html">Retour au magazine</a></li>
                 <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                <li><a href="mailto:laffondbaptiste47@gmail.com">Email</a></li>
             </ul>
-            <p>&copy; 2026 Portfolio.</p>
+            <small>&copy; 2026 Baptiste Laffond</small>
         </div>
     </footer>
-    <script>
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-        if (menuToggle) {
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
-
+    <script src="magazine.js"></script>
 </body>
 
 </html>
