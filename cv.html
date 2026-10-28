@@ -4,158 +4,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Baptiste LAFFOND</title>
-    <link rel="stylesheet" href="style.css">
+    <title>CV — Baptiste Laffond</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,800;0,900;1,500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="magazine.css">
 </head>
 
 <body>
-
-    <header>
-        <div class="container header-content">
-            <a href="index.html" class="logo">Portfolio.</a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html#hero">Accueil</a></li>
-                    <li><a href="projets.html">Projets</a></li>
-                    <li><a href="cv.html">CV</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
+    <div class="progress"></div>
+    <header class="topbar">
+        <a href="index.html" class="brand">B. Laffond</a>
+        <nav><a href="index.html">Magazine</a><a href="projets.html">Projets</a><a href="cv.html">CV</a><a href="#contact">Contact</a></nav>
     </header>
 
     <main>
-        <section class="cv-hero">
-            <div class="container cv-hero-content">
+        <section class="m" style="padding-top:150px">
+            <div class="wrap row" style="margin-bottom:0">
                 <div>
+                    <span class="kicker">Portrait · Curriculum vitæ</span>
                     <h1>Baptiste<br>Laffond.</h1>
-                    <p class="cv-intro">Étudiant en BUT MMI passionné par le multimédia, le design graphique et le développement web. Créatif et rigoureux, avec un fort intérêt pour la conception d'interfaces esthétiques et fonctionnelles.</p>
+                    <p class="lead" style="margin-top:1.5rem">Étudiant en BUT MMI passionné par le multimédia, le design graphique et le développement web. Créatif et rigoureux, avec un fort intérêt pour la conception d'interfaces esthétiques et fonctionnelles.</p>
+                    <div style="margin-top:1.5rem; display:flex; gap:0.8rem; flex-wrap:wrap; align-items:center;">
+                        <a class="btn solid" href="CV_Baptiste_Laffond.pdf" target="_blank">Télécharger le CV (.PDF) ↓</a>
+                        <a class="btn" href="CV_Baptiste_Laffond.docx" download>Format modifiable (.docx) ↓</a>
+                        <a class="btn" href="https://github.com/Baptiste-archerDev/Portfolio.git" target="_blank" rel="noopener noreferrer">Code GitHub ↗</a>
+                    </div>
                 </div>
-                <img class="cv-profile-photo" src="Photo_profil.JPG" alt="Baptiste pratiquant le tir à l’arc">
+                <div class="media rv"><img class="portrait" src="Photo_profil.JPG" alt="Baptiste pratiquant le tir à l’arc"></div>
             </div>
         </section>
-        <section class="cv-body">
-            <div class="container cv-grid-layout">
-                <aside class="cv-sidebar">
-                    <div class="cv-section">
+
+        <section class="m alt">
+            <div class="wrap cv-grid">
+                <aside>
+                    <div class="rv">
                         <h2>Contact</h2>
-                        <ul class="cv-list">
+                        <ul class="plain">
                             <li>📍 Millau / Puy-en-Velay</li>
-                            <li>📧 laffondbaptiste47@gmail.com</li>
+                            <li>📧 <a href="mailto:laffondbaptiste47@gmail.com">laffondbaptiste47@gmail.com</a></li>
+                            <li>💻 <a href="https://github.com/Baptiste-archerDev/Portfolio.git" target="_blank" rel="noopener noreferrer">github.com/Baptiste-archerDev</a></li>
                         </ul>
                     </div>
-                    <div class="cv-section">
+                    <div class="rv">
                         <h2>Compétences</h2>
-                        <ul class="cv-tags">
-                            <li>HTML5 / CSS3</li>
-                            <li>JavaScript</li>
-                            <li>PHP / MySQL</li>
-                            <li>Adobe Illustrator</li>
-                            <li>Adobe InDesign</li>
-                            <li>Photoshop</li>
-                            <li>Premiere Pro</li>
-                            <li>After Effects</li>
-                            <li>Logic Pro / FL Studio</li>
+                        <ul style="list-style:none">
+                            <li class="tag">HTML5 / CSS3</li><li class="tag">JavaScript</li><li class="tag">PHP / MySQL</li>
+                            <li class="tag">Illustrator</li><li class="tag">InDesign</li><li class="tag">Photoshop</li>
+                            <li class="tag">Premiere Pro</li><li class="tag">After Effects</li><li class="tag">Logic Pro / FL Studio</li>
                         </ul>
                     </div>
-                    <div class="cv-section" style="margin-top: 3rem;">
+                    <div class="rv">
                         <h2>Centres d'intérêt</h2>
-                        <ul class="cv-list">
-                            <li>🎯 <b>Tir à l'arc (Barebow)</b> : Compétition (Nature, 3D, 18m, TAE, Campagne), Créateur média "Actu Carquois"</li>
+                        <ul class="plain">
+                            <li>🎯 <b>Tir à l'arc (Barebow)</b> : compétition (Nature, 3D, 18m, TAE, Campagne), créateur média « Actu Carquois »</li>
                             <li>🚴 <b>Cyclisme sur route</b></li>
-                            <li>🎨 <b>Dessin & Aquarelle</b></li>
+                            <li>🎨 <b>Dessin &amp; Aquarelle</b></li>
                         </ul>
+                    </div>
+                    <div class="rv" style="margin-top:2rem; padding:1.2rem; background:var(--paper-2); border:1px solid var(--rule); border-radius:4px; text-align:center;">
+                        <a href="https://github.com/Baptiste-archerDev/Portfolio.git" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit; display:block;">
+                            <img src="qr-code.png" alt="QR Code GitHub Portfolio" style="width:130px; height:130px; object-fit:contain; background:#fff; padding:6px; box-shadow:2px 2px 0 var(--accent); display:block; margin:0 auto 0.75rem;">
+                            <span style="display:block; font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); font-weight:700;">Scannez-moi</span>
+                            <strong style="display:block; font-family:var(--serif); font-size:1.05rem; margin-top:0.2rem; color:var(--ink);">Dépôt GitHub</strong>
+                            <small style="display:block; font-size:0.75rem; color:var(--muted); margin-top:0.25rem;">Code source &amp; portfolio en ligne</small>
+                        </a>
                     </div>
                 </aside>
-                <div class="cv-main-content">
-                    <div class="cv-section">
-                        <h2>Projets Universitaires (BUT MMI)</h2>
-                        <div class="timeline-item">
-                            <span class="timeline-date">Mai 2026</span>
-                            <h3>Campagne "Lacoste Goliath"</h3>
-                            <h4>Projet SAÉ 202</h4>
-                            <p>Design et création de supports de communication et d'une page web promotionnelle pour le lancement fictif d'une veste connectée.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-date">Mars 2026</span>
+
+                <div class="cv-main">
+                    <h2 class="rv">Projets universitaires &amp; associatifs (BUT MMI)</h2>
+                    <div class="tl">
+                        <article class="rv">
+                            <small>Octobre 2026 · SAÉ 302</small>
+                            <h3><a href="ucpv.html">Union Cycliste du Puy-en-Velay — « Le vrai record »</a></h3>
+                            <h4>Communication plurimédia, Direction artistique &amp; Campagne RSE</h4>
+                            <p>Conception d'une stratégie 360° axée sur l'humain et l'école de vélo : refonte de l'identité visuelle (27 déclinaisons), affiches A4 print &amp; web, campagne réseaux sociaux multicanale, communiqué de presse InDesign et réalisation d'un film publicitaire de 30 secondes.</p>
+                        </article>
+                        <article class="rv">
+                            <small>Mai 2026 · SAÉ 202</small>
+                            <h3><a href="lacoste_project.html">Campagne « Lacoste Goliath »</a></h3>
+                            <h4>Direction artistique &amp; Campagne 360°</h4>
+                            <p>Design et création de supports de communication, vidéo et page web promotionnelle pour le lancement fictif d'une veste connectée.</p>
+                        </article>
+                        <article class="rv">
+                            <small>2026 · Chef de projet</small>
+                            <h3><a href="mag-interface.html">Magazine « Interface »</a></h3>
+                            <h4>Édition, sponsors &amp; communication (700 exemplaires)</h4>
+                            <p>Coordination des commissions sponsors (1 250 € récoltés), communication et planification, participation à la maquette et rédaction d'un article.</p>
+                        </article>
+                        <article class="rv">
+                            <small>2026 · Initiative volontaire BUT MMI</small>
+                            <h3><a href="archers-du-velay.html">1ère Cie des Archers du Velay</a></h3>
+                            <h4>Refonte d'identité visuelle &amp; charte graphique</h4>
+                            <p>Modernisation complète du logotype du club du Puy-en-Velay et conception de la charte graphique officielle.</p>
+                        </article>
+                        <article class="rv">
+                            <small>2026 · Motion Design &amp; Pré-production</small>
+                            <h3><a href="motion-storyboard.html">After Effects &amp; Storyboard UCPV</a></h3>
+                            <p>Dossier de storyboard de production en 14 plans (spot 30s RSE), animations de logos et compositions en parallaxe 2.5D sous After Effects.</p>
+                        </article>
+                        <article class="rv">
+                            <small>Mars 2026</small>
                             <h3>Projet Web Nürburgring</h3>
                             <h4>Projet SAÉ 203</h4>
                             <p>Développement d'une application web dynamique en PHP/MySQL centrée sur l'univers du sport automobile et du célèbre circuit.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-date">Décembre 2025</span>
-                            <h3>Campagne "L'Élan du Cœur" (SPA)</h3>
+                        </article>
+                        <article class="rv">
+                            <small>Décembre 2025</small>
+                            <h3>Campagne « L'Élan du Cœur » (SPA)</h3>
                             <p>Élaboration d'une stratégie de communication et conception de recommandations graphiques pour une campagne de sensibilisation.</p>
-                        </div>
+                        </article>
                     </div>
-                    <div class="cv-section">
-                        <h2>Projets personnels</h2>
-                        <div class="timeline-item">
-                            <span class="timeline-date">En cours · Identité visuelle</span>
+
+                    <h2 class="rv">Projets personnels</h2>
+                    <div class="tl">
+                        <article class="rv">
+                            <small>En cours · Identité visuelle</small>
                             <h3><a href="hava-archerie.html">Hava Archerie</a></h3>
                             <p>Travail de refonte graphique de l’identité de marque d’une enseigne spécialisée en tir à l’arc.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-date">Octobre 2026 · Développement web</span>
+                        </article>
+                        <article class="rv">
+                            <small>Octobre 2026 · Développement web</small>
                             <h3><a href="FlechOptim.html">FlèchOptim</a></h3>
                             <p>Conception d’un outil web interactif pour aider les archers à choisir un spine adapté et comparer des modèles de flèches.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-date">Juillet 2026 · Création graphique</span>
+                        </article>
+                        <article class="rv">
+                            <small>Juillet 2026 · Création graphique</small>
                             <h3><a href="tour-de-france.html">Tour de France</a></h3>
                             <p>Création d’une série de cartes graphiques consacrées aux coureurs du Tour de France.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-date">Photographie &amp; création</span>
-                            <h3><a href="creation.html">Mes créations</a></h3>
-                            <p>Photographies et explorations visuelles personnelles.</p>
-                        </div>
+                        </article>
+                        <article class="rv">
+                            <small>Photographie &amp; reportage</small>
+                            <h3><a href="rallye-cardabelles.html">Rallye des Cardabelles</a> &amp; <a href="creation.html">Mes créations</a></h3>
+                            <p>Reportage photo au cœur d'une spéciale de rallye et explorations visuelles personnelles.</p>
+                        </article>
                     </div>
-                    <div class="cv-section">
-                        <h2>Formation</h2>
-                        <div class="timeline-item">
-                            <span class="timeline-date">2025 - Présent</span>
+
+                    <h2 class="rv">Formation</h2>
+                    <div class="tl">
+                        <article class="rv">
+                            <small>2025 – Présent</small>
                             <h3>BUT Métiers du Multimédia et de l'Internet (MMI)</h3>
-                            <h4>IUT de Clermont-Auvergne (Site du Puy-en-Velay)</h4>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-date">Jusqu'en 2024</span>
+                            <h4>IUT de Clermont-Auvergne (site du Puy-en-Velay)</h4>
+                        </article>
+                        <article class="rv">
+                            <small>Jusqu'en 2024</small>
                             <h3>Baccalauréat STI2D</h3>
                             <h4>Lycée Alexis Monteil (Rodez)</h4>
-                        </div>
+                        </article>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer id="contact">
-        <div class="container">
-            <ul class="footer-links">
+    <footer class="foot" id="contact">
+        <div class="wrap">
+            <span class="kicker">Dernière page</span>
+            <a class="big" href="mailto:laffondbaptiste47@gmail.com">laffondbaptiste47@gmail.com</a>
+            <ul>
                 <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                <li><a href="mailto:laffondbaptiste47@gmail.com">Email</a></li>
+                <li><a href="projets.html">Tous les projets</a></li>
             </ul>
-            <p>&copy; 2026 Portfolio.</p>
+            <small>&copy; 2026 Baptiste Laffond</small>
         </div>
     </footer>
-    <script>
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-        if (menuToggle) {
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
-
+    <script src="magazine.js"></script>
 </body>
 
 </html>

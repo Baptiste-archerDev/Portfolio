@@ -5,85 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sélection de créations personnelles et d'explorations visuelles.">
-    <title>Créations - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Mes créations — Baptiste Laffond</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,800;0,900;1,500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="magazine.css">
 </head>
 
 <body>
-
-    <header>
-        <div class="container header-content">
-            <a href="index.html" class="logo">Portfolio.</a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html#hero">Accueil</a></li>
-                    <li><a href="projets.html">Projets</a></li>
-                    <li><a href="cv.html">CV</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
+    <div class="progress"></div>
+    <header class="topbar">
+        <a href="index.html" class="brand">B. Laffond</a>
+        <nav><a href="index.html">Magazine</a><a href="projets.html">Projets</a><a href="cv.html">CV</a><a href="#contact">Contact</a></nav>
     </header>
 
     <main>
-        <section class="video-hero creation-hero">
-            <div class="video-hero-content">
-                <h1>Mes créations</h1>
-                <p class="project-subtitle">Photographie & explorations visuelles</p>
-            </div>
+        <section class="hero">
             <img src="IMG_4249.JPG" alt="Photographie d'une création personnelle en couverture">
+            <div class="wrap">
+                <span class="kicker">Photographie &amp; explorations visuelles</span>
+                <h1>Mes<br>créations.</h1>
+            </div>
         </section>
-        <section class="project-details">
-            <div class="container">
-                <div class="project-intro">
-                    <h2>Une galerie personnelle</h2>
-                    <p>Une sélection d'images et de créations réalisées au fil de mes projets, entre recherche visuelle, composition et photographie.</p>
-                </div>
-                <div class="grid-wrapper creation-mosaic" aria-label="Mosaïque de mes créations">
-                    <div class="grid-item">
-                        <img src="20240615_121404.jpg" alt="Création personnelle photographiée">
-                    </div>
-                    <div class="grid-item">
-                        <img src="20240615_153721.jpg" alt="Création personnelle, juin 2024">
-                    </div>
-                    <div class="grid-item">
-                        <img src="Capture d’écran 2022-10-23 173302.jpg" alt="Exploration visuelle, octobre 2022">
-                    </div>
-                    <div class="grid-item">
-                        <img src="IMG_4249.JPG" alt="Photographie d'une création personnelle">
-                    </div>
+
+        <section class="m">
+            <div class="narrow">
+                <span class="kicker rv">Une galerie personnelle</span>
+                <h2 class="rv">Entre recherche visuelle, composition et photographie.</h2>
+                <p class="txt rv">Une sélection d'images et de créations réalisées au fil de mes projets.</p>
+            </div>
+        </section>
+
+        <section class="m alt" style="padding-top:60px">
+            <div class="wrap">
+                <div class="gallery rv" aria-label="Mosaïque de mes créations">
+                    <img src="20240615_121404.jpg" alt="Création personnelle photographiée" loading="lazy">
+                    <img src="20240615_153721.jpg" alt="Création personnelle, juin 2024" loading="lazy">
+                    <img src="Capture d’écran 2022-10-23 173302.jpg" alt="Exploration visuelle, octobre 2022" loading="lazy">
+                    <img src="IMG_4249.JPG" alt="Photographie d'une création personnelle" loading="lazy">
+                    <img src="Chevalier.jpg" alt="Dessin personnel d'un chevalier en armure" loading="lazy">
                 </div>
             </div>
         </section>
     </main>
 
-    <footer id="contact">
-        <div class="container">
-            <ul class="footer-links">
-                <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+    <footer class="foot" id="contact">
+        <div class="wrap">
+            <span class="kicker">Projet suivant</span>
+            <a class="big" href="hava-archerie.html">Hava Archerie →</a>
+            <ul>
+                <li><a href="projets.html">Tous les projets</a></li>
                 <li><a href="mailto:laffondbaptiste47@gmail.com">Email</a></li>
+                <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             </ul>
-            <p>&copy; 2026 Portfolio.</p>
+            <small>&copy; 2026 Baptiste Laffond</small>
         </div>
     </footer>
-    <script>
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-        if (menuToggle) {
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
-
+    <script src="magazine.js"></script>
 </body>
 
 </html>
