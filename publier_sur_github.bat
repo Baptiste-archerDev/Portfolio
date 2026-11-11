@@ -10,7 +10,7 @@ echo.
 
 cd /d "%~dp0"
 
-echo [1/3] Verification des fichiers et configuration du depot...
+echo [1/4] Configuration du depot GitHub cible...
 git remote get-url origin >nul 2>&1
 if %ERRORLEVEL% equ 0 (
     git remote set-url origin https://github.com/Baptiste-archerDev/Portfolio.git
@@ -18,16 +18,24 @@ if %ERRORLEVEL% equ 0 (
     git remote add origin https://github.com/Baptiste-archerDev/Portfolio.git
 )
 git branch -M main >nul 2>&1
+echo     Depot configure : https://github.com/Baptiste-archerDev/Portfolio.git
+echo.
+
+echo [2/4] Indexation des fichiers du portfolio...
 git add .
 git commit -m "Mise a jour Portfolio Baptiste Laffond" >nul 2>&1
-echo     Fichiers du portfolio indexes et prets.
+echo     Fichiers du portfolio prets.
 echo.
 
-echo [2/3] Depot GitHub cible :
-echo     https://github.com/Baptiste-archerDev/Portfolio.git
+echo [3/4] Synchronisation avec le depot distant...
+git fetch origin main >nul 2>&1
+if %ERRORLEVEL% equ 0 (
+    git merge -s ours --allow-unrelated-histories --no-edit origin/main >nul 2>&1
+)
+echo     Historique synchronise.
 echo.
 
-echo [3/3] Envoi des fichiers en cours vers GitHub...
+echo [4/4] Envoi des fichiers en cours vers GitHub...
 echo     (Si une fenetre de navigateur s'ouvre, cliquez sur "Authorize" ou "Sign in")
 echo.
 
