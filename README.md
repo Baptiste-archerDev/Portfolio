@@ -38,7 +38,7 @@ git init
 git add .
 git commit -m "Portfolio Baptiste Laffond — Version finale"
 git branch -M main
-git remote add origin https://github.com/Baptiste-archerDev/Portfolio-LAFFOND-Baptiste.git
+git remote add origin https://github.com/Baptiste-archerDev/Portfolio.git
 git push -u origin main
 ```
 
@@ -47,7 +47,7 @@ git push -u origin main
 2. Dans **Build and deployment** > **Source**, choisissez **Deploy from a branch**.
 3. Sélectionnez la branche **`main`** et le dossier **`/(root)`**, puis cliquez sur **Save**.
 4. Votre site sera automatiquement en ligne à l'adresse :  
-   `https://baptiste-archerdev.github.io/Portfolio-LAFFOND-Baptiste/`
+   `https://baptiste-archerdev.github.io/Portfolio/`
 
 ---
 

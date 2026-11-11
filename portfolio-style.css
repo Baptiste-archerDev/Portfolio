@@ -1737,7 +1737,7 @@ img, video {
 .swatch-card {
     background: var(--paper-surface);
     border: 1px solid var(--rule);
-    cursor: pointer;
+    cursor: default;
     transition: transform 0.2s var(--ease-spring), border-color 0.2s ease;
 }
 
