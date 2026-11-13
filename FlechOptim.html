@@ -4,51 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="description" content="Étude de cas FlèchOptim : application web interactive de calcul de spine et comparateur de tubes d'archerie développée en HTML5, CSS3 et JavaScript par Baptiste Laffond.">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:title" content="FlèchOptim — Outil Web &amp; Charte UI | Baptiste Laffond">
+    <meta property="og:description" content="Sélecteur et comparateur de flèches interactif en JavaScript avec Design System Dark UI.">
+    <meta property="og:image" content="https://baptiste-archerdev.github.io/Portfolio/FlechOptim.jpg">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <title>FlèchOptim — Outil Web &amp; Charte UI | Baptiste Laffond</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..700&family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="portfolio-style.css">
-    <style>
-        /* Charte Graphique FlechOptim - Vert Volt & Or 10-Ring sur Noir Carbone */
-        :root {
-            --accent-primary: #00f076;
-            --accent-yellow: #ffd600;
-            --accent-cyan: #00e5ff;
-            --poster-bg: #141418;
-            --font-sans: 'DM Sans', 'Inter', sans-serif;
-            --font-display: 'DM Sans', 'Space Grotesk', sans-serif;
-        }
-        .btn-primary {
-            background: #00f076;
-            color: #0a0a0c;
-            border-color: #00f076;
-            font-weight: 700;
-            box-shadow: none;
-        }
-    </style>
 </head>
 
 <body data-project-charter="Charte FlèchOptim (#00E5A3 / #0B0F14)">
     <div class="scroll-progress"></div>
 
-            <header class="topbar">
+    <header class="topbar">
         <div class="topbar-inner">
-            <a href="portfolio.html" class="brand-mark" aria-label="Accueil — Baptiste Laffond">
+            <a href="index.html" class="brand-mark" aria-label="Accueil — Baptiste Laffond">
                 Baptiste Laffond
                 <span class="brand-mark-sub">Millau · Le Puy-en-Velay</span>
             </a>
 
             <nav class="nav-links" aria-label="Navigation principale">
-                <a href="portfolio.html" class="nav-link">← Accueil</a>
-                <a href="portfolio.html#selection" class="nav-link">Sélection</a>
-                <a href="portfolio.html#repertoire" class="nav-link">Répertoire (11)</a>
+                <a href="index.html" class="nav-link">← Accueil</a>
+                <a href="index.html#selection" class="nav-link">Sélection</a>
+                <a href="index.html#repertoire" class="nav-link">Répertoire (11)</a>
                 <a href="projets.html" class="nav-link">Catalogue</a>
                 <a href="cv-print.html" target="_blank" class="nav-link">CV A4</a>
             </nav>
 
             <div>
-                <a href="portfolio.html#contact" class="cta-swiss">
+                <a href="index.html#contact" class="cta-swiss">
                     <span>Me contacter</span>
                     <span class="arrow-circle" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
@@ -61,7 +51,7 @@
     <main>
         <section class="case-hero">
             <div class="container">
-                <a href="portfolio.html#sommaire" class="case-breadcrumb">← Retour au Dossier 05 · Web &amp; Code</a>
+                <a href="index.html#repertoire" class="case-breadcrumb">← Retour au Répertoire · Web &amp; Code</a>
 
                 <div class="case-header-grid">
                     <div>
@@ -256,261 +246,6 @@
                         <strong>Spine</strong>
                         <span>Obtenir le calcul dynamique de rigidité optimale</span>
                     </div>
-                </div>TYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlèchOptim — Outil Web &amp; Charte UI | Baptiste Laffond</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="portfolio-style.css">
-    <style>
-        /* Charte Graphique FlechOptim - Vert Volt & Or 10-Ring sur Noir Carbone */
-        :root {
-            --accent-primary: #00f076;
-            --accent-yellow: #ffd600;
-            --accent-cyan: #00e5ff;
-            --poster-bg: #141418;
-            --font-sans: 'DM Sans', 'Inter', sans-serif;
-            --font-display: 'DM Sans', 'Space Grotesk', sans-serif;
-        }
-        .btn-primary {
-            background: #00f076;
-            color: #0a0a0c;
-            border-color: #00f076;
-            font-weight: 700;
-            box-shadow: none;
-        }
-    </style>
-</head>
-
-<body data-project-charter="Charte FlèchOptim (#00E5A3 / #0B0F14)">
-    <div class="scroll-progress"></div>
-
-            <header class="topbar">
-        <div class="topbar-inner">
-            <a href="portfolio.html" class="brand-mark" aria-label="Accueil — Baptiste Laffond">
-                Baptiste Laffond
-                <span class="brand-mark-sub">Millau · Le Puy-en-Velay</span>
-            </a>
-
-            <nav class="nav-links" aria-label="Navigation principale">
-                <a href="portfolio.html" class="nav-link">← Accueil</a>
-                <a href="portfolio.html#selection" class="nav-link">Sélection</a>
-                <a href="portfolio.html#repertoire" class="nav-link">Répertoire (11)</a>
-                <a href="projets.html" class="nav-link">Catalogue</a>
-                <a href="cv-print.html" target="_blank" class="nav-link">CV A4</a>
-            </nav>
-
-            <div>
-                <a href="portfolio.html#contact" class="cta-swiss">
-                    <span>Me contacter</span>
-                    <span class="arrow-circle" aria-hidden="true">
-                        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                    </span>
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <section class="case-hero">
-            <div class="container">
-                <a href="portfolio.html#sommaire" class="case-breadcrumb">← Retour au Dossier 05 · Web &amp; Code</a>
-
-                <div class="case-header-grid">
-                    <div>
-                        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.5rem;">
-                            <span class="pill-badge green">APPLICATION WEB &amp; DESIGN SYSTEM</span>
-                            <span class="pill-badge blue">ALGORITHME BALISTIQUE</span>
-                            <span class="pill-badge yellow">CHARTE V1.0</span>
-                        </div>
-                        <h1 class="case-title">FlèchOptim</h1>
-                        <p class="case-lead">
-                            Sélecteur et comparateur de flèches interactif conçu pour aider les archers à calculer le spine adapté à leur arc et leur allonge, accompagné de son Design System complet (<em>La Précision par la Donnée</em>).
-                        </p>
-
-                        <div style="display:flex; gap:0.85rem; flex-wrap:wrap;">
-                            <a href="https://baptiste-archerdev.github.io/FlechOptim/" target="_blank" rel="noopener" class="btn-primary">Essayer FlèchOptim en ligne ↗</a>
-                            <a href="#charte-flechoptim" class="btn-secondary">Voir la Charte UI (60-30-10) ↓</a>
-                        </div>
-                    </div>
-
-                    <dl class="case-meta-notes">
-                        <div class="meta-sticky blue">
-                            <dt>TYPE</dt>
-                            <dd>Outil métier web · Design System v1.0</dd>
-                        </div>
-                        <div class="meta-sticky pink">
-                            <dt>TECHNOLOGIES</dt>
-                            <dd>HTML5, CSS3, JavaScript, Export PDF</dd>
-                        </div>
-                        <div class="meta-sticky green">
-                            <dt>TYPOGRAPHIES</dt>
-                            <dd>DM Sans, Playfair Display &amp; JetBrains Mono</dd>
-                        </div>
-                        <div class="meta-sticky orange">
-                            <dt>ARCHÉTYPE</dt>
-                            <dd>L'Expert Accessible · Précision &amp; Balistique</dd>
-                        </div>
-                    </dl>
-                </div>
-
-                <div class="case-banner-frame reveal-on-scroll" style="background:#0B0F14;">
-                    <img src="FlechOptim.jpg" alt="Visuel de présentation de l'outil web FlèchOptim" class="zoomable-img">
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION CHARTE GRAPHIQUE INTERACTIVE FLÈCHOPTIM -->
-        <section class="case-section bg-dark" id="charte-flechoptim">
-            <div class="container">
-                <span class="section-kicker" style="background:#00E5A3; color:#0B0F14;">Charte Graphique Officielle v1.0 · Dark UI</span>
-                <h2 class="section-title">Système Chromatique 60-30-10 &amp; Typographies</h2>
-                <p style="max-width:72ch;">
-                    Inspirée des tubes en carbone haut module et du centre jaune du blason FITA (le « 10-Ring »), l'identité visuelle de <strong>FlèchOptim</strong> repose sur un thème sombre technique à contraste maîtrisé (norme WCAG AAA).
-                </p>
-
-                <!-- Barre de répartition 60 / 30 / 6 / 3 / 1 -->
-                <div class="color-ratio-bar reveal-on-scroll" style="border-color:#223246;">
-                    <div class="color-ratio-segment" style="width:60%; background:#0B0F14; color:#E6EDF3;">60% · FOND OBSIDIENNE (#0B0F14)</div>
-                    <div class="color-ratio-segment" style="width:26%; background:#17212E; color:#E6EDF3;">30% · SURFACES UI (#111720 / #17212E)</div>
-                    <div class="color-ratio-segment" style="width:7%; background:#00E5A3; color:#0B0F14;">6% · VOLT</div>
-                    <div class="color-ratio-segment" style="width:4%; background:#0EA5E9; color:#0B0F14;">3%</div>
-                    <div class="color-ratio-segment" style="width:3%; background:#F59E0B; color:#0B0F14;">1%</div>
-                </div>
-
-                <div class="swatches-grid reveal-on-scroll">
-                    <div class="swatch-card" data-copy-hex="#00E5A3">
-                        <div class="swatch-color" style="background:#00E5A3;">
-                            <span class="swatch-usage-badge">Primaire · Pantone 802 C</span>
-                        </div>
-                        <div class="swatch-body">
-                            <div class="swatch-name">Vert Volt Electric</div>
-                            <div class="swatch-hex" style="color:#00a876;">#00E5A3</div>
-                            <div class="swatch-specs">
-                                RVB : 0, 229, 163<br>
-                                CMJN : 72%, 0%, 58%, 0%<br>
-                                Usage : CTA principaux, spine optimal validé, focus UI
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swatch-card" data-copy-hex="#0EA5E9">
-                        <div class="swatch-color" style="background:#0EA5E9;">
-                            <span class="swatch-usage-badge">Secondaire · Pantone 299 C</span>
-                        </div>
-                        <div class="swatch-body">
-                            <div class="swatch-name">Bleu Cyan Accent</div>
-                            <div class="swatch-hex" style="color:#0284c7;">#0EA5E9</div>
-                            <div class="swatch-specs">
-                                RVB : 14, 165, 233<br>
-                                CMJN : 78%, 18%, 0%, 0%<br>
-                                Usage : Courbes de trajectoire, filtres actifs, dégradés
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swatch-card" data-copy-hex="#F59E0B">
-                        <div class="swatch-color" style="background:#F59E0B;">
-                            <span class="swatch-usage-badge">Cible · Pantone 137 C</span>
-                        </div>
-                        <div class="swatch-body">
-                            <div class="swatch-name">Or 10-Ring (X-Ring)</div>
-                            <div class="swatch-hex" style="color:#d97706;">#F59E0B</div>
-                            <div class="swatch-specs">
-                                RVB : 245, 158, 11<br>
-                                CMJN : 0%, 42%, 96%, 0%<br>
-                                Usage : Centre du blason, recommandation n°1, alertes
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swatch-card" data-copy-hex="#0B0F14">
-                        <div class="swatch-color" style="background:#0B0F14;">
-                            <span class="swatch-usage-badge">Fond 60% · Pantone 433 C</span>
-                        </div>
-                        <div class="swatch-body">
-                            <div class="swatch-name">Noir Obsidienne Dark</div>
-                            <div class="swatch-hex" style="color:#0B0F14;">#0B0F14</div>
-                            <div class="swatch-specs">
-                                RVB : 11, 15, 20<br>
-                                CMJN : 82%, 72%, 58%, 85%<br>
-                                Usage : Arrière-plan carbone haut module &amp; cartes (#111720)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Spécimens Typographiques FlèchOptim -->
-                <div class="typo-specimens-grid reveal-on-scroll">
-                    <div class="typo-card">
-                        <span class="typo-role" style="background:#00E5A3; color:#0B0F14; border:1px solid #00E5A3;">01 · Primaire (UI &amp; Titres)</span>
-                        <div class="typo-sample-abc" style="font-family:'DM Sans', sans-serif; font-weight:800; color:#FFFFFF;">
-                            DM Sans Bold — <span style="color:#00E5A3;">Interface &amp; Navigation</span>
-                        </div>
-                        <div class="typo-meta">
-                            <strong>Graisses :</strong> Regular (400), Medium (500), Bold (700), ExtraBold (800)<br>
-                            <strong>Usage :</strong> Cartes de flèches, boutons, formulaires et tableaux comparatifs.
-                        </div>
-                    </div>
-
-                    <div class="typo-card">
-                        <span class="typo-role" style="background:#0EA5E9; color:#FFFFFF; border:1px solid #0EA5E9;">02 · Technique (Données &amp; Spine)</span>
-                        <div class="typo-sample-abc" style="font-family:'JetBrains Mono', monospace; font-weight:700; font-size:1.55rem; color:#FFFFFF;">
-                            SPINE 500 · <span style="color:#0EA5E9;">38# @ 28.5" · 7.4 GPI</span>
-                        </div>
-                        <div class="typo-meta">
-                            <strong>Police :</strong> JetBrains Mono (400 / 600 / 700)<br>
-                            <strong>Usage :</strong> Valeurs de spine (<code>340</code>, <code>500</code>, <code>600</code>), puissances en livres (<code>#</code>), allonges en pouces (<code>"</code>) et grains (<code>gr</code>).
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- LE BESOIN TERRAIN & FONCTIONNALITÉS -->
-        <section class="case-section">
-            <div class="container">
-                <div class="case-row reveal-on-scroll">
-                    <div class="case-text">
-                        <span class="step-number">01 · LE BESOIN TERRAIN</span>
-                        <h2>Choisir sa flèche simplement et sans erreur</h2>
-                        <p>
-                            Un ami archer avait acheté des flèches avec un spine inadapté à sa puissance. Choisir un tube implique de croiser plusieurs paramètres techniques (type d'arc, puissance réelle, allonge en pouces ou cm, poids de pointe).
-                        </p>
-                        <p>
-                            J'ai conçu <strong>FlèchOptim</strong> pour rassembler ces variables dans une interface guidée en 3 étapes et éviter aux archers de devoir lire manuellement des tableaux complexes.
-                        </p>
-                        <ul class="case-checklist">
-                            <li>Choix entre arc classique (recurve / barebow) et arc à poulies (compound).</li>
-                            <li>Conversion automatique des unités de longueur (pouces / centimètres).</li>
-                            <li>Ajustement dynamique selon le poids de pointe (100 grains par défaut).</li>
-                            <li>Catalogue filtrable par budget, matériau (carbone, alu/carbone) et diamètre, avec export PDF.</li>
-                        </ul>
-                    </div>
-                    <figure class="l-frame-media">
-                        <img src="FlechOptim.jpg" alt="Aperçu de FlèchOptim" loading="lazy">
-                        <figcaption>Présentation des paramètres pris en compte par l'algorithme de FlèchOptim</figcaption>
-                    </figure>
-                </div>
-
-                <div class="results-notes-grid reveal-on-scroll">
-                    <div class="result-note" style="background:var(--tag-blue);">
-                        <strong>Étape 01</strong>
-                        <span>Configurer l'arc (type &amp; puissance en livres)</span>
-                    </div>
-                    <div class="result-note" style="background:var(--tag-yellow);">
-                        <strong>Étape 02</strong>
-                        <span>Préciser l'allonge et le poids de pointe</span>
-                    </div>
-                    <div class="result-note" style="background:var(--tag-green);">
-                        <strong>Étape 03</strong>
-                        <span>Comparer les tubes compatibles dans le catalogue</span>
-                    </div>
                 </div>
             </div>
         </section>
@@ -518,7 +253,7 @@
         <div class="next-project-banner">
             <div>
                 <span class="section-kicker" style="margin-bottom:0.4rem;">Projet suivant</span>
-                <h3 style="font-family:var(--font-display); font-size:1.8rem; text-transform:uppercase;">Tour de France — 18 Cartes Graphiques</h3>
+                <h3>Tour de France — 18 Cartes Graphiques</h3>
             </div>
             <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
                 <a href="tour-de-france.html" class="btn-primary">Voir Tour de France →</a>
@@ -526,6 +261,55 @@
             </div>
         </div>
     </main>
+
+    <footer class="footer-swiss">
+        <div class="container">
+            <div class="footer-columns-grid">
+                <div class="footer-col">
+                    <div style="display:flex; align-items:center; gap:var(--space-xs); margin-bottom:var(--space-xs);">
+                        <h5 style="margin-bottom:0;">Baptiste Laffond</h5>
+                        <img src="creations/signature_baptiste_red.png" alt="Signature Baptiste" class="baptiste-signature" style="height:26px;">
+                    </div>
+                    <p style="line-height:1.6; max-width:32ch;">
+                        Studio de design graphique, édition imprimée et interfaces web. Étudiant en BUT MMI à l'IUT Clermont-Auvergne (Le Puy-en-Velay).
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h5>Édition &amp; Campagnes</h5>
+                    <ul>
+                        <li><a href="carquois_mag-1.html">Carquois Mag N°1 (20 p.)</a></li>
+                        <li><a href="ucpv.html">UCPV, Le vrai record</a></li>
+                        <li><a href="mag-interface.html">Magazine Interface (700 ex.)</a></li>
+                        <li><a href="lacoste_project.html">Campagne Lacoste Goliath</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Identité &amp; Digital</h5>
+                    <ul>
+                        <li><a href="archers-du-velay.html">Archers du Velay (Charte)</a></li>
+                        <li><a href="hava-archerie.html">Hava Archerie (Branding)</a></li>
+                        <li><a href="FlechOptim.html">FlèchOptim (Outil web)</a></li>
+                        <li><a href="tour-de-france.html">Tour de France (18 affiches)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Réseaux &amp; CV</h5>
+                    <ul>
+                        <li><a href="mailto:laffondbaptiste47@gmail.com">laffondbaptiste47@gmail.com</a></li>
+                        <li><a href="CV_Baptiste_Laffond.pdf" download="CV_Baptiste_Laffond.pdf">Télécharger le CV (PDF)</a></li>
+                        <li><a href="cv-print.html" target="_blank">CV A4 Imprimable</a></li>
+                        <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://github.com/Baptiste-archerDev" target="_blank" rel="noopener">GitHub (Baptiste-archerDev)</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom-bar">
+                <span>© 2026 Baptiste Laffond, tous droits réservés</span>
+                <a href="index.html" style="color:var(--ink); font-weight:600;">← Retour à l'accueil</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="portfolio.js"></script>
 </body>

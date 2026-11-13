@@ -35,7 +35,7 @@
     requestAnimationFrame(renderCursor);
 
     // Expansion du curseur sur éléments interactifs
-    const hoverTargets = 'a, button, [role="button"], tr.project-row, .work-spread-visual, .mascot-hero-wrap, .illustration-card-feature, .illustration-mini-card, .cartoon-sticker';
+    const hoverTargets = 'a, button, [role="button"], tr.project-row, .work-spread-visual, .mascot-hero-wrap, .illustration-card-feature, .illustration-mini-card, .cartoon-sticker, .swatch-card[data-copy-hex]';
     document.addEventListener('mouseover', (e) => {
         if (e.target.closest(hoverTargets)) {
             cursor.classList.add('on-hover');
@@ -69,7 +69,7 @@
     }
 
     // 2. Révélations progressives au défilement (IntersectionObserver)
-    const revealEls = document.querySelectorAll('.reveal-swiss, .work-spread, .stat-box');
+    const revealEls = document.querySelectorAll('.reveal-swiss, .reveal-on-scroll, .work-spread, .stat-box');
     if ('IntersectionObserver' in window && revealEls.length) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -222,10 +222,10 @@
             // Si aucun lien n'a pu être extrait, fallback sur liens principaux
             if (!linksHtml) {
                 linksHtml = `
-                    <a href="portfolio.html#selection" class="mobile-nav-link"><span>Sélection</span><span class="mobile-nav-num">01</span></a>
-                    <a href="portfolio.html#repertoire" class="mobile-nav-link"><span>Répertoire (11)</span><span class="mobile-nav-num">02</span></a>
-                    <a href="portfolio.html#illustration" class="mobile-nav-link"><span>Illustration &amp; Cartoon</span><span class="mobile-nav-num">03</span></a>
-                    <a href="portfolio.html#atelier" class="mobile-nav-link"><span>Atelier &amp; Parcours</span><span class="mobile-nav-num">04</span></a>
+                    <a href="index.html#selection" class="mobile-nav-link"><span>Sélection</span><span class="mobile-nav-num">01</span></a>
+                    <a href="index.html#repertoire" class="mobile-nav-link"><span>Répertoire (11)</span><span class="mobile-nav-num">02</span></a>
+                    <a href="index.html#illustration" class="mobile-nav-link"><span>Illustration &amp; Cartoon</span><span class="mobile-nav-num">03</span></a>
+                    <a href="index.html#atelier" class="mobile-nav-link"><span>Atelier &amp; Parcours</span><span class="mobile-nav-num">04</span></a>
                     <a href="projets.html" class="mobile-nav-link"><span>Catalogue</span><span class="mobile-nav-num">05</span></a>
                     <a href="cv-print.html" target="_blank" class="mobile-nav-link"><span>CV A4 Imprimable</span><span class="mobile-nav-num">06</span></a>
                 `;
@@ -306,6 +306,69 @@
         document.addEventListener('DOMContentLoaded', initMobileMenu);
     } else {
         initMobileMenu();
+    }
+
+    // 6. Barre de progression de lecture (.scroll-progress) sur les études de cas
+    const progressBar = document.querySelector('.scroll-progress');
+    if (progressBar) {
+        const updateProgress = () => {
+            const doc = document.documentElement;
+            const maxScroll = doc.scrollHeight - window.innerHeight;
+            const pct = maxScroll > 0 ? Math.min(100, Math.max(0, (window.scrollY / maxScroll) * 100)) : 0;
+            progressBar.style.width = pct.toFixed(2) + '%';
+        };
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        updateProgress();
+    }
+
+    // 7. Copie des codes hexadécimaux au clic sur les nuanciers (.swatch-card[data-copy-hex])
+    const swatchCards = document.querySelectorAll('.swatch-card[data-copy-hex]');
+    if (swatchCards.length) {
+        const toast = document.createElement('div');
+        toast.className = 'copy-toast';
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
+        document.body.appendChild(toast);
+
+        let toastTimer = null;
+        const showToast = (msg) => {
+            toast.textContent = msg;
+            toast.classList.add('is-visible');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2000);
+        };
+
+        swatchCards.forEach(card => {
+            card.setAttribute('role', 'button');
+            card.setAttribute('tabindex', '0');
+            const hex = card.getAttribute('data-copy-hex');
+            card.setAttribute('aria-label', 'Copier la couleur ' + hex);
+
+            const copyHex = () => {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(hex).then(() => showToast('Couleur copiée : ' + hex))
+                        .catch(() => showToast('Code couleur : ' + hex));
+                } else {
+                    const tmp = document.createElement('textarea');
+                    tmp.value = hex;
+                    tmp.style.position = 'fixed';
+                    tmp.style.opacity = '0';
+                    document.body.appendChild(tmp);
+                    tmp.select();
+                    try { document.execCommand('copy'); } catch (_) {}
+                    document.body.removeChild(tmp);
+                    showToast('Couleur copiée : ' + hex);
+                }
+            };
+
+            card.addEventListener('click', copyHex);
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    copyHex();
+                }
+            });
+        });
     }
 
 })();

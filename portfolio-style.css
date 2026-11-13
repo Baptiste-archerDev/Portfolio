@@ -1424,13 +1424,54 @@ img, video {
 }
 
 /* Animations d'apparition discrètes */
-.reveal-swiss {
+.reveal-swiss,
+.reveal-on-scroll {
     opacity: 0;
     transform: translateY(16px);
     transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-spring);
 }
 
-.reveal-swiss.is-visible {
+.reveal-swiss.is-visible,
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Barre de progression de lecture (études de cas) */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--accent);
+    z-index: 10001;
+    pointer-events: none;
+    transition: width 0.08s linear;
+}
+
+/* Toast de copie hexadécimale */
+.copy-toast {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: #141417;
+    color: #FFFFFF;
+    border: 1px solid var(--accent);
+    padding: 0.65rem 1.15rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    z-index: 10002;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.25s var(--ease-spring);
+}
+
+.copy-toast.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
@@ -1737,7 +1778,7 @@ img, video {
 .swatch-card {
     background: var(--paper-surface);
     border: 1px solid var(--rule);
-    cursor: default;
+    cursor: pointer;
     transition: transform 0.2s var(--ease-spring), border-color 0.2s ease;
 }
 

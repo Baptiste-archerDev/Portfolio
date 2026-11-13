@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="fr-CH">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark">
+    <meta name="description" content="Catalogue monographique des 11 réalisations de Baptiste Laffond en BUT MMI et atelier personnel : édition, identité visuelle, campagnes 360°, web et motion design.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:title" content="Catalogue des 11 Réalisations | Baptiste Laffond">
+    <meta property="og:description" content="Monographie complète des projets de Baptiste Laffond : édition imprimée, chartes graphiques, développement web et motion design.">
+    <meta property="og:image" content="https://baptiste-archerdev.github.io/Portfolio/carquois-mag-p1.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <title>Monographie &amp; Catalogue des 11 Réalisations | Baptiste Laffond</title>
     
     <!-- Typographie Néo-Grotesque Suisse (Inter Tight) & Accent Éditorial (Instrument Serif) -->
@@ -163,20 +170,21 @@
 
     <header class="topbar">
         <div class="topbar-inner">
-            <a href="portfolio.html" class="brand-mark" aria-label="Accueil — Baptiste Laffond">
+            <a href="index.html" class="brand-mark" aria-label="Accueil — Baptiste Laffond">
                 Baptiste Laffond
                 <span class="brand-mark-sub">Millau · Le Puy-en-Velay</span>
             </a>
 
             <nav class="nav-links" aria-label="Navigation principale">
-                <a href="portfolio.html" class="nav-link">← Accueil</a>
-                <a href="portfolio.html#selection" class="nav-link">Sélection</a>
+                <a href="index.html" class="nav-link">← Accueil</a>
+                <a href="index.html#selection" class="nav-link">Sélection</a>
                 <a href="projets.html" class="nav-link active">Catalogue (11)</a>
                 <a href="cv-print.html" target="_blank" class="nav-link">CV A4</a>
+                <a href="CV_Baptiste_Laffond.pdf" download="CV_Baptiste_Laffond.pdf" class="nav-link">CV PDF ↓</a>
             </nav>
 
             <div>
-                <a href="portfolio.html#contact" class="cta-swiss">
+                <a href="index.html#contact" class="cta-swiss">
                     <span>Me contacter</span>
                     <span class="arrow-circle" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
@@ -219,9 +227,9 @@
                                 <span>Projet personnel</span>
                             </div>
                             <h2 class="catalog-plate-title">Carquois Mag N°1</h2>
-                            <p class="catalog-plate-desc">Magazine de 16 pages A4 conçu en totale autonomie : rédaction des dossiers, infographies vectorielles du Barebow, réclames rétro et maquette InDesign.</p>
+                            <p class="catalog-plate-desc">Magazine de 20 pages A4 conçu en totale autonomie : rédaction des dossiers, infographies vectorielles du Barebow, réclames rétro et maquette InDesign.</p>
                         </div>
-                        <span class="catalog-plate-cta">Feuilleter les 16 planches ↗</span>
+                        <span class="catalog-plate-cta">Feuilleter les 20 planches ↗</span>
                     </div>
                 </a>
 
@@ -411,9 +419,49 @@
 
     <footer class="footer-swiss">
         <div class="container">
+            <div class="footer-columns-grid">
+                <div class="footer-col">
+                    <div style="display:flex; align-items:center; gap:var(--space-xs); margin-bottom:var(--space-xs);">
+                        <h5 style="margin-bottom:0;">Baptiste Laffond</h5>
+                        <img src="creations/signature_baptiste_red.png" alt="Signature Baptiste" class="baptiste-signature" style="height:26px;">
+                    </div>
+                    <p style="line-height:1.6; max-width:32ch;">
+                        Studio de design graphique, édition imprimée et interfaces web. Étudiant en BUT MMI à l'IUT Clermont-Auvergne (Le Puy-en-Velay).
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h5>Édition &amp; Campagnes</h5>
+                    <ul>
+                        <li><a href="carquois_mag-1.html">Carquois Mag N°1 (20 p.)</a></li>
+                        <li><a href="ucpv.html">UCPV, Le vrai record</a></li>
+                        <li><a href="mag-interface.html">Magazine Interface (700 ex.)</a></li>
+                        <li><a href="lacoste_project.html">Campagne Lacoste Goliath</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Identité &amp; Digital</h5>
+                    <ul>
+                        <li><a href="archers-du-velay.html">Archers du Velay (Charte)</a></li>
+                        <li><a href="hava-archerie.html">Hava Archerie (Branding)</a></li>
+                        <li><a href="FlechOptim.html">FlèchOptim (Outil web)</a></li>
+                        <li><a href="tour-de-france.html">Tour de France (18 affiches)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Réseaux &amp; CV</h5>
+                    <ul>
+                        <li><a href="mailto:laffondbaptiste47@gmail.com">laffondbaptiste47@gmail.com</a></li>
+                        <li><a href="CV_Baptiste_Laffond.pdf" download="CV_Baptiste_Laffond.pdf">Télécharger le CV (PDF)</a></li>
+                        <li><a href="cv-print.html" target="_blank">CV A4 Imprimable</a></li>
+                        <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://github.com/Baptiste-archerDev" target="_blank" rel="noopener">GitHub (Baptiste-archerDev)</a></li>
+                    </ul>
+                </div>
+            </div>
+
             <div class="footer-bottom-bar">
                 <span>© 2026 Baptiste Laffond — Tous droits réservés</span>
-                <a href="portfolio.html" style="color:var(--ink); font-weight:600;">← Retour à l'accueil</a>
+                <a href="index.html" style="color:var(--ink); font-weight:600;">← Retour à l'accueil</a>
             </div>
         </div>
     </footer>
