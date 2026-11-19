@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
     <style>
         /* =========================================================
            CV ÉDITORIAL A4 — BAPTISTE LAFFOND
@@ -21,17 +22,21 @@
            - Mascotte Burger en vrai Sticker Vinyle Die-Cut
            ========================================================= */
         
-         :root {
+        :root {
             --paper: #1A1A1A;
             --paper-soft: #212125;
             --paper-deep: #141417;
             --ink: #FFFFFF;
-            --ink-secondary: #D2D2DA;
-            --ink-muted: #8E8E99;
+            --ink-secondary: #E4E4EC;
+            --ink-muted: #B6B6C4;
             --accent: #B21231;
-            --accent-pink: #FF3388;
+            --accent-pink: #FF4D99;
             --accent-lime: #76FF03;
             --accent-bronze: #A56846;
+            --cartoon-ink: #121214;
+            --cartoon-gold: #FFC107;
+            --cartoon-blue: #2979FF;
+            --cartoon-red: #E53935;
             --font-sans: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-serif: 'Instrument Serif', Georgia, serif;
             --font-draw: 'Caveat', cursive, sans-serif;
@@ -111,6 +116,36 @@
             color: #FFFFFF;
             transform: translateY(-1px);
         }
+
+        .toolbar-versions {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #1A1A1D;
+            border: 1.5px solid #2E2E35;
+            border-radius: 999px;
+            padding: 3px;
+        }
+
+        .version-pill {
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: var(--ink-secondary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .version-pill:hover {
+            color: #FFFFFF;
+        }
+
+        .version-pill.active {
+            background: var(--cartoon-gold);
+            color: var(--cartoon-ink);
+            box-shadow: 2px 2px 0 #000000;
+        }
         
         @media print {
             body {
@@ -138,7 +173,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 11mm 12mm 9mm;
+            padding: 9mm 12mm 7.5mm;
         }
         /* Liseré supérieur signature du site */
         
@@ -187,7 +222,7 @@
             grid-template-columns: 38mm 1fr 34mm;
             gap: 6mm;
             align-items: center;
-            margin-bottom: 6mm;
+            margin-bottom: 4mm;
         }
         /* Portrait posé façon tirage d'atelier avec scotch papier */
         
@@ -227,10 +262,10 @@
         
         .eyebrow-role {
             font-size: 7.2pt;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.16em;
-            color: var(--accent);
+            color: var(--accent-pink);
             margin-bottom: 1.2mm;
         }
         
@@ -276,22 +311,52 @@
         }
         
         .mascot-sticker {
-            width: 31mm;
+            width: 30mm;
             height: auto;
             filter: url(#vinyl-sticker);
-            transform: rotate(4deg);
+            transform: rotate(3deg);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cv-zigzag-left,
+        .cv-zigzag-right {
+            position: absolute;
+            width: 8mm;
+            height: 8mm;
+            z-index: 1;
+            filter: drop-shadow(1.5px 1.5px 0 var(--cartoon-ink));
+        }
+
+        .cv-zigzag-left {
+            top: 0mm;
+            left: -2mm;
+        }
+
+        .cv-zigzag-right {
+            top: -1mm;
+            right: -2mm;
         }
         
         .mascot-note {
             font-family: var(--font-draw);
-            font-size: 10.5pt;
+            font-size: 9pt;
             font-weight: 700;
-            color: var(--accent-lime);
-            transform: rotate(-4deg);
-            margin-top: 0.5mm;
+            color: var(--cartoon-ink);
+            background: var(--cartoon-gold);
+            border: 1.5px solid var(--cartoon-ink);
+            box-shadow: 2px 2px 0 var(--cartoon-ink);
+            border-radius: 5px;
+            padding: 0.6mm 2mm;
+            transform: rotate(-3deg);
+            margin-top: 0.8mm;
             white-space: nowrap;
+            line-height: 1.1;
+            text-align: center;
+            position: relative;
+            z-index: 3;
         }
-        /* Bandeau de repères clés doux (sans bordures ni traits) */
+        /* Bandeau de repères clés style sticker cartoon */
         
         .highlights-pill-row {
             position: relative;
@@ -299,35 +364,72 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 3mm;
-            background: var(--paper-soft);
-            padding: 2.8mm 5mm;
-            border-radius: 6px;
-            margin-bottom: 6.5mm;
+            gap: 4mm;
+            background: linear-gradient(90deg, rgba(118, 255, 3, 0.10) 0%, rgba(33, 33, 37, 0.96) 55%, rgba(255, 77, 153, 0.10) 100%);
+            padding: 1.9mm 4.5mm;
+            border-radius: 7px;
+            border: 1.5px solid var(--cartoon-ink);
+            box-shadow: 3.5px 3.5px 0 #0B0B0D;
+            margin-bottom: 4.2mm;
         }
         
         .hl-item {
             display: flex;
-            align-items: baseline;
-            gap: 2mm;
+            align-items: center;
+            gap: 2.8mm;
         }
-        
-        .hl-label {
+
+        .hl-badge-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 1.2mm;
+            background: var(--cartoon-gold);
+            color: var(--cartoon-ink);
+            border: 1.4px solid var(--cartoon-ink);
+            box-shadow: 2px 2px 0 var(--cartoon-ink);
+            border-radius: 4px;
+            padding: 0.6mm 2.2mm;
             font-family: var(--font-mono);
-            font-size: 6pt;
+            font-size: 6.2pt;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--ink-muted);
+            letter-spacing: 0.08em;
+            transform: rotate(-1deg);
         }
         
         .hl-val {
-            font-size: 8.4pt;
-            font-weight: 700;
+            font-size: 9pt;
+            font-weight: 800;
             color: var(--ink);
+            letter-spacing: -0.01em;
         }
         
         .hl-val.accent {
             color: var(--accent-lime);
+        }
+
+        .hl-right-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 2mm;
+        }
+
+        .hl-status-dot {
+            width: 2mm;
+            height: 2mm;
+            border-radius: 50%;
+            background: var(--accent-lime);
+            box-shadow: 0 0 6px var(--accent-lime);
+            flex-shrink: 0;
+        }
+
+        .hl-hand-cta {
+            font-family: var(--font-draw);
+            font-size: 10.2pt;
+            font-weight: 700;
+            color: var(--accent-pink);
+            transform: rotate(-1.5deg);
+            white-space: nowrap;
         }
         /* =========================================================
            2. CORPS ASYMÉTRIQUE AÉRÉ (SANS TRAITS DE SÉPARATION)
@@ -347,20 +449,41 @@
         .col-left {
             display: flex;
             flex-direction: column;
-            gap: 5.2mm;
+            gap: 3.2mm;
             background: var(--paper-deep);
-            padding: 5mm 4.8mm;
+            padding: 3.8mm 4.4mm;
             border-radius: 8px;
+            border: 1.5px solid var(--cartoon-ink);
+            box-shadow: 3.5px 3.5px 0 #0A0A0C;
             height: 100%;
             justify-content: space-between;
         }
         
+        .side-block-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2.2mm;
+        }
+
+        .side-block-head .side-block-title {
+            margin-bottom: 0;
+        }
+
+        .cv-mini-sticker {
+            width: 6.5mm;
+            height: 6.5mm;
+            flex-shrink: 0;
+            filter: url(#vinyl-sticker);
+            transform: rotate(6deg);
+        }
+        
         .side-block-title {
             font-size: 8pt;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.14em;
-            color: var(--accent);
+            color: var(--accent-pink);
             margin-bottom: 2.2mm;
         }
         
@@ -419,22 +542,26 @@
         }
         
         .skill-chip {
-            padding: 0.8mm 2.2mm;
+            padding: 0.7mm 2.1mm;
             background: var(--paper-soft);
+            border: 1.2px solid var(--cartoon-ink);
+            box-shadow: 1.5px 1.5px 0 #0B0B0D;
             border-radius: 4px;
-            font-size: 6.8pt;
+            font-size: 6.7pt;
             font-weight: 600;
             color: var(--ink);
         }
         
         .skill-chip.featured {
-            background: rgba(178, 18, 49, 0.24);
-            color: #FFFFFF;
+            background: var(--accent-pink);
+            color: var(--cartoon-ink);
+            font-weight: 700;
         }
         
         .skill-chip.lime {
-            background: rgba(118, 255, 3, 0.12);
-            color: var(--accent-lime);
+            background: var(--accent-lime);
+            color: var(--cartoon-ink);
+            font-weight: 700;
         }
         /* Centres d'intérêt */
         
@@ -442,7 +569,7 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 2.2mm;
+            gap: 1.6mm;
         }
         
         .interests-list li {
@@ -461,10 +588,10 @@
         
         .qr-card {
             background: var(--paper-soft);
-            padding: 3mm;
+            padding: 2.2mm;
             border-radius: 6px;
             display: grid;
-            grid-template-columns: 20mm 1fr;
+            grid-template-columns: 18mm 1fr;
             gap: 2.8mm;
             align-items: center;
             text-decoration: none;
@@ -472,8 +599,8 @@
         }
         
         .qr-frame {
-            width: 20mm;
-            height: 20mm;
+            width: 18mm;
+            height: 18mm;
             background: #FFFFFF;
             padding: 1.2mm;
             border-radius: 4px;
@@ -535,7 +662,7 @@
         .col-right {
             display: flex;
             flex-direction: column;
-            gap: 5.2mm;
+            gap: 3.2mm;
             height: 100%;
             justify-content: space-between;
         }
@@ -544,7 +671,7 @@
             display: flex;
             align-items: baseline;
             justify-content: space-between;
-            margin-bottom: 2.8mm;
+            margin-bottom: 1.8mm;
         }
         
         .section-head h2 {
@@ -559,7 +686,7 @@
             font-family: var(--font-draw);
             font-size: 10.5pt;
             font-weight: 700;
-            color: var(--accent);
+            color: var(--accent-pink);
             transform: rotate(-2deg);
         }
         /* Liste des expériences universitaires : fluide, aérée, zéro trait vertical */
@@ -567,12 +694,12 @@
         .exp-stack {
             display: flex;
             flex-direction: column;
-            gap: 2.7mm;
+            gap: 1.9mm;
         }
         
         .exp-item {
             display: grid;
-            grid-template-columns: 28mm 1fr;
+            grid-template-columns: 32mm 1fr;
             gap: 3mm;
             align-items: baseline;
         }
@@ -607,18 +734,22 @@
         
         .exp-badge-hand {
             font-family: var(--font-draw);
-            font-size: 9.2pt;
+            font-size: 8.8pt;
             font-weight: 700;
-            color: #FFD600;
-            background: rgba(255, 214, 0, 0.12);
+            color: var(--cartoon-ink);
+            background: var(--cartoon-gold);
+            border: 1.2px solid var(--cartoon-ink);
+            box-shadow: 1.5px 1.5px 0 var(--cartoon-ink);
             padding: 0.1mm 1.8mm;
-            border-radius: 3px;
+            border-radius: 4px;
             line-height: 1.1;
+            transform: rotate(-1.5deg);
         }
         
         .exp-badge-hand.pink {
-            color: var(--accent-pink);
-            background: rgba(255, 51, 136, 0.12);
+            color: #FFFFFF;
+            background: var(--accent-pink);
+            transform: rotate(1.5deg);
         }
         
         .exp-content p {
@@ -637,8 +768,10 @@
         
         .perso-card {
             background: var(--paper-soft);
-            padding: 2.6mm 3.2mm;
+            padding: 2mm 3mm;
             border-radius: 6px;
+            border: 1.4px solid var(--cartoon-ink);
+            box-shadow: 2.5px 2.5px 0 #0B0B0D;
         }
         
         .perso-top {
@@ -656,10 +789,10 @@
         
         .perso-top span {
             font-family: var(--font-mono);
-            font-size: 5.5pt;
+            font-size: 5.6pt;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--accent);
+            color: var(--accent-pink);
             font-weight: 600;
         }
         
@@ -672,14 +805,40 @@
         
         .edu-grid {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 3mm;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.4mm;
+        }
+
+        .edu-item.featured-edu {
+            grid-column: 1 / -1;
+            border-color: var(--accent-pink);
+            background: linear-gradient(135deg, rgba(255, 77, 153, 0.12), rgba(33, 33, 37, 0.95));
+        }
+
+        .edu-item.featured-edu .edu-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2mm;
+            margin-top: 1.2mm;
+        }
+
+        .edu-tag {
+            font-family: var(--font-mono);
+            font-size: 5.5pt;
+            font-weight: 600;
+            padding: 0.4mm 1.6mm;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--ink);
+            border: 1px solid rgba(255, 255, 255, 0.14);
         }
         
         .edu-item {
-            background: rgba(255, 255, 255, 0.025);
-            padding: 2.4mm 3mm;
+            background: var(--paper-soft);
+            padding: 1.8mm 2.8mm;
             border-radius: 6px;
+            border: 1.2px solid var(--cartoon-ink);
+            box-shadow: 2px 2px 0 #0B0B0D;
         }
         
         .edu-year {
@@ -711,7 +870,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding-top: 1.5mm;
+            padding-top: 0.5mm;
         }
         
         .cv-footer-meta {
@@ -723,9 +882,260 @@
         }
         
         .cv-signature {
-            height: 7.5mm;
+            height: 6.2mm;
             width: auto;
             opacity: 0.92;
+        }
+
+        /* =========================================================
+           DA « QK » — Anthracite, rouge vif, titres larges & lourds,
+           bandes diagonales, étiquettes à coins. Textes inchangés.
+           ========================================================= */
+        :root {
+            --paper: #222222; --paper-soft: #2a2a2a; --paper-deep: #1b1b1b;
+            --accent: #EE3426; --accent-pink: #EE3426; --accent-lime: #EE3426; --accent-bronze: #d0d0d0;
+            --ink-secondary: #d8d8d8; --ink-muted: #a0a0a0;
+            --qk-display: 'Archivo', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
+        }
+        body { background: #151515; }
+        .page { background: #222222; }
+        .page::before { height: 2.2mm; background: var(--accent); }
+        .ambient-glow, .cv-watermark, .masking-tape, .cv-zigzag-left, .cv-zigzag-right, .cv-mini-sticker, .header-mascot-col svg { display: none !important; }
+        /* bandes diagonales décoratives */
+        .page::after {
+            content: ""; position: absolute; right: 0; top: 2.2mm; width: 62mm; height: 40mm; pointer-events: none; z-index: 0;
+            background: repeating-linear-gradient(135deg, var(--accent) 0 3.2mm, transparent 3.2mm 6.4mm);
+            -webkit-mask-image: linear-gradient(315deg, #000 0 52%, transparent 52%); mask-image: linear-gradient(315deg, #000 0 52%, transparent 52%);
+        }
+        .cv-body { position: relative; z-index: 2; }
+
+        h1, h2, h3, .cv-name, .section-head h2, .side-block-title, .exp-content h3, .perso-top h3, .edu-item h3 {
+            font-family: var(--qk-display) !important; font-stretch: 112%; font-variation-settings: "wdth" 112;
+            font-weight: 900 !important; text-transform: uppercase; font-style: normal !important; letter-spacing: -.01em;
+        }
+        .cv-name { font-size: 31pt; line-height: .9; color: #fff; }
+        .cv-name .serif-italic { font-family: inherit !important; font-style: normal !important; font-size: inherit; color: var(--accent); }
+        .eyebrow-role, .exp-date, .edu-year, .skill-cat, .contact-list .c-lbl, .qr-meta .qr-tag, .hl-badge-tag, .role-pill, .edu-tag, .skill-chip, .perso-top span {
+            font-family: var(--qk-display); font-stretch: 105%; letter-spacing: .12em; text-transform: uppercase;
+        }
+        .eyebrow-role { color: var(--accent); font-weight: 800; }
+        .cv-lead { font-weight: 300; border-left: 0; padding-top: 2.2mm; position: relative; }
+        .cv-lead::before { content: ""; position: absolute; top: 0; left: 0; width: 9mm; height: .5mm; background: var(--accent); }
+        .cv-lead strong { color: #fff; font-weight: 600; }
+
+        /* portrait : bloc rouge + duotone */
+        .portrait-wrap { transform: none; background: transparent; }
+        .portrait-photo { border-radius: 0; box-shadow: none; filter: none; mix-blend-mode: normal; }
+        .mascot-sticker { transform: none; }
+
+        /* bandeau stage : deux blocs noir / rouge */
+        .highlights-pill-row { border: none !important; background: #151515 !important; border-radius: 0 !important; box-shadow: none !important; position: relative; }
+        .highlights-pill-row::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 38%; background: var(--accent);
+            z-index: 0; clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%); }
+        .highlights-pill-row > * { position: relative; z-index: 1; }
+        .hl-badge-tag { background: transparent !important; color: var(--accent) !important; border: 1px solid var(--accent); border-radius: 0 !important; box-shadow: none !important; }
+        .hl-badge-tag svg polygon { fill: var(--accent); }
+        .hl-val, .hl-val.accent { color: #fff; font-family: var(--qk-display); font-weight: 800; text-transform: uppercase; letter-spacing: .02em; }
+        .hl-val.accent { color: var(--accent); }
+        .hl-hand-cta, .hand-note, .mascot-note, .exp-badge-hand, .exp-badge-hand.pink, .cv-signature-note {
+            font-family: var(--qk-display) !important; font-weight: 800 !important; text-transform: uppercase; letter-spacing: .1em;
+            transform: none !important; color: var(--accent) !important; font-size: 6.2pt !important;
+        }
+        .hl-right-status .hl-hand-cta { color: #fff !important; }
+        .hl-status-dot { background: #fff !important; box-shadow: none !important; border-radius: 0 !important; }
+        .exp-badge-hand, .exp-badge-hand.pink { background: transparent !important; border: 1px solid var(--accent) !important; border-radius: 0 !important; padding: .4mm 1.6mm !important; box-shadow: none !important; }
+
+        /* titres de sections : trait + chevrons */
+        .section-head h2 { color: #fff; font-size: 11pt; }
+        .section-head h2::after { content: ""; display: inline-block; width: 9mm; height: 2.4mm; margin-left: 2.2mm; vertical-align: middle;
+            background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 58 16' fill='none' stroke='%23EE3426' stroke-width='3'><path d='M2 1l7 7-7 7M16 1l7 7-7 7M30 1l7 7-7 7M44 1l7 7-7 7'/></svg>") no-repeat center / contain; }
+        .section-head h2 svg { display: none; }
+        .side-block-title { color: #fff; font-size: 8.5pt; border-bottom: 0; position: relative; padding-bottom: 1.6mm; }
+        .side-block-title::after { content: ""; position: absolute; left: 0; bottom: 0; width: 9mm; height: .5mm; background: var(--accent); }
+
+        /* contenus */
+        .exp-date, .edu-year { color: var(--accent) !important; font-weight: 800; font-size: 6.4pt; }
+        .role-pill { background: transparent !important; color: #fff !important; border: 1px solid var(--accent) !important; border-radius: 0 !important; box-shadow: none !important; }
+        .exp-content h3, .perso-top h3, .edu-item h3 { color: #fff; font-size: 8pt; }
+        .exp-content p, .perso-card p, .edu-item p, .interests-list li { font-weight: 300; color: var(--ink-secondary); }
+        .interests-list strong { color: #fff; font-weight: 700; }
+        .skill-chip, .edu-tag { background: transparent !important; color: #fff !important; border: 1px solid #4a4a4a !important; border-radius: 0 !important; box-shadow: none !important; }
+        .skill-chip.featured, .skill-chip.lime { border-color: var(--accent) !important; color: var(--accent) !important; }
+        .skill-cat { color: var(--accent); font-weight: 800; }
+        .contact-list a { color: #fff; }
+        .contact-list .c-lbl { color: var(--accent); font-weight: 800; }
+        .perso-card, .qr-card, .edu-item, .edu-item.featured-edu {
+            background: #1b1b1b !important; border: none !important; border-radius: 0 !important; box-shadow: none !important; position: relative;
+            border-left: 1.2mm solid var(--accent) !important;
+        }
+        .qr-frame { border-radius: 0 !important; }
+        .qr-meta .qr-tag { color: var(--accent); font-weight: 800; }
+        .cv-footer { border-top: .4mm solid var(--accent) !important; }
+        img { border-radius: 0; }
+
+        /* barre d'outils écran */
+        .toolbar-print-btn { border-radius: 0 !important; background: var(--accent) !important; color: #fff !important; font-family: var(--qk-display); text-transform: uppercase; letter-spacing: .08em; font-size: .7rem; }
+        .toolbar-versions { border-radius: 0 !important; background: #1b1b1b; border: 1px solid #3a3a3a; }
+        .version-pill { border-radius: 0 !important; font-family: var(--qk-display); text-transform: uppercase; letter-spacing: .08em; font-size: .66rem; }
+        .version-pill.active { background: var(--accent) !important; color: #fff !important; box-shadow: none !important; }
+
+        /* --- ajustements A4 (tout doit tenir sur une page) --- */
+        .col-left { border-radius: 0 !important; }
+        .section-head { gap: 2mm; }
+        .section-head h2 { font-size: 9.4pt; white-space: nowrap; font-stretch: 108%; font-variation-settings: "wdth" 108; }
+        .section-head h2::after { width: 7mm; height: 2mm; margin-left: 1.6mm; }
+        .section-head .hand-note { white-space: nowrap; font-size: 5.6pt !important; }
+        .skill-chip, .edu-tag { letter-spacing: .06em; padding-top: .5mm !important; padding-bottom: .5mm !important; font-size: 6.2pt; }
+        .exp-content h3, .perso-top h3, .edu-item h3 { font-size: 7.6pt; font-stretch: 104%; font-variation-settings: "wdth" 104; }
+        .exp-date { font-size: 6pt; }
+        .role-pill { letter-spacing: .06em; font-size: 5.6pt; }
+        .qr-meta .qr-tag { letter-spacing: .06em; font-size: 5.6pt; }
+        .cv-name { font-size: 29pt; }
+
+        /* =========================================================
+           VERSION ÉCRAN : CV immersif pleine page (site web)
+           ========================================================= */
+        @media screen {
+            body { padding: 0; background: #222222; }
+            .screen-toolbar {
+                position: sticky; top: 0; z-index: 100; width: 100%; margin: 0; flex-wrap: wrap; gap: 12px;
+                padding: 14px clamp(16px, 4vw, 64px);
+                background: rgba(27, 27, 27, .94); backdrop-filter: blur(10px); border-bottom: 1px solid #3a3a3a;
+            }
+            .toolbar-back { font-family: var(--qk-display); text-transform: uppercase; letter-spacing: .1em; font-size: .7rem; font-weight: 700; }
+            .toolbar-back:hover { color: var(--accent); }
+            .page {
+                width: 100%; height: auto; min-height: calc(100vh - 64px); margin: 0; box-shadow: none; display: block; overflow: hidden;
+                padding: clamp(28px, 4vw, 72px) clamp(20px, 6vw, 120px) clamp(24px, 3vw, 56px);
+            }
+            .page::before { height: 6px; }
+            .page::after {
+                width: min(34vw, 560px); height: min(30vw, 380px); top: 6px;
+                background: repeating-linear-gradient(135deg, var(--accent) 0 26px, transparent 26px 54px);
+            }
+            .cv-header {
+                grid-template-columns: clamp(170px, 18vw, 280px) 1fr clamp(140px, 15vw, 240px);
+                gap: clamp(24px, 4vw, 64px); margin-bottom: clamp(24px, 3vw, 44px);
+            }
+            .portrait-photo { aspect-ratio: 4 / 4.8; }
+            .eyebrow-role { font-size: clamp(.7rem, .9vw, .9rem); margin-bottom: 14px; }
+            .cv-name { font-size: clamp(2.6rem, 6.6vw, 7rem); line-height: .92; margin-bottom: 22px; font-stretch: 125%; font-variation-settings: "wdth" 125; }
+            .cv-lead { font-size: clamp(1rem, 1.15vw, 1.22rem); line-height: 1.6; max-width: 66ch; padding-top: 20px; }
+            .cv-lead::before { width: 56px; height: 3px; }
+            .mascot-sticker { width: clamp(120px, 13vw, 210px); }
+            .mascot-note { font-size: .68rem !important; margin-top: 14px; }
+            .highlights-pill-row { padding: 20px 32px; margin-bottom: 0; gap: 24px; flex-wrap: wrap; }
+            .hl-item { gap: 18px; flex-wrap: wrap; }
+            .hl-badge-tag { font-size: .7rem; padding: 7px 12px; gap: 8px; }
+            .hl-badge-tag svg { width: 14px !important; height: 14px !important; }
+            .hl-val { font-size: clamp(.95rem, 1.3vw, 1.3rem); }
+            .hl-hand-cta { font-size: .72rem !important; }
+            .hl-status-dot { width: 10px; height: 10px; }
+            .cv-body { grid-template-columns: minmax(300px, 25vw) 1fr; gap: clamp(32px, 4.5vw, 80px); margin-top: clamp(32px, 4vw, 64px); }
+            .col-left { padding: 32px 30px; gap: 36px; height: auto; justify-content: flex-start; align-self: start; }
+            .side-block-title { font-size: .95rem; margin-bottom: 18px; padding-bottom: 12px; }
+            .side-block-title::after { width: 44px; height: 2px; }
+            .contact-list { gap: 16px; }
+            .contact-list li { font-size: .95rem; }
+            .contact-list .c-lbl { font-size: .64rem; margin-bottom: 4px; }
+            .skill-group { margin-bottom: 20px; }
+            .skill-cat { font-size: .66rem; margin-bottom: 10px; }
+            .skill-chips { gap: 8px; }
+            .skill-chip { font-size: .74rem; padding: 6px 12px; }
+            .interests-list { gap: 18px; }
+            .interests-list li { font-size: .92rem; line-height: 1.5; }
+            .interests-list strong { font-size: 1rem; margin-bottom: 4px; }
+            .qr-card { grid-template-columns: 96px 1fr; gap: 18px; padding: 16px; transition: background .25s; }
+            .qr-card:hover { background: #2a2a2a !important; }
+            .qr-frame { width: 96px; height: 96px; padding: 6px; }
+            .qr-meta .qr-tag { font-size: .62rem; margin-bottom: 6px; }
+            .qr-meta strong { font-size: 1rem; }
+            .qr-meta small { font-size: .76rem; margin-top: 4px; }
+            .col-right { height: auto; gap: clamp(36px, 4.5vw, 64px); justify-content: flex-start; }
+            .section-head { margin-bottom: 26px; gap: 20px; flex-wrap: wrap; }
+            .section-head h2 { font-size: clamp(1.15rem, 1.8vw, 1.8rem); font-stretch: 118%; font-variation-settings: "wdth" 118; }
+            .section-head h2::after { width: 52px; height: 14px; margin-left: 14px; }
+            .section-head .hand-note { font-size: .7rem !important; }
+            .exp-stack { gap: 34px; }
+            .exp-item { grid-template-columns: clamp(150px, 14vw, 240px) 1fr; gap: 28px; padding-bottom: 34px; border-bottom: 1px solid #3a3a3a; transition: transform .3s; }
+            .exp-item:last-child { border-bottom: 0; padding-bottom: 0; }
+            .exp-item:hover { transform: translateX(8px); }
+            .exp-date { font-size: .74rem; }
+            .role-pill { font-size: .62rem; margin-top: 8px; padding: 4px 8px !important; }
+            .exp-content h3 { font-size: clamp(1rem, 1.3vw, 1.25rem); gap: 14px; line-height: 1.2; }
+            .exp-content p { font-size: .98rem; line-height: 1.6; margin-top: 10px; }
+            .exp-badge-hand, .exp-badge-hand.pink { font-size: .6rem !important; padding: 4px 9px !important; }
+            .perso-grid { gap: 22px; }
+            .perso-card, .edu-item { padding: 22px 24px !important; transition: transform .3s, background .3s; }
+            .perso-card:hover, .edu-item:hover { transform: translateY(-4px); background: #2a2a2a !important; }
+            .perso-top { margin-bottom: 10px; }
+            .perso-top h3, .edu-item h3 { font-size: 1.05rem; }
+            .perso-top span { font-size: .62rem; }
+            .perso-card p, .edu-item p { font-size: .92rem; line-height: 1.55; margin-top: 6px; }
+            .edu-grid { gap: 22px; }
+            .edu-year { font-size: .7rem; margin-bottom: 8px; }
+            .edu-tags { margin-top: 16px; gap: 8px; }
+            .edu-tag { font-size: .68rem; padding: 5px 11px !important; }
+            .cv-footer { margin-top: clamp(40px, 5vw, 72px); padding-top: 24px; }
+            .cv-footer-meta { font-size: .72rem; }
+            .cv-signature { height: 46px; }
+            @keyframes qkRise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+            .cv-header > *, .highlights-pill-row, .col-left, .col-right > section, .cv-footer { animation: qkRise .8s cubic-bezier(.16, 1, .3, 1) both; }
+            .cv-header > :nth-child(2) { animation-delay: .08s; } .cv-header > :nth-child(3) { animation-delay: .16s; }
+            .highlights-pill-row { animation-delay: .24s; } .col-left { animation-delay: .32s; }
+            .col-right > section:nth-child(1) { animation-delay: .36s; } .col-right > section:nth-child(2) { animation-delay: .44s; } .col-right > section:nth-child(3) { animation-delay: .52s; }
+        }
+        @media screen and (prefers-reduced-motion: reduce) { .cv-header > *, .highlights-pill-row, .col-left, .col-right > section, .cv-footer { animation: none !important; } }
+        @media screen and (max-width: 900px) {
+            .cv-header { grid-template-columns: 1fr; text-align: left; }
+            .portrait-wrap { max-width: 220px; }
+            .header-mascot-col { align-items: flex-start; }
+            .cv-body { grid-template-columns: 1fr; }
+            .exp-item { grid-template-columns: 1fr; gap: 10px; }
+            .perso-grid, .edu-grid { grid-template-columns: 1fr; }
+            .highlights-pill-row::after { width: 100%; clip-path: none; opacity: .15; }
+            .page::after { width: 60vw; height: 120px; }
+        }
+
+        /* =========================================================
+           VERSION IMPRESSION : A4 sur une page, fond blanc, texte sombre
+           ========================================================= */
+        @page { size: A4 portrait; margin: 0; }
+        @media print {
+            :root {
+                --paper: #FFFFFF; --paper-soft: #F3F3F3; --paper-deep: #F5F5F5;
+                --ink: #1A1A1A; --ink-secondary: #383838; --ink-muted: #666666;
+                --accent: #D7281C; --accent-pink: #D7281C; --accent-lime: #D7281C;
+            }
+            html, body { background: #FFFFFF !important; padding: 0 !important; }
+            .page { background: #FFFFFF !important; width: 210mm !important; height: 297mm !important; margin: 0 !important; box-shadow: none !important; overflow: hidden; }
+            .page::before { background: var(--accent); }
+            .cv-name, .side-block-title, .section-head h2, .exp-content h3, .perso-top h3, .edu-item h3, .contact-list a,
+            .interests-list strong, .qr-meta strong, .cv-lead strong, .hl-val, .skill-chip, .edu-tag, .role-pill { color: #1A1A1A !important; }
+            .cv-name .serif-italic, .hl-val.accent { color: var(--accent) !important; }
+            .cv-lead, .exp-content p, .perso-card p, .edu-item p, .interests-list li, .contact-list li { color: #383838 !important; }
+            .contact-list .c-lbl, .skill-cat, .exp-date, .edu-year, .perso-top span, .eyebrow-role, .qr-meta .qr-tag { color: var(--accent) !important; }
+            .qr-meta small, .cv-footer-meta { color: #666666 !important; }
+            .skill-chip, .edu-tag { border-color: #BDBDBD !important; background: transparent !important; }
+            .skill-chip.featured, .skill-chip.lime { color: var(--accent) !important; border-color: var(--accent) !important; }
+            .role-pill, .exp-badge-hand, .exp-badge-hand.pink { border-color: var(--accent) !important; }
+            .col-left { background: #F3F3F3 !important; border: none !important; box-shadow: none !important; }
+            .perso-card, .qr-card, .edu-item, .edu-item.featured-edu { background: #F3F3F3 !important; }
+            .qr-frame { background: #FFFFFF; border: 1px solid #DDDDDD; }
+            .highlights-pill-row { background: #F1F1F1 !important; }
+            .highlights-pill-row::after { background: var(--accent); }
+            .hl-badge-tag { color: var(--accent) !important; border-color: var(--accent) !important; }
+            .hl-badge-tag svg polygon { fill: var(--accent); }
+            .hl-right-status .hl-hand-cta { color: #FFFFFF !important; }
+            .cv-footer { border-top-color: var(--accent) !important; }
+            .cv-signature { filter: invert(1); opacity: 1; }
+            .mascot-note { color: var(--accent) !important; }
+        }
+
+        @media screen {
+            .page::after { width: min(26vw, 420px); height: min(22vw, 300px); }
+            .cv-lead { max-width: 54ch; }
+            .col-left { box-shadow: none !important; border: none !important; border-radius: 0 !important; }
         }
     </style>
 </head>
@@ -755,6 +1165,11 @@
     <!-- Barre d'action rapide à l'écran (invisible à l'impression) -->
     <div class="screen-toolbar">
         <a href="index.html" class="toolbar-back">← Retour au portfolio</a>
+        <nav class="toolbar-versions" aria-label="Versions du CV">
+            <a href="cv-print.html" class="version-pill active">Polyvalent</a>
+            <a href="cv-graphiste.html" class="version-pill">Graphiste</a>
+            <a href="cv-communication.html" class="version-pill">Communication</a>
+        </nav>
         <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
             <a href="CV_Baptiste_Laffond.pdf" download="CV_Baptiste_Laffond.pdf" class="toolbar-print-btn" style="text-decoration:none; background:transparent; color:#FFFFFF; border:1px solid #3A3A3A;">Télécharger le CV (PDF) ↓</a>
             <button type="button" class="toolbar-print-btn" onclick="window.print()">Imprimer / Exporter en PDF (A4)</button>
@@ -782,7 +1197,7 @@
 
                 <div class="header-center">
                     <span class="eyebrow-role">Design Graphique, Édition Print, Web &amp; Communication</span>
-                    <h1 class="cv-name">Baptiste <span class="serif-italic">Laffond</span></h1>
+                    <h1 class="cv-name">Baptiste Laffond</h1>
                     <p class="cv-lead">
                         Étudiant en 2<sup>e</sup> année de <strong>BUT MMI au Puy-en-Velay</strong>, passionné par la direction artistique, l'édition print et le développement web. Créatif et rigoureux, je conçois des identités visuelles, des maquettes
                         print et des interfaces fonctionnelles de A à Z.
@@ -790,28 +1205,33 @@
                 </div>
 
                 <div class="header-mascot-col">
+                    <!-- Flèche Zig-Zag Bleue style Burger -->
+                    <svg class="cv-zigzag-left" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                        <path d="M36 32 L24 20 L18 26 L8 10 L4 14 L6 4 L16 6 L12 10 L20 20 L25 14 L38 28 Z" fill="#2979FF" stroke="#121214" stroke-width="2.5" stroke-linejoin="round"/>
+                    </svg>
+                    <!-- Flèche Zig-Zag Rouge style Burger -->
+                    <svg class="cv-zigzag-right" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                        <path d="M4 32 L16 20 L22 26 L32 10 L36 14 L34 4 L24 6 L28 10 L20 20 L15 14 L2 28 Z" fill="#E53935" stroke="#121214" stroke-width="2.5" stroke-linejoin="round"/>
+                    </svg>
                     <img src="creations/burger-mascotte-web.png" alt="Mascotte Burger Street Cartoon par Baptiste Laffond" class="mascot-sticker">
-                    <span class="mascot-note">« Stage 10 à 12 semaines<br>dès le 12 avril 2027 ! »</span>
+                    <span class="mascot-note">Créatif &amp; Rigoureux !</span>
                 </div>
             </header>
 
-            <!-- Bandeau de synthèse doux sans grille de traits -->
+            <!-- Bandeau de synthèse esthétique (Stage) -->
             <div class="highlights-pill-row">
                 <div class="hl-item">
-                    <span class="hl-label">Stage conventionné</span>
-                    <span class="hl-val accent">10 à 12 sem. dès le 12 avril 2027</span>
+                    <span class="hl-badge-tag">
+                        <svg style="width:3mm; height:3mm;" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <polygon points="14,2 5,13 11,13 9,22 19,10 13,10" fill="#121214"/>
+                        </svg>
+                        Stage conventionné
+                    </span>
+                    <span class="hl-val accent">10 à 12 semaines <span style="color:var(--ink); font-weight:600;">· dès le 12 avril 2027</span></span>
                 </div>
-                <div class="hl-item">
-                    <span class="hl-label">Mobilité</span>
-                    <span class="hl-val">Permis B, véhiculé</span>
-                </div>
-                <div class="hl-item">
-                    <span class="hl-label">Secteurs clés</span>
-                    <span class="hl-val">Millau, Rodez, Le Puy, Clermont</span>
-                </div>
-                <div class="hl-item">
-                    <span class="hl-label">Profil</span>
-                    <span class="hl-val">BUT MMI 2<sup>e</sup> année</span>
+                <div class="hl-right-status">
+                    <span class="hl-status-dot" aria-hidden="true"></span>
+                    <span class="hl-hand-cta">Prêt à rejoindre votre équipe !</span>
                 </div>
             </div>
         </div>
@@ -825,9 +1245,6 @@
                     <h2 class="side-block-title">Contact</h2>
                     <ul class="contact-list">
                         <li>
-                            <span class="c-lbl">Localisation</span> Millau (12) / Le Puy-en-Velay (43)
-                        </li>
-                        <li>
                             <span class="c-lbl">Mobilité</span> Permis B, véhiculé (ouvert mobilité)
                         </li>
                         <li>
@@ -838,11 +1255,26 @@
                             <span class="c-lbl">LinkedIn</span>
                             <a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener">linkedin.com/in/baptiste-laffond</a>
                         </li>
+                        <li>
+                            <span class="c-lbl">GitHub</span>
+                            <a href="https://github.com/Baptiste-archerDev" target="_blank" rel="noopener">github.com/Baptiste-archerDev</a>
+                        </li>
                     </ul>
                 </div>
 
                 <div>
-                    <h2 class="side-block-title">Compétences</h2>
+                    <div class="side-block-head">
+                        <h2 class="side-block-title">Compétences</h2>
+                        <!-- Sticker Posca Marker style Burger -->
+                        <svg class="cv-mini-sticker" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                            <g transform="rotate(-25 24 24)">
+                                <rect x="17" y="8" width="14" height="25" rx="3" fill="#FFC107" stroke="#121214" stroke-width="3"/>
+                                <rect x="17" y="15" width="14" height="9" fill="#FF3388" stroke="#121214" stroke-width="2.5"/>
+                                <polygon points="19,33 29,33 26,40 22,40" fill="#FFFFFF" stroke="#121214" stroke-width="2.5"/>
+                                <polygon points="22,40 26,40 24,45" fill="#76FF03" stroke="#121214" stroke-width="2"/>
+                            </g>
+                        </svg>
+                    </div>
                     <div class="skill-group">
                         <p class="skill-cat">Design &amp; Édition Print</p>
                         <ul class="skill-chips">
@@ -876,7 +1308,18 @@
                 </div>
 
                 <div>
-                    <h2 class="side-block-title">Terrain &amp; Passions</h2>
+                    <div class="side-block-head">
+                        <h2 class="side-block-title">Terrain &amp; Passions</h2>
+                        <!-- Sticker Cible & Flèche style Burger -->
+                        <svg class="cv-mini-sticker" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                            <circle cx="22" cy="26" r="16" fill="#FFFFFF" stroke="#121214" stroke-width="3"/>
+                            <circle cx="22" cy="26" r="11" fill="#2979FF" stroke="#121214" stroke-width="2.5"/>
+                            <circle cx="22" cy="26" r="6" fill="#E53935" stroke="#121214" stroke-width="2"/>
+                            <circle cx="22" cy="26" r="2.5" fill="#FFC107"/>
+                            <path d="M41 7 L24 24" stroke="#121214" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M41 7 L24 24" stroke="#76FF03" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <ul class="interests-list">
                         <li>
                             <strong>Tir à l'arc en compétition (Barebow)</strong> Compétiteur Nature, 3D, 18 m, TAE et Campagne.
@@ -916,10 +1359,10 @@
                         <article class="exp-item">
                             <div class="exp-date">
                                 Mai 2026<br>
-                                <span class="role-pill">SAÉ 202</span>
+                                <span class="role-pill">Directeur artistique &amp; VFX</span>
                             </div>
                             <div class="exp-content">
-                                <h3>Campagne « Lacoste Goliath »</h3>
+                                <h3>Campagne Communication 360° « Lacoste Goliath »</h3>
                                 <p>Conception d'une campagne 360° pour une veste connectée : direction artistique, affiche print, tournage vidéo avec VFX sous After Effects et site WordPress.</p>
                             </div>
                         </article>
@@ -927,10 +1370,10 @@
                         <article class="exp-item">
                             <div class="exp-date">
                                 2026<br>
-                                <span class="role-pill">Chef de projet</span>
+                                <span class="role-pill">Chef de projet, sponsors &amp; planification</span>
                             </div>
                             <div class="exp-content">
-                                <h3>Magazine « Interface » <span class="exp-badge-hand">700 exemplaires imprimés</span></h3>
+                                <h3>Édition &amp; Gestion du Magazine « Interface » <span class="exp-badge-hand">700 exemplaires imprimés</span></h3>
                                 <p>Coordination des sponsors (1 250 € récoltés pour autofinancer le tirage), communication, planification, maquette éditoriale InDesign et rédaction d'article.</p>
                             </div>
                         </article>
@@ -938,10 +1381,10 @@
                         <article class="exp-item">
                             <div class="exp-date">
                                 2026<br>
-                                <span class="role-pill">Initiative volontaire</span>
+                                <span class="role-pill">Graphiste bénévole</span>
                             </div>
                             <div class="exp-content">
-                                <h3>1ère Cie des Archers du Velay <span class="exp-badge-hand pink">Charte 6 planches</span></h3>
+                                <h3>Refonte Identité Visuelle — 1ère Cie des Archers du Velay <span class="exp-badge-hand pink">Charte 6 planches</span></h3>
                                 <p>Refonte vectorielle complète du blason historique du club du Puy-en-Velay et rédaction de la charte graphique officielle normée.</p>
                             </div>
                         </article>
@@ -949,10 +1392,10 @@
                         <article class="exp-item">
                             <div class="exp-date">
                                 2026<br>
-                                <span class="role-pill">Campagne 360°</span>
+                                <span class="role-pill">DA &amp; Motion Designer</span>
                             </div>
                             <div class="exp-content">
-                                <h3>Union Cycliste du Puy (UCPV) &amp; Motion Design</h3>
+                                <h3>Campagne Communication RSE « Le vrai record » — UCPV</h3>
                                 <p>Système de déclinaisons de logos, affiches print, storyboard et animations sous After Effects.</p>
                             </div>
                         </article>
@@ -960,10 +1403,10 @@
                         <article class="exp-item">
                             <div class="exp-date">
                                 Déc. 2025<br>
-                                <span class="role-pill">Stratégie com'</span>
+                                <span class="role-pill">Chargé de stratégie &amp; DA</span>
                             </div>
                             <div class="exp-content">
-                                <h3>Campagne « L'Élan du Cœur » (SPA)</h3>
+                                <h3>Campagne Communication « L'Élan du Cœur » (SPA)</h3>
                                 <p>Stratégie de communication et recommandations graphiques pour une campagne nationale de sensibilisation et d'adoption.</p>
                             </div>
                         </article>
@@ -972,7 +1415,12 @@
 
                 <section>
                     <div class="section-head">
-                        <h2>Réalisations personnelles</h2>
+                        <h2 style="display:inline-flex; align-items:center; gap:2mm;">
+                            Réalisations personnelles
+                            <svg style="width:4.5mm; height:4.5mm; filter:drop-shadow(1px 1px 0 #121214);" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                                <polygon points="19,2 7,17 15,17 12,30 25,14 17,14" fill="#FFC107" stroke="#121214" stroke-width="2.5" stroke-linejoin="round"/>
+                            </svg>
+                        </h2>
                         <span class="hand-note" style="color:var(--accent-lime);">« Projets 100% autonomes »</span>
                     </div>
 
@@ -1017,10 +1465,16 @@
                     </div>
 
                     <div class="edu-grid">
-                        <article class="edu-item">
-                            <span class="edu-year">2025 à aujourd'hui</span>
-                            <h3>BUT Métiers du Multimédia et de l'Internet</h3>
-                            <p>IUT Clermont-Auvergne, site du Puy-en-Velay (43)</p>
+                        <article class="edu-item featured-edu">
+                            <span class="edu-year" style="color:var(--accent-pink);">2025 à aujourd'hui — Formation principale</span>
+                            <h3>BUT Métiers du Multimédia et de l'Internet (MMI)</h3>
+                            <p style="color:var(--ink-secondary);">IUT Clermont-Auvergne, site du Puy-en-Velay (43) — Formation pluridisciplinaire alliant création graphique, stratégie de communication, production audiovisuelle et développement web.</p>
+                            <div class="edu-tags">
+                                <span class="edu-tag">Design Graphique &amp; PAO</span>
+                                <span class="edu-tag">Communication 360°</span>
+                                <span class="edu-tag">Développement Web</span>
+                                <span class="edu-tag">Audiovisuel &amp; Motion</span>
+                            </div>
                         </article>
                         <article class="edu-item">
                             <span class="edu-year">2024-2025</span>

@@ -21,7 +21,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="portfolio-style.css">
+    <link rel="stylesheet" href="da-qk.css?v=5">
 </head>
 
 <body>
@@ -205,11 +207,24 @@
                     </div>
 
                     <!-- Colonne 8 à 12 : Photographie documentaire & Mascotte Sticker -->
-                    <div class="hero-right reveal-swiss print-proof-frame" style="position:relative;">
+                    <div class="hero-right reveal-swiss print-proof-frame cartoon-halftone-bg" style="position:relative;">
                         <!-- Traits de coupe d'imprimeur aux 4 coins -->
                         <div class="print-crop-marks" aria-hidden="true"></div>
                         <!-- Scotch papier d'atelier (Masking Tape) -->
                         <div class="masking-tape top-center" aria-hidden="true"></div>
+
+                        <!-- Badge Starburst Comics style Burger (Stage 2027) -->
+                        <div class="comic-burst-badge" style="position:absolute; top:-22px; right:-18px; z-index:11;" aria-label="Stage disponible avril 2027">
+                            <svg viewBox="0 0 100 100" aria-hidden="true">
+                                <polygon points="50,3 61,20 80,10 77,30 97,35 83,50 97,65 77,70 80,90 61,80 50,97 39,80 20,90 23,70 3,65 17,50 3,35 23,30 20,10 39,20" fill="#FFC107" stroke="#121214" stroke-width="4" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="comic-burst-text">Stage<br>Avril<br>2027 !</span>
+                        </div>
+
+                        <!-- Flèche Zig-Zag Bleue style Burger en haut à gauche -->
+                        <svg class="cartoon-sticker-float burger-zigzag-accent" style="top:18px; left:-28px; width:56px; height:48px;" viewBox="0 0 64 56" fill="none" aria-hidden="true">
+                            <path d="M58 46 L38 30 L30 38 L14 16 L6 22 L10 6 L26 10 L20 15 L31 28 L39 20 L62 39 Z" fill="#2979FF" stroke="#121214" stroke-width="3.5" stroke-linejoin="round"/>
+                        </svg>
 
                         <figure class="hero-visual-frame">
                             <img src="Photo_profil.JPG" alt="Baptiste Laffond au pas de tir à l'arc en compétition" loading="eager">
@@ -234,7 +249,7 @@
                 <div class="stats-grid">
                     <div class="stat-box">
                         <div class="stat-numeral">700 ex.</div>
-                        <div class="draw-note rotate-left" style="font-size:1.15rem; margin-bottom:var(--space-2xs); color:var(--accent);">autofinancé à 100%</div>
+                        <div class="stat-cartoon-pill">autofinancé à 100%</div>
                         <div class="stat-label">Tirage imprimé du magazine étudiant <em>Interface</em>, financé par 1 250 € de partenariats démarchés.</div>
                     </div>
                     <div class="stat-box">
@@ -246,17 +261,17 @@
                                 </svg>
                             </span>
                         </div>
-                        <div class="draw-note rotate-right" style="font-size:1.15rem; margin-bottom:var(--space-2xs); color:var(--accent-lime);">maquetté de A à Z !</div>
+                        <div class="stat-cartoon-pill lime">maquetté de A à Z !</div>
                         <div class="stat-label"><em>Carquois Mag N°1</em> rédigé, illustré et maquetté en autonomie sous InDesign.</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-numeral">27 logos</div>
-                        <div class="draw-note rotate-left" style="font-size:1.15rem; margin-bottom:var(--space-2xs); color:var(--accent-pink);">charte vectorielle</div>
+                        <div class="stat-cartoon-pill pink">charte vectorielle</div>
                         <div class="stat-label">Système d'identité globale décliné pour l'Union Cycliste du Puy-en-Velay.</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-numeral">18 cartes</div>
-                        <div class="draw-note rotate-right" style="font-size:1.15rem; margin-bottom:var(--space-2xs); color:#FFFFFF;">série collection</div>
+                        <div class="stat-cartoon-pill blue">série collection</div>
                         <div class="stat-label">Série graphique consacrée aux coureurs du Tour de France et à leurs maillots.</div>
                     </div>
                 </div>
@@ -289,8 +304,20 @@
                     <div class="work-spread-visual print-proof-frame magazine-crease-overlay" style="position:relative; overflow:visible;">
                         <div class="print-crop-marks" aria-hidden="true"></div>
                         <div class="masking-tape top-left" aria-hidden="true"></div>
-                        <span class="handwritten-tag yellow" style="position:absolute; top:14px; right:14px; z-index:4;">100% autonome sur InDesign</span>
+                        <span class="cartoon-sticker-badge gold" style="position:absolute; top:14px; right:14px; z-index:4;">100% autonome sur InDesign</span>
                         <img src="carquois-mag-p1.png" alt="Couverture de Carquois Mag N°1" class="zoomable-img">
+                        <!-- Sticker Cartoon Cible & Flèche style Burger -->
+                        <svg class="spread-cartoon-sticker" viewBox="0 0 90 90" fill="none" aria-hidden="true">
+                            <circle cx="42" cy="48" r="32" fill="#FFFFFF" stroke="#121214" stroke-width="4"/>
+                            <circle cx="42" cy="48" r="23" fill="#2979FF" stroke="#121214" stroke-width="3"/>
+                            <circle cx="42" cy="48" r="14" fill="#E53935" stroke="#121214" stroke-width="3"/>
+                            <circle cx="42" cy="48" r="6" fill="#FFC107" stroke="#121214" stroke-width="2.5"/>
+                            <!-- Flèche cartoon plantée -->
+                            <path d="M78 12 L45 45" stroke="#121214" stroke-width="6" stroke-linecap="round"/>
+                            <path d="M78 12 L45 45" stroke="#76FF03" stroke-width="3" stroke-linecap="round"/>
+                            <polygon points="72,6 84,8 78,20 74,14" fill="#FFC107" stroke="#121214" stroke-width="2.5" stroke-linejoin="round"/>
+                            <path d="M36 39 L40 43 M47 50 L51 54" stroke="#121214" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
                     </div>
                     <div class="work-spread-info">
                         <div class="draw-annotation" style="margin-bottom:var(--space-xs); color:var(--accent);">
@@ -325,8 +352,15 @@
                     <div class="work-spread-visual contain-fit print-proof-frame" style="background:#0b3b27; position:relative; overflow:visible;">
                         <div class="print-crop-marks" aria-hidden="true"></div>
                         <div class="masking-tape top-right" aria-hidden="true"></div>
-                        <span class="handwritten-tag lime" style="position:absolute; top:14px; left:14px; z-index:4;">Adopté par le club</span>
+                        <span class="cartoon-sticker-badge lime" style="position:absolute; top:14px; left:14px; z-index:4;">Adopté par le club</span>
                         <img src="ucpv-affiche-web.png" alt="Affiche de la campagne UCPV Le vrai record" class="zoomable-img">
+                        <!-- Sticker Cartoon Casquette Cycliste style Burger -->
+                        <svg class="spread-cartoon-sticker" viewBox="0 0 90 90" fill="none" aria-hidden="true">
+                            <path d="M18 52 C18 28, 66 24, 72 48 L76 58 C56 62, 32 62, 14 58 Z" fill="#2979FF" stroke="#121214" stroke-width="4" stroke-linejoin="round"/>
+                            <path d="M36 29 C40 28, 50 28, 54 31 L56 54 C48 56, 40 56, 34 54 Z" fill="#FFFFFF" stroke="#121214" stroke-width="3"/>
+                            <path d="M14 56 C4 58, 4 68, 22 68 C36 68, 44 62, 42 56 Z" fill="#E53935" stroke="#121214" stroke-width="3.5" stroke-linejoin="round"/>
+                            <circle cx="45" cy="24" r="4.5" fill="#FFC107" stroke="#121214" stroke-width="3"/>
+                        </svg>
                     </div>
                     <div class="work-spread-info">
                         <div class="draw-annotation lime" style="margin-bottom:var(--space-xs);">
@@ -360,8 +394,18 @@
                     <div class="work-spread-visual contain-fit print-proof-frame" style="background:var(--paper-surface); position:relative; overflow:visible;">
                         <div class="print-crop-marks" aria-hidden="true"></div>
                         <div class="masking-tape top-left" aria-hidden="true"></div>
-                        <span class="handwritten-tag pink" style="position:absolute; top:14px; right:14px; z-index:4;">Charte 6 planches</span>
+                        <span class="cartoon-sticker-badge pink" style="position:absolute; top:14px; right:14px; z-index:4;">Charte 6 planches</span>
                         <img src="archers-velay-presentation.png" alt="Présentation de la charte Archers du Velay" class="zoomable-img">
+                        <!-- Sticker Cartoon Feutre Posca / Vector Pen style Burger -->
+                        <svg class="spread-cartoon-sticker" viewBox="0 0 90 90" fill="none" aria-hidden="true">
+                            <g transform="rotate(-28 45 45)">
+                                <rect x="33" y="16" width="24" height="46" rx="5" fill="#FFC107" stroke="#121214" stroke-width="4"/>
+                                <rect x="33" y="28" width="24" height="16" fill="#FF3388" stroke="#121214" stroke-width="3.5"/>
+                                <polygon points="36,62 54,62 48,74 42,74" fill="#FFFFFF" stroke="#121214" stroke-width="3.5" stroke-linejoin="round"/>
+                                <polygon points="42,74 48,74 45,82" fill="#76FF03" stroke="#121214" stroke-width="3" stroke-linejoin="round"/>
+                                <rect x="37" y="9" width="16" height="8" rx="2" fill="#2979FF" stroke="#121214" stroke-width="3.5"/>
+                            </g>
+                        </svg>
                     </div>
                     <div class="work-spread-info">
                         <div class="draw-annotation pink" style="margin-bottom:var(--space-xs);">
@@ -399,8 +443,14 @@
                     <div class="work-spread-visual print-proof-frame" style="position:relative; overflow:visible;">
                         <div class="print-crop-marks" aria-hidden="true"></div>
                         <div class="masking-tape top-right" aria-hidden="true"></div>
-                        <span class="handwritten-tag yellow" style="position:absolute; top:14px; left:14px; z-index:4;">Série d'affiches &amp; outil web</span>
+                        <span class="cartoon-sticker-badge blue" style="position:absolute; top:14px; left:14px; z-index:4;">Série d'affiches &amp; outil web</span>
                         <img src="herotdf.jpg" alt="Collection des 18 affiches Tour de France" class="zoomable-img">
+                        <!-- Sticker Cartoon Éclair Street-Cartoon style Burger -->
+                        <svg class="spread-cartoon-sticker" viewBox="0 0 90 90" fill="none" aria-hidden="true">
+                            <polygon points="52,8 22,48 43,48 35,82 68,40 47,40" fill="#FFC107" stroke="#121214" stroke-width="4" stroke-linejoin="round"/>
+                            <circle cx="20" cy="24" r="5" fill="#76FF03" stroke="#121214" stroke-width="3"/>
+                            <circle cx="72" cy="68" r="4" fill="#FF3388" stroke="#121214" stroke-width="3"/>
+                        </svg>
                     </div>
                     <div class="work-spread-info">
                         <div class="draw-annotation yellow" style="margin-bottom:var(--space-xs);">
@@ -473,10 +523,12 @@
                     <table class="swiss-table">
                         <thead>
                             <tr>
+                                <th>Aperçu</th>
                                 <th style="width: 80px;">Réf.</th>
                                 <th>Titre du projet</th>
                                 <th>Discipline</th>
                                 <th>Format &amp; Spécifications</th>
+                                <th>Chiffre clé</th>
                                 <th style="width: 100px;">Année</th>
                                 <th style="width: 120px; text-align: right;">Étude</th>
                             </tr>
@@ -484,100 +536,122 @@
                         <tbody>
                             <!-- 01 -->
                             <tr class="project-row" data-category="print" data-href="carquois_mag-1.html">
+                                <td class="project-row-thumb"><img src="miniatures/01-carquois.webp" alt="Couverture de Carquois Mag N°1" width="640" height="400" loading="lazy" decoding="async"></td>
                                 <td class="project-row-num">01 / 11</td>
                                 <td class="project-row-name">Carquois Mag N°1 <span class="handwritten-tag sm">favori atelier</span></td>
                                 <td class="project-row-cat">Édition imprimée &amp; Presse</td>
                                 <td class="project-row-details">Magazine A4, 20 pages, InDesign, infographies techniques</td>
+                                <td class="project-row-figure"><strong>20</strong><span>pages</span></td>
                                 <td>2026</td>
                                 <td style="text-align: right;"><span class="project-row-cta">Ouvrir ↗</span></td>
                             </tr>
                             <!-- 02 -->
                             <tr class="project-row" data-category="campaign" data-href="ucpv.html">
+                                <td class="project-row-thumb"><img src="miniatures/02-ucpv.webp" alt="Affiche web de la campagne UCPV" width="640" height="400" loading="lazy" decoding="async"></td>
                                 <td class="project-row-num">02 / 11</td>
                                 <td class="project-row-name">Union Cycliste du Puy (UCPV) <span class="handwritten-tag lime sm">campagne 360°</span></td>
                                 <td class="project-row-cat">Campagne 360° &amp; RSE</td>
                                 <td class="project-row-details">Campagne « Le vrai record », 27 logos, affiches A4, spot 30s</td>
+                                <td class="project-row-figure"><strong>27</strong><span>logos</span></td>
                                 <td>2026</td>
                                 <td style="text-align: right;"><span class="project-row-cta">Ouvrir ↗</span></td>
                             </tr>
                             <!-- 03 -->
                             <tr class="project-row" data-category="print" data-href="mag-interface.html">
+                                <td class="project-row-thumb"><img src="miniatures/03-interface.webp" alt="Couverture du magazine Interface" width="640" height="400" loading="lazy" decoding="async"></td>
                                 <td class="project-row-num">03 / 11</td>
                                 <td class="project-row-name">Magazine Interface <span class="handwritten-tag yellow sm">700 ex. distribués</span></td>
                                 <td class="project-row-cat">Presse imprimée &amp; Gestion</td>
                                 <td class="project-row-details">Chef de projet, tirage à 700 exemplaires, 1 250 € sponsors</td>
+                                <td class="project-row-figure"><strong>700</strong><span>exemplaires</span></td>
                                 <td>2025</td>
                                 <td style="text-align: right;"><span class="project-row-cta">Ouvrir ↗</span></td>
                             </tr>
                             <!-- 04 -->
                             <tr class="project-row" data-category="branding" data-href="archers-du-velay.html">
+                                <td class="project-row-thumb"><img src="miniatures/04-archers.webp" alt="Nouveau blason des Archers du Velay" width="640" height="400" loading="lazy" decoding="async"></td>
                                 <td class="project-row-num">04 / 11</td>
                                 <td class="project-row-name">1<sup>re</sup> Cie des Archers du Velay <span class="handwritten-tag pink sm">charte 6 pl.</span></td>
                                 <td class="project-row-cat">Identité visuelle &amp; Charte</td>
                                 <td class="project-row-details">Modernisation du blason vectoriel &amp; charte de 6 planches</td>
+                                <td class="project-row-figure"><strong>6</strong><span>planches de charte</span></td>
                                 <td>2025</td>
                                 <td style="text-align: right;"><span class="project-row-cta">Ouvrir ↗</span></td>
                             </tr>
                             <!-- 05 -->
                             <tr class="project-row" data-category="campaign" data-href="lacoste_project.html">
+                                <td class="project-row-thumb"><img src="miniatures/05-lacoste.webp" alt="Affiche Lacoste Goliath" width="640" height="400" loading="lazy" decoding="async"></td>
                                 <td class="project-row-num">05 / 11</td>
                                 <td class="project-row-name">Lacoste Goliath</td>
                                 <td class="project-row-cat">Direction artistique &amp; VFX</td>
                                 <td class="project-row-details">Affiche publicitaire print, tournage vidéo avec VFX &amp; WordPress</td>
+                                <td class="project-row-figure"><strong>20 000 €</strong><span>budget web simulé</span></td>
                                 <td>2024</td>
                                 <td style="text-align: right;"><span class="project-row-cta">Ouvrir ↗</span></td>
                             </tr>
                             <!-- 06 -->
                             <tr class="project-row" data-category="branding" data-href="hava-archerie.html">
+                                <td class="project-row-thumb"><img src="miniatures/06-hava.webp" alt="Visuel Hava Archerie" width="640" height="400" loading="lazy" decoding="async"></td>
                                 <td class="project-row-num">06 / 11</td>
                                 <td class="project-row-name">Hava Archerie</td>
                                 <td class="project-row-cat">Branding &amp; Produit</td>
                                 <td class="project-row-details">Nouveau logotype, planche chromatique et visuels Scope T53</td>
+                                <td class="project-row-figure"><strong>5</strong><span>visuels produit</span></td>
                                 <td>2026</td>
                                 <td style="text-align: right;"><span class="project-row-cta">Ouvrir ↗</span></td>
                             </tr>
                             <!-- 07 -->
                             <tr class="project-row" data-category="digital" data-href="FlechOptim.html">
+                                <td class="project-row-thumb"><img src="miniatures/07-flechoptim.webp" alt="Interface de FlèchOptim" width="640" height="400" loading="lazy" decoding="async"></td>
                                 <td class="project-row-num">07 / 11</td>
                                 <td class="project-row-name">FlèchOptim <span class="handwritten-tag sm">calculateur web</span></td>
                                 <td class="project-row-cat">Développement Front-End</td>
                                 <td class="project-row-details">Calculateur de spine interactif et comparateur de tubes</td>
+                                <td class="project-row-figure"><strong>v1.0</strong><span>design system</span></td>
                                 <td>2026</td>
                                 <td style="text-align: right;"><span class="project-row-cta">Ouvrir ↗</span></td>
                             </tr>
                             <!-- 08 -->
                             <tr class="project-row" data-category="digital" data-href="motion-storyboard.html">
+                                <td class="project-row-thumb"><img src="miniatures/08-motion.webp" alt="Animation After Effects, phénix en parallaxe" width="640" height="400" loading="lazy" decoding="async"></td>
                                 <td class="project-row-num">08 / 11</td>
                                 <td class="project-row-name">After Effects &amp; Storyboard</td>
                                 <td class="project-row-cat">Motion Design &amp; Pré-prod</td>
                                 <td class="project-row-details">Dossier de storyboard 14 plans (6 p.), parallaxe 2.5D et reels</td>
+                                <td class="project-row-figure"><strong>14</strong><span>plans de storyboard</span></td>
                                 <td>2025</td>
                                 <td style="text-align: right;"><span class="project-row-cta">Ouvrir ↗</span></td>
                             </tr>
                             <!-- 09 -->
                             <tr class="project-row" data-category="branding" data-href="tour-de-france.html">
+                                <td class="project-row-thumb"><img src="miniatures/09-tdf.webp" alt="Tour de France, peloton" width="640" height="400" loading="lazy" decoding="async"></td>
                                 <td class="project-row-num">09 / 11</td>
                                 <td class="project-row-name">Tour de France (18 affiches) <span class="handwritten-tag yellow sm">série print</span></td>
                                 <td class="project-row-cat">Série graphique</td>
                                 <td class="project-row-details">Collection de 18 compositions graphiques inspirées des maillots</td>
+                                <td class="project-row-figure"><strong>18</strong><span>affiches</span></td>
                                 <td>2024</td>
                                 <td style="text-align: right;"><span class="project-row-cta">Ouvrir ↗</span></td>
                             </tr>
                             <!-- 10 -->
                             <tr class="project-row" data-category="digital" data-href="rallye-cardabelles.html">
+                                <td class="project-row-thumb"><img src="miniatures/10-rallye.webp" alt="Voiture en spéciale au Rallye des Cardabelles" width="640" height="400" loading="lazy" decoding="async"></td>
                                 <td class="project-row-num">10 / 11</td>
                                 <td class="project-row-name">Rallye des Cardabelles</td>
                                 <td class="project-row-cat">Photographie documentaire</td>
                                 <td class="project-row-details">Reportage photo de 12 clichés au bord des spéciales sur terre</td>
+                                <td class="project-row-figure"><strong>12</strong><span>clichés</span></td>
                                 <td>2024</td>
                                 <td style="text-align: right;"><span class="project-row-cta">Ouvrir ↗</span></td>
                             </tr>
                             <!-- 11 -->
                             <tr class="project-row" data-category="print" data-href="creation.html">
+                                <td class="project-row-thumb"><img src="miniatures/11-carnets.webp" alt="Burger Mascotte Street Cartoon" width="640" height="400" loading="lazy" decoding="async"></td>
                                 <td class="project-row-num">11 / 11</td>
                                 <td class="project-row-name">Carnets &amp; Explorations <span class="handwritten-tag lime sm">croquis &amp; encres</span></td>
                                 <td class="project-row-cat">Dessin &amp; Arts visuels</td>
                                 <td class="project-row-details">Dessins d'observation au crayon, études anatomiques et lumière</td>
+                                <td class="project-row-figure"><strong>A4 &amp; A3</strong><span>planches et croquis</span></td>
                                 <td>2025</td>
                                 <td style="text-align: right;"><span class="project-row-cta">Ouvrir ↗</span></td>
                             </tr>
@@ -610,12 +684,16 @@
 
                 <div class="illustration-asymmetric-grid">
                     <!-- COLONNE GAUCHE (7) : LA MASCOTTE BURGER OFFICIELLE EN STICKER VINYLE -->
-                    <div class="illustration-card-feature reveal-swiss print-proof-frame" style="overflow:visible;">
+                    <div class="illustration-card-feature reveal-swiss print-proof-frame cartoon-halftone-bg" style="overflow:visible;">
                         <div class="print-crop-marks" aria-hidden="true"></div>
                         <div class="masking-tape top-center" aria-hidden="true"></div>
-                        <div style="position:absolute; top:var(--space-md); left:var(--space-md); z-index:2;" class="cartoon-sticker-badge">
+                        <div style="position:absolute; top:var(--space-md); left:var(--space-md); z-index:2;" class="cartoon-sticker-badge gold">
                             Mascotte d'Atelier
                         </div>
+                        <!-- Étoiles & étincelles street-cartoon style Burger -->
+                        <svg class="cartoon-sticker-float" style="top:14px; right:16px; width:42px; height:42px;" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                            <path d="M24 4 L28 18 L42 22 L28 26 L24 40 L20 26 L6 22 L20 18 Z" fill="#76FF03" stroke="#121214" stroke-width="3.5" stroke-linejoin="round"/>
+                        </svg>
                         <img src="creations/burger-mascotte-web.png" alt="Burger Mascotte Street Cartoon par Baptiste Laffond" class="feature-mascot-img diecut-sticker-img zoomable-img">
                         <div style="width:100%; border-top:1px solid var(--rule); padding-top:var(--space-md); margin-top:var(--space-lg); display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:var(--space-xs);">
                             <div>
@@ -636,7 +714,7 @@
                         <div class="illustration-mini-card reveal-swiss">
                             <div class="masking-tape top-center" aria-hidden="true"></div>
                             <div class="illustration-mini-media">
-                                <span class="handwritten-tag yellow sm" style="position:absolute; top:10px; left:8px; z-index:2;">Peint sur partition</span>
+                                <span class="cartoon-sticker-badge gold" style="position:absolute; top:10px; left:8px; z-index:2; font-size:0.95rem; padding:0.2rem 0.5rem;">Peint sur partition</span>
                                 <img src="creations/eye-of-tiger-partition.jpg" alt="Eye of the Tiger - Peinture sur partition musicale originale par Baptiste Laffond" class="zoomable-img">
                             </div>
                             <div class="illustration-mini-caption">
@@ -649,7 +727,7 @@
                         <div class="illustration-mini-card reveal-swiss">
                             <div class="masking-tape top-center" aria-hidden="true"></div>
                             <div class="illustration-mini-media">
-                                <span class="handwritten-tag pink sm" style="position:absolute; top:10px; left:8px; z-index:2;">Custom feutre Posca</span>
+                                <span class="cartoon-sticker-badge pink" style="position:absolute; top:10px; left:8px; z-index:2; font-size:0.95rem; padding:0.2rem 0.5rem;">Custom feutre Posca</span>
                                 <img src="creations/cartoon-chope-biere.jpg" alt="Chope Cartoon personnalisée au feutre Posca par Baptiste Laffond" class="zoomable-img">
                             </div>
                             <div class="illustration-mini-caption">
@@ -662,7 +740,7 @@
                         <div class="illustration-mini-card reveal-swiss">
                             <div class="masking-tape top-center" aria-hidden="true"></div>
                             <div class="illustration-mini-media">
-                                <span class="handwritten-tag sm" style="position:absolute; top:10px; left:8px; z-index:2;">Crayon graphite 2B</span>
+                                <span class="cartoon-sticker-badge" style="position:absolute; top:10px; left:8px; z-index:2; font-size:0.95rem; padding:0.2rem 0.5rem;">Crayon graphite 2B</span>
                                 <img src="creations/portrait-graphite.jpg" alt="Dessin d'observation au crayon graphite par Baptiste Laffond" class="zoomable-img">
                             </div>
                             <div class="illustration-mini-caption">
@@ -675,7 +753,7 @@
                         <div class="illustration-mini-card reveal-swiss">
                             <div class="masking-tape top-center" aria-hidden="true"></div>
                             <div class="illustration-mini-media">
-                                <span class="handwritten-tag lime sm" style="position:absolute; top:10px; left:8px; z-index:2;">Line-art tablette</span>
+                                <span class="cartoon-sticker-badge lime" style="position:absolute; top:10px; left:8px; z-index:2; font-size:0.95rem; padding:0.2rem 0.5rem;">Line-art tablette</span>
                                 <img src="creations/croquis-chien.jpg" alt="Croquis numérique d'étude animalière par Baptiste Laffond" class="zoomable-img">
                             </div>
                             <div class="illustration-mini-caption">
@@ -764,8 +842,13 @@
             <div class="container">
                 <div class="contact-layout reveal-swiss">
 
-                    <div class="contact-main-call">
-                        <div class="eyebrow eyebrow-accent">Recherche de stage</div>
+                    <div class="contact-main-call" style="position:relative;">
+                        <div style="display:flex; align-items:center; gap:var(--space-sm); margin-bottom:var(--space-xs);">
+                            <div class="eyebrow eyebrow-accent" style="margin-bottom:0;">Recherche de stage</div>
+                            <svg class="burger-zigzag-accent" style="width:42px; height:24px;" viewBox="0 0 56 32" fill="none" aria-hidden="true">
+                                <path d="M4 24 L20 12 L26 20 L44 6 L40 2 L54 4 L50 18 L46 13 L25 27 L19 19 L6 28 Z" fill="#E53935" stroke="#121214" stroke-width="3" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                         <h2>Travaillons ensemble.</h2>
                         <p class="contact-sub">
                             Stage conventionné de 10 à 12 semaines, disponible à partir du 12 avril 2027. Titulaire du Permis B et véhiculé sur Millau, Rodez, Le Puy-en-Velay, Clermont-Ferrand ou ouvert à la mobilité. Échangeons sur vos projets en cours.
@@ -856,7 +939,7 @@
         </div>
     </footer>
 
-    <script src="portfolio.js"></script>
+    <script src="portfolio.js?v=2"></script>
 </body>
 
 </html>

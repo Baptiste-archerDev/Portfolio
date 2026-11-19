@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="description" content="Palette : un logiciel de bureau (Windows et Mac) qui transforme des modèles InDesign en outil simple pour créer ses visuels de marque sans casser la charte. Étude de cas par Baptiste Laffond.">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:title" content="Palette — Logiciel de création de visuels de marque | Baptiste Laffond">
+    <meta property="og:description" content="Modèles InDesign, charte verrouillée, création et montage vidéo : comment j'ai conçu Palette pour rendre un client autonome.">
+    <meta property="og:image" content="https://baptiste-archerdev.github.io/Portfolio/palette/visuel-00-banniere.jpg">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Palette — Logiciel de création de visuels de marque | Baptiste Laffond</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio-style.css">
+    <link rel="stylesheet" href="da-qk.css?v=4">
+    <link rel="stylesheet" href="ig-mockups.css">
+    <style>
+        .pl-accent { color: #F26A2E; }
+        .pl-problem { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+        .pl-problem p { line-height: 1.7; color: var(--ink-secondary); }
+        .pl-quote { border-left: 3px solid #F26A2E; padding: .5rem 0 .5rem 1.25rem; font-family: var(--font-serif); font-size: 1.6rem; line-height: 1.3; color: var(--ink); margin: 0 0 1.5rem; }
+        @media (max-width: 860px) { .pl-problem { grid-template-columns: 1fr; } }
+
+        .pl-timeline { list-style: none; padding: 0; margin: 2rem 0 0; border-left: 2px solid var(--rule); }
+        .pl-timeline li { position: relative; padding: 0 0 2rem 2rem; }
+        .pl-timeline li::before { content: ""; position: absolute; left: -7px; top: .35rem; width: 12px; height: 12px; border-radius: 50%; background: #F26A2E; box-shadow: 0 0 0 4px var(--bg-page); }
+        .pl-timeline .v { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; color: #F26A2E; text-transform: uppercase; }
+        .pl-timeline h4 { margin: .2rem 0 .4rem; font-size: 1.05rem; }
+        .pl-timeline p { margin: 0; color: var(--ink-secondary); line-height: 1.6; max-width: 70ch; }
+
+        .pl-steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem; }
+        .pl-step { margin: 0; }
+        .pl-step video { width: 100%; aspect-ratio: 16 / 9; display: block; background: #000; border: 1px solid var(--rule); }
+        .pl-step figcaption { margin-top: .8rem; }
+        .pl-step figcaption b { font-family: var(--font-mono); font-size: .72rem; color: #F26A2E; letter-spacing: .06em; display: block; margin-bottom: .2rem; }
+        .pl-step figcaption span { color: var(--ink-secondary); font-size: .92rem; line-height: 1.5; }
+        @media (max-width: 860px) { .pl-steps { grid-template-columns: 1fr; } }
+
+        .pl-stack { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
+        .pl-stack div { border: 1px solid var(--rule); padding: 1.1rem; background: var(--bg-surface); }
+        .pl-stack small { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; color: #F26A2E; }
+        .pl-stack h4 { margin: .4rem 0 .35rem; font-size: .98rem; }
+        .pl-stack p { margin: 0; font-size: .85rem; color: var(--ink-muted); line-height: 1.5; }
+        @media (max-width: 960px) { .pl-stack { grid-template-columns: 1fr 1fr; } }
+
+        .pl-issues { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 2rem; }
+        .pl-issue { border: 1px solid var(--rule); background: #161619; padding: 1.4rem; }
+        .pl-issue h4 { margin: 0 0 .75rem; font-size: 1rem; }
+        .pl-issue dl { margin: 0; display: grid; grid-template-columns: 6.5rem 1fr; gap: .5rem .75rem; font-size: .9rem; line-height: 1.5; }
+        .pl-issue dt { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-muted); padding-top: .2rem; }
+        .pl-issue dd { margin: 0; color: var(--ink-secondary); }
+        .pl-issue dt.ok { color: #F26A2E; }
+        @media (max-width: 860px) { .pl-issues { grid-template-columns: 1fr; } }
+
+        .pl-li { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+        .pl-li img, .pl-li video { width: 100%; display: block; border: 1px solid var(--rule); }
+        .pl-li figure { margin: 0; }
+        .pl-li figcaption { font-family: var(--font-mono); font-size: .66rem; color: var(--ink-muted); margin-top: .45rem; }
+        @media (max-width: 760px) { .pl-li { grid-template-columns: 1fr 1fr; } }
+    </style>
+</head>
+
+<body data-project-charter="Palette (#F26A2E / bleu nuit)">
+    <div class="scroll-progress"></div>
+
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a href="index.html" class="brand-mark" aria-label="Accueil — Baptiste Laffond">
+                Baptiste Laffond
+                <span class="brand-mark-sub">Millau · Le Puy-en-Velay</span>
+            </a>
+            <nav class="nav-links" aria-label="Navigation principale">
+                <a href="index.html" class="nav-link">← Accueil</a>
+                <a href="index.html#selection" class="nav-link">Sélection</a>
+                <a href="index.html#repertoire" class="nav-link">Répertoire (12)</a>
+                <a href="projets.html" class="nav-link">Catalogue</a>
+                <a href="cv-print.html" target="_blank" class="nav-link">CV A4</a>
+            </nav>
+            <div>
+                <a href="index.html#contact" class="cta-swiss">
+                    <span>Me contacter</span>
+                    <span class="arrow-circle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="case-hero">
+            <div class="container">
+                <a href="index.html#repertoire" class="case-breadcrumb">← Retour au Répertoire · Digital &amp; Outils</a>
+                <div class="case-header-grid">
+                    <div>
+                        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.5rem;">
+                            <span class="pill-badge orange">LOGICIEL DE BUREAU</span>
+                            <span class="pill-badge yellow">PROJET PERSONNEL</span>
+                            <span class="pill-badge green">WINDOWS · MAC</span>
+                        </div>
+                        <h1 class="case-title">Palette</h1>
+                        <p class="case-lead">
+                            Un logiciel qui transforme mes modèles InDesign en outil simple : le client choisit un modèle, remplace la photo et les textes, et exporte. La charte graphique reste verrouillée. Né du projet Hava Archerie, il marche aujourd'hui pour n'importe quelle marque.
+                        </p>
+                        <div style="display:flex; gap:0.85rem; flex-wrap:wrap;">
+                            <a href="#probleme" class="btn-primary">D'où vient le problème ↓</a>
+                            <a href="#demo" class="btn-secondary">Le voir en action ↓</a>
+                            <a href="#obstacles" class="btn-secondary">Les obstacles ↓</a>
+                        </div>
+                    </div>
+                    <dl class="case-meta-notes">
+                        <div class="meta-sticky blue"><dt>RÔLE</dt><dd>Idée, conception UX, interface, tests et livraison</dd></div>
+                        <div class="meta-sticky pink"><dt>DÉVELOPPEMENT</dt><dd>Codé avec l'assistance de l'IA Claude</dd></div>
+                        <div class="meta-sticky green"><dt>TECHNO</dt><dd>Python, HTML/CSS/JS, FFmpeg, GitHub Actions</dd></div>
+                        <div class="meta-sticky orange"><dt>VERSION</dt><dd>1.9.0 · novembre 2026</dd></div>
+                    </dl>
+                </div>
+                <div class="case-banner-frame reveal-on-scroll" style="padding:0; background:#14152a;">
+                    <img src="palette/visuel-00-banniere.jpg" alt="Palette : vos visuels de marque prêts en 3 clics" class="zoomable-img" style="width:100%; display:block;">
+                </div>
+            </div>
+        </section>
+
+        <!-- LE PROBLÈME -->
+        <section class="case-section bg-white" id="probleme">
+            <div class="container">
+                <span class="section-kicker">01 · D'où vient le problème</span>
+                <h2 class="section-title">Une charte, c'est bien. Encore faut-il pouvoir s'en servir.</h2>
+                <div class="pl-problem reveal-on-scroll">
+                    <div>
+                        <p class="pl-quote">« Et la prochaine publication, je la fais comment ? »</p>
+                        <p>En livrant l'identité d'<a href="hava-archerie.html" class="pl-accent">Hava Archerie</a>, je me suis retrouvé face à une limite très concrète. J'avais créé une charte et des dizaines de templates sous InDesign et Illustrator. Mais mon ami, qui tient l'archerie, n'utilise pas ces logiciels. Ils sont chers, complexes, et une erreur de manipulation suffit à décaler un bloc ou à changer une police.</p>
+                    </div>
+                    <div>
+                        <p>Il restait donc deux options, aussi mauvaises l'une que l'autre :</p>
+                        <ul style="color:var(--ink-secondary); line-height:1.7;">
+                            <li><strong>Tout repasse par moi</strong> : chaque post, chaque story, chaque miniature YouTube. Il dépend de ma disponibilité, et moi je deviens un goulot d'étranglement.</li>
+                            <li><strong>Il refait ses visuels seul</strong> sur un outil grand public. La charte qu'on vient de construire s'effrite au bout de trois publications.</li>
+                        </ul>
+                        <p>Ce qu'il me fallait, c'était un outil aussi simple qu'un formulaire, qui garde <em>exactement</em> mes mises en page et l'empêche de sortir du cadre. Il n'existait pas : je l'ai conçu.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- L'IDÉE -->
+        <section class="case-section" id="idee">
+            <div class="container">
+                <span class="section-kicker">02 · L'idée</span>
+                <h2 class="section-title">Le graphiste prépare, le client remplit</h2>
+                <div class="case-row reveal-on-scroll">
+                    <div class="case-text">
+                        <p>Un fichier InDesign exporté en <code>.idml</code> est en réalité une archive de fichiers XML, donc lisible par un programme. Dans InDesign, je pose une étiquette (un « libellé de script ») sur chaque zone que le client a le droit de modifier : <em>titre</em>, <em>prix</em>, <em>photo</em>…</p>
+                        <p>Palette lit le modèle, affiche l'aperçu et ne touche <strong>qu'à ces zones</strong>. Le fond, les formes, le logo, les polices et les couleurs restent tels que je les ai dessinés. Le client voit trois étapes : choisir un modèle, ajouter sa photo, écrire ses textes. Puis il exporte.</p>
+                        <p>Toute la marque (logos, polices, couleurs, modèles, charte en PDF) s'exporte dans un seul fichier <code>.palette</code>. Pour Hava, je lui ai envoyé <code>Hava_Archerie.palette</code> : un double-clic, et il retrouve tout.</p>
+                    </div>
+                    <figure class="l-frame-media"><img src="palette/visuel-02-importer.jpg" alt="Importer ses modèles InDesign dans Palette" class="zoomable-img" loading="lazy"><figcaption>Les modèles .idml deviennent des formulaires, classés par format</figcaption></figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- DÉMARCHE -->
+        <section class="case-section bg-white" id="demarche">
+            <div class="container">
+                <span class="section-kicker">03 · Ma démarche</span>
+                <h2 class="section-title">D'un outil pour un ami à un logiciel pour tous</h2>
+                <p style="max-width:72ch;">Je n'ai pas écrit Palette ligne par ligne : je l'ai conçu et dirigé, et j'ai fait coder chaque étape par l'IA Claude. Mon travail a été de définir ce que l'outil devait faire, de dessiner l'interface, de tester chaque version comme le ferait un client, et de corriger le tir quand quelque chose n'était pas assez simple. Le projet s'est construit par versions successives.</p>
+                <ol class="pl-timeline reveal-on-scroll">
+                    <li>
+                        <span class="v">Étape 1 · Prototype</span>
+                        <h4>Une page sur mesure pour Hava</h4>
+                        <p>Première version : une interface web avec la marque Hava intégrée en dur (couleurs, Michroma, Montserrat) et onze modèles : posts carrés, portraits, stories et liens. Elle prouvait l'idée, mais ne servait qu'à un seul client.</p>
+                    </li>
+                    <li>
+                        <span class="v">Étape 2 · Généraliser</span>
+                        <h4>Livré vide, chacun ajoute sa marque</h4>
+                        <p>J'ai retiré tout ce qui était propre à Hava. Palette s'installe vide ; un onglet « Ma marque » permet d'ajouter logos, polices, couleurs et charte, et de gérer plusieurs marques côte à côte. Un installateur peut donc être donné à n'importe qui, et la marque voyage dans le fichier <code>.palette</code>.</p>
+                    </li>
+                    <li>
+                        <span class="v">Étape 3 · Créer</span>
+                        <h4>Un éditeur libre… mais encadré</h4>
+                        <p>Pour les cas que mes modèles ne couvrent pas (miniatures, affiches, diaporamas), j'ai ajouté un éditeur : textes, photos et formes à la souris. Des « règles de création » limitent les choix aux couleurs, polices et tailles de la charte. Sans marque choisie, tout est permis.</p>
+                    </li>
+                    <li>
+                        <span class="v">Étape 4 · IA facultative</span>
+                        <h4>Brancher son IA, si on le souhaite</h4>
+                        <p>Une connexion optionnelle à Claude, Gemini, OpenAI ou Mistral avec sa propre clé. Les clés restent sur l'ordinateur et rien n'est envoyé tant que l'utilisateur ne lance pas une action. Le logiciel fonctionne entièrement sans Internet.</p>
+                    </li>
+                    <li>
+                        <span class="v">Étape 5 · Version 1.9</span>
+                        <h4>Le montage vidéo</h4>
+                        <p>Hava publie beaucoup de vidéos. J'ai ajouté un module de montage rapide : coupes, textes, transitions, musique, export MP4 jusqu'en 4K, sans quitter Palette.</p>
+                    </li>
+                    <li>
+                        <span class="v">Étape 6 · Livrer</span>
+                        <h4>Installateurs, tutoriels et lancement</h4>
+                        <p>Des installateurs Windows et Mac fabriqués automatiquement sur GitHub, quatre tutoriels vidéo de moins d'une minute, et un carrousel LinkedIn pour présenter l'outil.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- DÉMO -->
+        <section class="case-section bg-dark" id="demo">
+            <div class="container">
+                <span class="section-kicker">04 · Palette en action</span>
+                <h2 class="section-title">Quatre tutoriels, quatre étapes</h2>
+                <p style="max-width:70ch;">Les tutoriels livrés avec le logiciel, pensés pour quelqu'un qui n'a jamais ouvert InDesign.</p>
+                <div class="pl-steps reveal-on-scroll">
+                    <figure class="pl-step">
+                        <video controls preload="none" playsinline muted poster="palette/palette-tuto1-marque.jpg"><source src="palette/palette-tuto1-marque.mp4" type="video/mp4"></video>
+                        <figcaption><b>TUTO 1 · MA MARQUE</b><span>Ajouter logos, polices et couleurs, puis exporter la marque dans un fichier .palette à partager.</span></figcaption>
+                    </figure>
+                    <figure class="pl-step">
+                        <video controls preload="none" playsinline muted poster="palette/palette-tuto2-modeles.jpg"><source src="palette/palette-tuto2-modeles.mp4" type="video/mp4"></video>
+                        <figcaption><b>TUTO 2 · MODÈLES</b><span>Glisser ses fichiers .idml : ils deviennent des modèles prêts à remplir, classés par format.</span></figcaption>
+                    </figure>
+                    <figure class="pl-step">
+                        <video controls preload="none" playsinline muted poster="palette/palette-tuto3-creer.jpg"><source src="palette/palette-tuto3-creer.mp4" type="video/mp4"></video>
+                        <figcaption><b>TUTO 3 · CRÉER</b><span>Composer un design libre (miniature, affiche) sans pouvoir sortir de la charte.</span></figcaption>
+                    </figure>
+                    <figure class="pl-step">
+                        <video controls preload="none" playsinline muted poster="palette/palette-tuto4-montage.jpg"><source src="palette/palette-tuto4-montage.mp4" type="video/mp4"></video>
+                        <figcaption><b>TUTO 4 · MONTAGE</b><span>Monter une vidéo : coupes, textes, transitions et musique, export jusqu'en 4K.</span></figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECHNIQUE -->
+        <section class="case-section" id="technique">
+            <div class="container">
+                <span class="section-kicker">05 · Sous le capot</span>
+                <h2 class="section-title">Une interface web dans une vraie fenêtre</h2>
+                <p style="max-width:72ch; color:var(--ink-secondary);">J'ai choisi une architecture simple à faire évoluer : l'interface est une page web (HTML, CSS, JavaScript), affichée dans une fenêtre native grâce à Python. Python s'occupe uniquement de ce qu'une page web ne sait pas faire : ouvrir la fenêtre, la boîte « Enregistrer sous » du système, et le rendu vidéo.</p>
+                <div class="pl-stack reveal-on-scroll">
+                    <div><small>Interface</small><h4>HTML · CSS · JS</h4><p>Aucun framework. Le moteur qui lit les .idml tourne dans la fenêtre, hors connexion.</p></div>
+                    <div><small>Fenêtre</small><h4>Python + pywebview</h4><p>Edge WebView2 sur Windows, WebKit sur Mac. Un mini-serveur local, visible seulement par l'ordinateur.</p></div>
+                    <div><small>Vidéo</small><h4>FFmpeg embarqué</h4><p>Fourni avec l'installateur : aperçu, miniatures, forme d'onde et export MP4.</p></div>
+                    <div><small>Livraison</small><h4>PyInstaller · Inno Setup · GitHub Actions</h4><p>Un .exe pour Windows et deux .dmg pour Mac (Intel et Apple Silicon), fabriqués dans le cloud.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OBSTACLES -->
+        <section class="case-section bg-white" id="obstacles">
+            <div class="container">
+                <span class="section-kicker">06 · Les obstacles</span>
+                <h2 class="section-title">Ce qui a coincé, et comment j'en suis sorti</h2>
+                <div class="pl-issues reveal-on-scroll">
+                    <article class="pl-issue">
+                        <h4>Fabriquer une version Mac… sans Mac</h4>
+                        <dl><dt>Problème</dt><dd>Je travaille sous Windows, et un logiciel Mac doit être compilé sur un Mac. Il y a en plus deux sortes de Mac (Intel et Apple Silicon).</dd>
+                        <dt class="ok">Solution</dt><dd>Le code est envoyé sur GitHub, et un « workflow » GitHub Actions fabrique gratuitement les trois installateurs sur des machines Windows et Mac dans le cloud. Un script <code>Exporter_GitHub.bat</code> fait l'envoi en un double-clic.</dd></dl>
+                    </article>
+                    <article class="pl-issue">
+                        <h4>Les alertes de sécurité</h4>
+                        <dl><dt>Problème</dt><dd>Sans certificat payant, Windows affiche « Windows a protégé votre PC » et macOS bloque l'ouverture. Pour un client non technicien, ça fait peur.</dd>
+                        <dt class="ok">Solution</dt><dd>Des consignes pas à pas dans le mode d'emploi et un fichier « Si macOS bloque l'ouverture » directement dans le .dmg. La signature est déjà prête dans le workflow : elle s'activera dès qu'un certificat sera ajouté.</dd></dl>
+                    </article>
+                    <article class="pl-issue">
+                        <h4>Un outil trop lié à un seul client</h4>
+                        <dl><dt>Problème</dt><dd>Le prototype contenait la marque Hava en dur. Impossible de le proposer à quelqu'un d'autre sans tout refaire.</dd>
+                        <dt class="ok">Solution</dt><dd>Séparer le logiciel (neutre) des marques (rangées à part sur l'ordinateur), avec plusieurs marques possibles et le fichier <code>.palette</code> pour les échanger. Les données des premières versions sont migrées automatiquement.</dd></dl>
+                    </article>
+                    <article class="pl-issue">
+                        <h4>Des vidéos lourdes, un aperçu qui rame</h4>
+                        <dl><dt>Problème</dt><dd>Lire directement des rushes lourds (jusqu'en 4K) rend l'aperçu d'un montage saccadé.</dd>
+                        <dt class="ok">Solution</dt><dd>Palette crée en arrière-plan une copie légère en 720p pour l'aperçu, et n'utilise les fichiers d'origine qu'au moment de l'export final. Les transitions proposées sont filtrées selon ce que le FFmpeg embarqué sait vraiment faire.</dd></dl>
+                    </article>
+                    <article class="pl-issue">
+                        <h4>Un PC sans le bon moteur d'affichage</h4>
+                        <dl><dt>Problème</dt><dd>Sur certains Windows, le composant Edge WebView2 manque et le logiciel ne pouvait pas s'ouvrir, sans explication.</dd>
+                        <dt class="ok">Solution</dt><dd>Palette le détecte et affiche un message clair avec le lien de téléchargement gratuit, au lieu de planter en silence.</dd></dl>
+                    </article>
+                    <article class="pl-issue">
+                        <h4>Déboguer à distance</h4>
+                        <dl><dt>Problème</dt><dd>Quand quelque chose ne marchait pas chez mon ami, je ne voyais rien de son écran.</dd>
+                        <dt class="ok">Solution</dt><dd>Un journal d'erreurs (<code>erreur.log</code>) est écrit automatiquement. Il suffit de me l'envoyer pour que je comprenne et corrige dans la version suivante.</dd></dl>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- LANCEMENT -->
+        <section class="case-section bg-dark" id="lancement">
+            <div class="container">
+                <span class="section-kicker">07 · Lancement</span>
+                <h2 class="section-title">Présenter l'outil sur les réseaux</h2>
+                <p style="max-width:70ch;">Un carrousel en six visuels (une étape par slide) et un teaser vidéo pour présenter Palette à d'autres graphistes et petites entreprises.</p>
+                <div class="hv-mock-row reveal-on-scroll">
+                    <div>
+                        <div class="ig-phone" style="box-shadow:0 0 0 2px #2b2b2f,0 30px 60px -20px rgba(0,0,0,.7),8px 8px 0 #F26A2E;">
+                            <div class="ig-screen">
+                                <div class="ig-statusbar"><span>9:41</span><span class="ig-notch"></span><span class="ig-sys"><svg viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="22" height="11" rx="3" fill="none" stroke="#fff"/><rect x="2.5" y="2.5" width="16" height="7" rx="1.5"/><rect x="24" y="4" width="2" height="4" rx="1"/></svg></span></div>
+                                <article class="ig-post">
+                                    <header class="ig-post-head">
+                                        <span class="ig-avatar"><img src="palette/icone.png" alt=""></span>
+                                        <span class="ig-user">baptiste.laffond<small>Palette · nouveau logiciel</small></span>
+                                        <span class="ig-more">···</span>
+                                    </header>
+                                    <div class="ig-carousel" data-ig-carousel data-delay="2600">
+                                        <span class="ig-count">1/6</span>
+                                        <div class="ig-track r45">
+                                            <figure><img src="palette/visuel-01-couverture.jpg" alt="Slide 1 — Couverture" draggable="false"></figure>
+                                            <figure><img src="palette/visuel-02-importer.jpg" alt="Slide 2 — Étape 1 · Importer" draggable="false" loading="lazy"></figure>
+                                            <figure><img src="palette/visuel-03-charte.jpg" alt="Slide 3 — Étape 2 · Charte" draggable="false" loading="lazy"></figure>
+                                            <figure><img src="palette/visuel-04-creer.jpg" alt="Slide 4 — Étape 3 · Créer" draggable="false" loading="lazy"></figure>
+                                            <figure><img src="palette/visuel-05-montage.jpg" alt="Slide 5 — Étape 4 · Montage" draggable="false" loading="lazy"></figure>
+                                            <figure><img src="palette/visuel-06-appel.jpg" alt="Slide 6 — Appel à l'action" draggable="false" loading="lazy"></figure>
+                                        </div>
+                                        <button class="ig-arrow prev" type="button" aria-label="Visuel précédent">‹</button>
+                                        <button class="ig-arrow next" type="button" aria-label="Visuel suivant">›</button>
+                                        <span class="ig-finger" aria-hidden="true"></span>
+                                        <span class="ig-heart-pop" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20.3s-7.6-4.6-8.9-9.6C2.2 7.2 4.4 4.4 7.4 4.4c2 0 3.5 1.1 4.6 2.7 1.1-1.6 2.6-2.7 4.6-2.7 3 0 5.2 2.8 4.3 6.3-1.3 5-8.9 9.6-8.9 9.6z"/></svg></span>
+                                    </div>
+                                    <div class="ig-actions">
+                                        <button class="ig-like-btn" type="button" aria-label="J'aime"><svg class="ig-ico" viewBox="0 0 24 24"><path d="M12 20.3s-7.6-4.6-8.9-9.6C2.2 7.2 4.4 4.4 7.4 4.4c2 0 3.5 1.1 4.6 2.7 1.1-1.6 2.6-2.7 4.6-2.7 3 0 5.2 2.8 4.3 6.3-1.3 5-8.9 9.6-8.9 9.6z"/></svg></button>
+                                        <span class="ig-dots"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                                    </div>
+                                    <p class="ig-caption"><b>baptiste.laffond</b>Vos visuels de marque, prêts en 3 clics. Modèles InDesign, charte verrouillée, création et montage vidéo. Windows · Mac ➡️</p>
+                                    <div class="ig-meta">Il y a 1 jour</div>
+                                </article>
+                            </div>
+                        </div>
+                        <p class="hv-label">Carrousel · 6 × 1080 × 1350 px</p>
+                    </div>
+                    <div class="hv-mock-text">
+                        <h3>Une étape par slide</h3>
+                        <p>Chaque visuel montre une vraie capture du logiciel et une seule promesse. La couverture pose le bénéfice, les quatre étapes suivent l'ordre d'utilisation, et la dernière slide invite à me contacter pour l'essayer.</p>
+                        <p class="hv-tip">↳ Le carrousel défile tout seul. Glissez pour le parcourir.</p>
+                        <figure class="hv-video" style="box-shadow:6px 6px 0 #F26A2E; margin-top:1.5rem; max-width:380px;">
+                            <video controls preload="none" playsinline muted poster="palette/teaser-1080.jpg" style="aspect-ratio:1/1;"><source src="palette/teaser-1080.mp4" type="video/mp4"></video>
+                            <figcaption>Teaser vidéo · 1080 × 1080</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BILAN -->
+        <section class="case-section" id="bilan">
+            <div class="container">
+                <span class="section-kicker">08 · Ce que j'en retiens</span>
+                <h2 class="section-title">Penser le design jusqu'à son utilisation</h2>
+                <div class="case-row reveal-on-scroll">
+                    <div class="case-text">
+                        <p>Palette m'a appris que le travail d'un graphiste ne s'arrête pas à la livraison des fichiers. Une identité vit ou meurt selon la facilité qu'a le client à l'utiliser au quotidien. En construisant l'outil, j'ai dû me mettre à la place de quelqu'un qui ne connaît ni les calques, ni les fonds perdus, ni les graisses de police.</p>
+                        <p>J'ai aussi appris à piloter un vrai projet logiciel avec l'IA : découper le besoin en versions, décrire précisément ce que je voulais, tester, et revenir sur ce qui n'était pas assez simple.</p>
+                    </div>
+                    <figure class="l-frame-media"><img src="palette/visuel-04-creer.jpg" alt="Créer ses propres designs dans Palette" class="zoomable-img" loading="lazy"><figcaption>L'éditeur « Créer », encadré par la charte</figcaption></figure>
+                </div>
+            </div>
+        </section>
+
+        <div class="next-project-banner">
+            <div>
+                <span class="section-kicker" style="margin-bottom:0.4rem;">Projet lié</span>
+                <h3>Hava Archerie — l'identité pour laquelle Palette est né</h3>
+            </div>
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+                <a href="hava-archerie.html" class="btn-primary">Voir Hava Archerie →</a>
+                <a href="projets.html" class="btn-secondary">Tous les projets</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-swiss">
+        <div class="container">
+            <div class="footer-columns-grid">
+                <div class="footer-col">
+                    <div style="display:flex; align-items:center; gap:var(--space-xs); margin-bottom:var(--space-xs);">
+                        <h5 style="margin-bottom:0;">Baptiste Laffond</h5>
+                        <img src="creations/signature_baptiste_red.png" alt="Signature Baptiste" class="baptiste-signature" style="height:26px;">
+                    </div>
+                    <p style="line-height:1.6; max-width:32ch;">Studio de design graphique, édition imprimée et interfaces web. Étudiant en BUT MMI à l'IUT Clermont-Auvergne (Le Puy-en-Velay).</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Édition &amp; Campagnes</h5>
+                    <ul>
+                        <li><a href="carquois_mag-1.html">Carquois Mag N°1 (20 p.)</a></li>
+                        <li><a href="ucpv.html">UCPV, Le vrai record</a></li>
+                        <li><a href="mag-interface.html">Magazine Interface (700 ex.)</a></li>
+                        <li><a href="lacoste_project.html">Campagne Lacoste Goliath</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Identité &amp; Digital</h5>
+                    <ul>
+                        <li><a href="archers-du-velay.html">Archers du Velay (Charte)</a></li>
+                        <li><a href="hava-archerie.html">Hava Archerie (Branding)</a></li>
+                        <li><a href="palette.html">Palette (Logiciel)</a></li>
+                        <li><a href="FlechOptim.html">FlèchOptim (Outil web)</a></li>
+                        <li><a href="tour-de-france.html">Tour de France (18 affiches)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Réseaux &amp; CV</h5>
+                    <ul>
+                        <li><a href="mailto:laffondbaptiste47@gmail.com">laffondbaptiste47@gmail.com</a></li>
+                        <li><a href="CV_Baptiste_Laffond.pdf" download="CV_Baptiste_Laffond.pdf">Télécharger le CV (PDF)</a></li>
+                        <li><a href="cv-print.html" target="_blank">CV A4 Imprimable</a></li>
+                        <li><a href="https://www.linkedin.com/in/baptiste-laffond/" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://github.com/Baptiste-archerDev" target="_blank" rel="noopener">GitHub (Baptiste-archerDev)</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                <span>© 2026 Baptiste Laffond, tous droits réservés</span>
+                <a href="index.html" style="color:var(--ink); font-weight:600;">← Retour à l'accueil</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="portfolio.js"></script>
+    <script src="ig-mockups.js"></script>
+</body>
+
+</html>

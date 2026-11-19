@@ -3806,7 +3806,288 @@ body::before {
     .baptiste-signature,
     .draw-note,
     .draw-annotation,
-    .handwritten-tag {
+    .handwritten-tag,
+    .cartoon-sticker-float {
         animation: none !important;
+    }
+}
+
+/* ==========================================================================
+   19. REDESIGN GLOBAL : FUSION SUISSE & STREET CARTOON (STYLE BURGER)
+   - Contours d'encre épais (#121214), ombres franches (offset cel-shading)
+   - Palette Burger : Or (#FFC107), Bleu Street (#2979FF), Volt (#76FF03),
+     Rouge (#B21231 / #E53935), Rose (#FF3388)
+   - Stickers SVG Die-Cut assortis à la mascotte
+   ========================================================================== */
+:root {
+    --cartoon-ink: #121214;
+    --cartoon-gold: #FFC107;
+    --cartoon-blue: #2979FF;
+    --cartoon-red: #E53935;
+}
+
+/* Trame de points halftone comics subtile en arrière-plan de zones clés */
+.cartoon-halftone-bg {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.055) 1.2px, transparent 1.2px);
+    background-size: 14px 14px;
+}
+
+/* Bouton Swiss × Street Cartoon : contour encre + ombre franche au survol */
+.cta-swiss {
+    border: 2px solid var(--cartoon-ink);
+    box-shadow: 3px 3px 0px var(--cartoon-ink);
+}
+
+.cta-swiss:hover {
+    box-shadow: 5px 5px 0px var(--cartoon-ink);
+    transform: translate(-2px, -2px);
+}
+
+.cta-swiss:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px var(--cartoon-ink);
+}
+
+/* Chips de filtre façon stickers comics */
+.filter-chip {
+    border: 2px solid var(--rule);
+    transition: all 0.2s var(--ease-spring);
+}
+
+.filter-chip:hover {
+    border-color: var(--cartoon-ink);
+    box-shadow: 3px 3px 0px var(--cartoon-ink);
+    transform: translate(-1px, -1px);
+}
+
+.filter-chip.active {
+    background: var(--cartoon-gold);
+    color: var(--cartoon-ink);
+    border-color: var(--cartoon-ink);
+    font-weight: 700;
+    box-shadow: 3px 3px 0px var(--cartoon-ink);
+}
+
+/* Badges stickers cartoon enrichis (style Burger) */
+.cartoon-sticker-badge {
+    border: 2.5px solid var(--cartoon-ink);
+    box-shadow: 3.5px 3.5px 0px var(--cartoon-ink);
+    border-radius: 8px;
+    letter-spacing: 0.01em;
+}
+
+.cartoon-sticker-badge.gold {
+    background: var(--cartoon-gold);
+    color: var(--cartoon-ink);
+}
+
+.cartoon-sticker-badge.lime {
+    background: var(--accent-lime);
+    color: var(--cartoon-ink);
+}
+
+.cartoon-sticker-badge.pink {
+    background: var(--accent-pink);
+    color: #FFFFFF;
+}
+
+.cartoon-sticker-badge.blue {
+    background: var(--cartoon-blue);
+    color: #FFFFFF;
+}
+
+.cartoon-sticker-badge.red {
+    background: var(--accent);
+    color: #FFFFFF;
+}
+
+/* Bulle de dialogue comics plus expressive */
+.mascot-speech-bubble {
+    border: 2.5px solid var(--cartoon-ink);
+    box-shadow: 4px 4px 0px var(--cartoon-ink);
+    font-size: 1.2rem;
+    padding: 0.5rem 0.9rem;
+}
+
+/* Stickers SVG Die-Cut flottants dans le style du Burger */
+.cartoon-sticker-slot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    filter: url(#vinyl-sticker);
+    pointer-events: none;
+    user-select: none;
+    z-index: 8;
+}
+
+.cartoon-sticker-float {
+    position: absolute;
+    filter: url(#vinyl-sticker);
+    pointer-events: none;
+    user-select: none;
+    z-index: 8;
+    animation: stickerBob 5s ease-in-out infinite;
+}
+
+.cartoon-sticker-float.interactive {
+    pointer-events: auto;
+    cursor: pointer;
+    transition: transform 0.25s var(--ease-spring);
+}
+
+.cartoon-sticker-float.interactive:hover {
+    transform: scale(1.14) rotate(6deg) !important;
+}
+
+@keyframes stickerBob {
+    0%, 100% { transform: translateY(0px) rotate(-3deg); }
+    50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+/* Badge Starburst / Éclat Comics */
+.comic-burst-badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    filter: drop-shadow(3px 4px 0px var(--cartoon-ink));
+    transform: rotate(-8deg);
+    transition: transform 0.3s var(--ease-spring);
+}
+
+.comic-burst-badge:hover {
+    transform: rotate(4deg) scale(1.08);
+}
+
+.comic-burst-badge svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.comic-burst-text {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 0.72rem;
+    line-height: 1.05;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--cartoon-ink);
+    letter-spacing: -0.02em;
+}
+
+/* Flèches zig-zag cartoon (référence directe aux flèches du Burger) */
+.burger-zigzag-accent {
+    display: inline-block;
+    filter: drop-shadow(2px 2px 0px var(--cartoon-ink));
+    pointer-events: none;
+}
+
+/* Stats strip : touche cartoon sur les blocs de chiffres */
+.stat-box {
+    position: relative;
+    transition: background 0.25s ease, transform 0.25s var(--ease-spring);
+}
+
+.stat-box:hover {
+    background: var(--paper-elevated);
+}
+
+.stat-cartoon-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    align-self: flex-start;
+    padding: 0.2rem 0.55rem;
+    margin-bottom: var(--space-xs);
+    background: var(--cartoon-gold);
+    color: var(--cartoon-ink);
+    border: 2px solid var(--cartoon-ink);
+    border-radius: 6px;
+    box-shadow: 2.5px 2.5px 0px var(--cartoon-ink);
+    font-family: var(--font-draw);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.1;
+    transform: rotate(-1.5deg);
+}
+
+.stat-cartoon-pill.lime {
+    background: var(--accent-lime);
+    transform: rotate(1.5deg);
+}
+
+.stat-cartoon-pill.pink {
+    background: var(--accent-pink);
+    color: #FFFFFF;
+    transform: rotate(-1deg);
+}
+
+.stat-cartoon-pill.blue {
+    background: var(--cartoon-blue);
+    color: #FFFFFF;
+    transform: rotate(1.2deg);
+}
+
+/* Cartes de contact façon néo-brutalisme cartoon maîtrisé */
+.contact-card-link {
+    border: 2px solid var(--rule);
+    border-radius: 6px;
+    box-shadow: 0 0 0 var(--cartoon-ink);
+}
+
+.contact-card-link:hover {
+    border-color: var(--cartoon-ink);
+    background: var(--accent);
+    color: #FFFFFF;
+    box-shadow: 5px 5px 0px var(--cartoon-ink);
+    transform: translate(-3px, -3px);
+}
+
+/* Planches projets : sticker d'angle thématique */
+.spread-cartoon-sticker {
+    position: absolute;
+    bottom: -18px;
+    right: -14px;
+    width: 78px;
+    height: 78px;
+    z-index: 9;
+    filter: url(#vinyl-sticker);
+    transform: rotate(7deg);
+    transition: transform 0.35s var(--ease-spring);
+    pointer-events: none;
+}
+
+.work-spread.reverse .spread-cartoon-sticker {
+    right: auto;
+    left: -14px;
+    transform: rotate(-7deg);
+}
+
+.work-spread:hover .spread-cartoon-sticker {
+    transform: rotate(0deg) scale(1.12);
+}
+
+@media (max-width: 768px) {
+    .spread-cartoon-sticker {
+        width: 58px;
+        height: 58px;
+        bottom: -12px;
+        right: -6px;
+    }
+    .work-spread.reverse .spread-cartoon-sticker {
+        left: -6px;
+    }
+    .comic-burst-badge {
+        width: 76px;
+        height: 76px;
+    }
+    .comic-burst-text {
+        font-size: 0.62rem;
     }
 }

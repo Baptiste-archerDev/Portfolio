@@ -372,3 +372,25 @@
     }
 
 })();
+
+// 7. Bouton « retour en haut » (toutes les pages)
+(function () {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'back-to-top';
+    btn.setAttribute('aria-label', 'Retour en haut de la page');
+    btn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 15l7-7 7 7"/></svg>';
+    document.body.appendChild(btn);
+    var ticking = false;
+    function update() {
+        btn.classList.toggle('visible', window.scrollY > 700);
+        ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+        if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+    }, { passive: true });
+    btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    update();
+})();
